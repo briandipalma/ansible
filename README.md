@@ -1,2 +1,2 @@
-# ansible
-ansible machine setup scripts
+# Ansible
+Ansible machine setup playbooks
