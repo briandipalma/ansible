@@ -1,2 +1,7 @@
+[server]
+srv.test
+pi.hole
+pve.test
+
 [workstation]
-xps-13-pop-os.test
+xps-13-pop-os.test ansible_connection=local
