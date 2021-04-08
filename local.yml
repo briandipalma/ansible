@@ -4,12 +4,17 @@
   become: true
 
   tasks:
+
   - name: install packages
     package:
       name:
         - htop
+        - exa
         - tmux
         - vim
         - zsh
         - fonts-open-sans
         - fonts-roboto-slab
+      state: latest
+      update_cache: yes
+    when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
