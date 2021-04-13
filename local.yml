@@ -1,11 +1,16 @@
 ---
-- hosts: localhost
-  connection: local
+- hosts: all
   become: true
 
   tasks:
 
-  - name: install packages
+  - name: install updates (Debian based)
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+
+  - name: install core packages
     package:
       name:
         - htop
@@ -13,8 +18,18 @@
         - tmux
         - vim
         - zsh
+      state: latest
+    when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+
+- hosts: workstation
+  become: true
+
+  tasks:
+
+  - name: install workstation packages
+    package:
+      name:
         - fonts-open-sans
         - fonts-roboto-slab
       state: latest
-      update_cache: yes
     when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
