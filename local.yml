@@ -5,6 +5,7 @@
   tasks:
 
   - name: install updates (Debian based)
+    tags: always
     apt:
       upgrade: dist
       update_cache: yes
@@ -27,6 +28,7 @@
   tasks:
 
   - name: install workstation packages
+    tags: workstation
     package:
       name:
         - fonts-open-sans
