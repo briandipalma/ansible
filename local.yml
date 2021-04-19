@@ -12,6 +12,7 @@
     when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
   - name: install core packages
+    tags: always
     package:
       name:
         - htop
@@ -21,6 +22,15 @@
         - zsh
       state: latest
     when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+
+  - name: copy gitconfig
+    tags: always
+    copy:
+      src: .gitconfig
+      dest: /home/brian/.gitconfig
+      owner: brian
+      group: brian
+      mode: 0664
 
 - hosts: workstation
   become: true

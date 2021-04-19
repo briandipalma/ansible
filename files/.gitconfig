@@ -1,0 +1,48 @@
+[alias]
+  a = add
+  ap = add -p
+  b = branch
+  c = commit -v
+  ca = commit --amend
+  cm = commit -vm
+  caf = "!git commit --amend --no-edit; git push --force-with-lease"
+  o = checkout
+  d = diff
+  fp = fetch -p
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev --date=relative
+  pl = pull
+  pu = push
+  puf = push --force-with-lease
+  rbm = rebase master
+  rbc = rebase --continue
+  s = status
+  sp = stash pop
+  st = stash
+  sa = submodule add
+
+[commit]
+  template = ~/.machine-setup/git-message-template
+
+[push]
+  default = simple
+
+[user]
+  name = Brian Di Palma
+  email = briandipalma [at] outlook.com
+
+[pull]
+  ff = only
+
+[diff]
+  colorMoved = default
+
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  side-by-side = true
+  syntax-theme = Solarized (light)
+
