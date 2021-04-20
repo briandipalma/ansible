@@ -34,10 +34,24 @@
   - name: install workstation packages
     package:
       name:
+        - unzip
         - fonts-open-sans
         - fonts-roboto-slab
       state: latest
     when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+
+  - name: Create fonts directory
+    file:
+      path: /home/brian/.local/share/fonts
+      owner: brian
+      group: brian
+      state: directory
+
+  - name: install Fira Code nerd fonts
+    unarchive:
+      src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+      dest: /home/brian/.local/share/fonts
+      remote_src: yes
 
   - name: install alacritty dependencies
     package:
@@ -63,7 +77,7 @@
       group: brian
       state: link
 
-  - name: Creates directory
+  - name: Create alacritty directory
     file:
       path: /home/brian/.config/alacritty
       owner: brian
