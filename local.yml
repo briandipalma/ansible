@@ -1,22 +1,18 @@
 ---
 - hosts: all
   become: true
-
   tasks:
 
   - name: install updates (Debian based)
-    tags: always
     apt:
       upgrade: dist
       update_cache: yes
     when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
   - name: install core packages
-    tags: always
     package:
       name:
         - htop
-        - exa
         - tmux
         - vim
         - zsh
@@ -24,7 +20,6 @@
     when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
   - name: copy gitconfig
-    tags: always
     copy:
       src: .gitconfig
       dest: /home/brian/.gitconfig
@@ -32,16 +27,70 @@
       group: brian
       mode: 0664
 
-- hosts: workstation
+- hosts: workstations
   become: true
-
   tasks:
 
   - name: install workstation packages
-    tags: workstation
     package:
       name:
         - fonts-open-sans
         - fonts-roboto-slab
       state: latest
     when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+
+  - name: install alacritty dependencies
+    package:
+      name:
+        - cmake
+        - pkg-config
+        - libfreetype6-dev
+        - libfontconfig1-dev
+        - libxcb-xfixes0-dev
+        - python3
+        - cargo
+    when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+
+  - name: install alacritty
+    command: cargo install alacritty
+    become_user: brian
+
+  - name: Link alacritty binary
+    file:
+      src: /home/brian/.cargo/bin/alacritty
+      dest: /usr/local/bin/alacritty
+      owner: brian
+      group: brian
+      state: link
+
+  - name: Creates directory
+    file:
+      path: /home/brian/.config/alacritty
+      owner: brian
+      group: brian
+      state: directory
+
+  - name: copy alacritty config
+    copy:
+      src: alacritty.yml
+      dest: /home/brian/.config/alacritty/alacritty.yml
+      owner: brian
+      group: brian
+      mode: 0664
+
+  - name: copy alacritty desktop file
+    copy:
+      src: Alacritty.desktop
+      dest: /home/brian/.local/share/applications/Alacritty.desktop
+      owner: brian
+      group: brian
+      mode: 0664
+
+  - name: copy alacritty icon
+    copy:
+      src: alacritty-term.svg
+      dest: /usr/share/pixmaps/Alacritty.svg
+
+  - name: install alacritty terminfo
+    command: tic -xe alacritty,alacritty-direct /home/brian/dev/ansible/files/alacritty.info
+
