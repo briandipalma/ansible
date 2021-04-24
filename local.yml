@@ -108,3 +108,11 @@
   - name: install alacritty terminfo
     command: tic -xe alacritty,alacritty-direct /home/brian/dev/ansible/files/alacritty.info
 
+  - name: copy tmux config
+    copy:
+      src: .tmux.conf
+      dest: /home/brian/.tmux.conf
+      owner: brian
+      group: brian
+      mode: 0664
+
