@@ -116,3 +116,11 @@
       group: brian
       mode: 0664
 
+  - name: copy vim config
+    copy:
+      src: .vimrc
+      dest: /home/brian/.vimrc
+      owner: brian
+      group: brian
+      mode: 0664
+
