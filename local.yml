@@ -9,7 +9,7 @@
       upgrade: dist
       update_cache: yes
 
-  - name: Install core packages
+  - name: Install core packages (Debian based)
     when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
     apt:
       pkg:
@@ -19,13 +19,19 @@
         - zsh
       state: latest
 
-  - name: Install lsd
+  - name: Install LSDeluxe
     apt:
       deb: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb
 
-  - name: Install starship
+  - name: Install Starship
     unarchive:
       src: https://github.com/starship/starship/releases/download/v0.52.1/starship-x86_64-unknown-linux-gnu.tar.gz
+      dest: /usr/local/bin
+      remote_src: yes
+
+  - name: Install lazygit
+    unarchive:
+      src: https://github.com/jesseduffield/lazygit/releases/download/v0.28.1/lazygit_0.28.1_Linux_x86_64.tar.gz
       dest: /usr/local/bin
       remote_src: yes
 
@@ -57,7 +63,7 @@
   become: true
   tasks:
 
-  - name: install workstation packages
+  - name: Install workstation packages
     package:
       name:
         - unzip
@@ -73,13 +79,13 @@
       group: brian
       state: directory
 
-  - name: install Fira Code nerd fonts
+  - name: Install Fira Code nerd fonts
     unarchive:
       src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
       dest: /home/brian/.local/share/fonts
       remote_src: yes
 
-  - name: install alacritty dependencies
+  - name: Install alacritty dependencies
     package:
       name:
         - cmake
@@ -89,9 +95,10 @@
         - libxcb-xfixes0-dev
         - python3
         - cargo
+      state: latest
     when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
-  - name: install alacritty
+  - name: Install alacritty
     command: cargo install alacritty
     become_user: brian
 
@@ -110,7 +117,7 @@
       group: brian
       state: directory
 
-  - name: copy alacritty config
+  - name: Copy alacritty config
     copy:
       src: alacritty.yml
       dest: /home/brian/.config/alacritty/alacritty.yml
@@ -118,7 +125,7 @@
       group: brian
       mode: 0664
 
-  - name: copy alacritty desktop file
+  - name: Copy alacritty desktop file
     copy:
       src: Alacritty.desktop
       dest: /home/brian/.local/share/applications/Alacritty.desktop
@@ -126,11 +133,10 @@
       group: brian
       mode: 0664
 
-  - name: copy alacritty icon
+  - name: Copy alacritty icon
     copy:
       src: alacritty-term.svg
       dest: /usr/share/pixmaps/Alacritty.svg
 
-  - name: install alacritty terminfo
+  - name: Install alacritty terminfo
     command: tic -xe alacritty,alacritty-direct /home/brian/dev/ansible/files/alacritty.info
-
