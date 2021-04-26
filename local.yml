@@ -3,26 +3,52 @@
   become: true
   tasks:
 
-  - name: install updates (Debian based)
+  - name: Install updates (Debian based)
+    when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
     apt:
       upgrade: dist
       update_cache: yes
-    when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
-  - name: install core packages
-    package:
-      name:
+  - name: Install core packages
+    when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+    apt:
+      pkg:
         - htop
         - tmux
         - vim
         - zsh
       state: latest
-    when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
-  - name: copy gitconfig
+  - name: Install lsd
+    apt:
+      deb: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb
+
+  - name: Install starship
+    unarchive:
+      src: https://github.com/starship/starship/releases/download/v0.52.1/starship-x86_64-unknown-linux-gnu.tar.gz
+      dest: /usr/local/bin
+      remote_src: yes
+
+  - name: Copy git config
     copy:
       src: .gitconfig
       dest: /home/brian/.gitconfig
+      owner: brian
+      group: brian
+      mode: 0664
+
+  - name: Copy tmux config
+    copy:
+      src: .tmux.conf
+      dest: /home/brian/.tmux.conf
+      owner: brian
+      group: brian
+      mode: 0664
+
+  - name: Copy vim config
+    copy:
+      src: .vimrc
+      dest: /home/brian/.vimrc
       owner: brian
       group: brian
       mode: 0664
@@ -107,20 +133,4 @@
 
   - name: install alacritty terminfo
     command: tic -xe alacritty,alacritty-direct /home/brian/dev/ansible/files/alacritty.info
-
-  - name: copy tmux config
-    copy:
-      src: .tmux.conf
-      dest: /home/brian/.tmux.conf
-      owner: brian
-      group: brian
-      mode: 0664
-
-  - name: copy vim config
-    copy:
-      src: .vimrc
-      dest: /home/brian/.vimrc
-      owner: brian
-      group: brian
-      mode: 0664
 
