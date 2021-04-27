@@ -82,6 +82,21 @@
       dest: /usr/local/bin
       remote_src: yes
 
+  - name: Create lazygit config directory
+    file:
+      path: /home/brian/.config/jesseduffield/lazygit
+      owner: brian
+      group: brian
+      state: directory
+
+  - name: Copy lazygit config
+    copy:
+      src: lazygit-config.yml
+      dest: /home/brian/.config/jesseduffield/lazygit/config.yml
+      owner: brian
+      group: brian
+      mode: 0664
+
 - hosts: workstations
   become: true
   tasks:
