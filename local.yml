@@ -55,6 +55,21 @@
     apt:
       deb: https://github.com/sharkdp/bat/releases/download/v0.18.0/bat_0.18.0_amd64.deb
 
+  - name: Create bat config directory
+    file:
+      path: /home/brian/.config/bat
+      owner: brian
+      group: brian
+      state: directory
+
+  - name: Copy bat config
+    copy:
+      src: bat-config.conf
+      dest: /home/brian/.config/bat/config
+      owner: brian
+      group: brian
+      mode: 0664
+
   - name: Install Starship
     unarchive:
       src: https://github.com/starship/starship/releases/download/v0.52.1/starship-x86_64-unknown-linux-gnu.tar.gz
