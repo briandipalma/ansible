@@ -1,0 +1,85 @@
+- name: Install core packages (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - htop
+      - tmux
+      - vim
+      - zsh
+    state: latest
+
+- name: Copy git config
+  copy:
+    src: .gitconfig
+    dest: /home/brian/.gitconfig
+    owner: brian
+    group: brian
+    mode: 0664
+
+- name: Copy tmux config
+  copy:
+    src: .tmux.conf
+    dest: /home/brian/.tmux.conf
+    owner: brian
+    group: brian
+    mode: 0664
+
+- name: Copy vim config
+  copy:
+    src: .vimrc
+    dest: /home/brian/.vimrc
+    owner: brian
+    group: brian
+    mode: 0664
+
+- name: Install LSDeluxe
+  apt:
+    deb: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb
+
+- name: Install delta
+  apt:
+    deb: https://github.com/dandavison/delta/releases/download/0.7.1/git-delta_0.7.1_amd64.deb
+
+- name: Install bat
+  apt:
+    deb: https://github.com/sharkdp/bat/releases/download/v0.18.0/bat_0.18.0_amd64.deb
+
+- name: Create bat config directory
+  file:
+    path: /home/brian/.config/bat
+    owner: brian
+
+- name: Copy bat config
+  copy:
+    src: bat-config.conf
+    dest: /home/brian/.config/bat/config
+    owner: brian
+    group: brian
+    mode: 0664
+
+- name: Install Starship
+  unarchive:
+    src: https://github.com/starship/starship/releases/download/v0.52.1/starship-x86_64-unknown-linux-gnu.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+
+- name: Install lazygit
+  unarchive:
+    src: https://github.com/jesseduffield/lazygit/releases/download/v0.28.1/lazygit_0.28.1_Linux_x86_64.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+
+- name: Create lazygit config directory
+  file:
+    path: /home/brian/.config/jesseduffield/lazygit
+    owner: brian
+    group: brian
+    state: directory
+
+- name: Copy lazygit config
+  copy:
+    src: lazygit-config.yml
+    dest: /home/brian/.config/jesseduffield/lazygit/config.yml
+    owner: brian
+    group: brian
+    mode: 0664

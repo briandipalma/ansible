@@ -1,0 +1,77 @@
+- name: Install workstation packages
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - unzip
+      - fonts-open-sans
+      - fonts-roboto-slab
+    state: latest
+
+- name: Create fonts directory
+  file:
+    path: /home/brian/.local/share/fonts
+    owner: brian
+    group: brian
+    state: directory
+
+- name: Install Fira Code nerd fonts
+  unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+    dest: /home/brian/.local/share/fonts
+    remote_src: yes
+
+- name: Install alacritty dependencies
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - cmake
+      - pkg-config
+      - libfreetype6-dev
+      - libfontconfig1-dev
+      - libxcb-xfixes0-dev
+      - python3
+      - cargo
+    state: latest
+
+- name: Install alacritty
+  command: cargo install alacritty
+  become_user: brian
+
+- name: Link alacritty binary
+  file:
+    src: /home/brian/.cargo/bin/alacritty
+    dest: /usr/local/bin/alacritty
+    owner: brian
+    group: brian
+    state: link
+
+- name: Create alacritty directory
+  file:
+    path: /home/brian/.config/alacritty
+    owner: brian
+    group: brian
+    state: directory
+
+- name: Copy alacritty config
+  copy:
+    src: alacritty.yml
+    dest: /home/brian/.config/alacritty/alacritty.yml
+    owner: brian
+    group: brian
+    mode: 0664
+
+- name: Copy alacritty desktop file
+  copy:
+    src: Alacritty.desktop
+    dest: /home/brian/.local/share/applications/Alacritty.desktop
+    owner: brian
+    group: brian
+    mode: 0664
+
+- name: Copy alacritty icon
+  copy:
+    src: alacritty-term.svg
+    dest: /usr/share/pixmaps/Alacritty.svg
+
+- name: Install alacritty terminfo
+  command: tic -xe alacritty,alacritty-direct /home/brian/dev/ansible/roles/workstations/files/alacritty.info
