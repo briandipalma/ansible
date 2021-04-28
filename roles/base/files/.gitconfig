@@ -21,7 +21,7 @@
   sa = submodule add
 
 [commit]
-  template = ~/.machine-setup/git-message-template
+  template = ~/.config/git/message-template
 
 [push]
   default = simple
