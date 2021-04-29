@@ -80,6 +80,14 @@
     dest: /usr/local/bin
     remote_src: yes
 
+- name: Copy starship config
+  copy:
+    src: starship.toml
+    dest: /home/brian/.config/starship.toml
+    owner: brian
+    group: brian
+    mode: 0664
+
 - name: Install lazygit
   unarchive:
     src: https://github.com/jesseduffield/lazygit/releases/download/v0.28.1/lazygit_0.28.1_Linux_x86_64.tar.gz
