@@ -74,6 +74,12 @@
     group: brian
     mode: 0664
 
+- name: Install zoxide
+  get_url:
+    url: https://github.com/ajeetdsouza/zoxide/releases/download/v0.6.0/zoxide-x86_64-unknown-linux-gnu
+    dest: /usr/local/bin/zoxide
+    mode: 0755
+
 - name: Install Starship
   unarchive:
     src: https://github.com/starship/starship/releases/download/v0.52.1/starship-x86_64-unknown-linux-gnu.tar.gz
