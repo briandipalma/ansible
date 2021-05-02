@@ -114,3 +114,16 @@
     owner: brian
     group: brian
     mode: 0664
+
+- name: Set Zsh as default shell
+  user:
+    name: brian
+    shell: /usr/bin/zsh
+
+- name: Copy Zsh config
+  copy:
+    src: .zshrc
+    dest: /home/brian/.zshrc
+    owner: brian
+    group: brian
+    mode: 0664
