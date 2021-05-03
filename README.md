@@ -19,3 +19,11 @@ Run
 ```bash
 $ sudo ansible-pull -U https://github.com/briandipalma/ansible.git
 ```
+
+or
+
+```bash
+ansible-playbook --ask-become-pass --limit xps-13-pop-os.test local.yml
+```
+
+For dev testing
