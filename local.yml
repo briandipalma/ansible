@@ -3,6 +3,11 @@
   become: true
   pre_tasks:
 
+  - name: Add fish repository from PPA and install its signing key
+    when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+    apt_repository:
+      repo: ppa:fish-shell/release-3
+
   - name: Update repo cache (Debian based)
     when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
     changed_when: false
