@@ -1,9 +1,10 @@
 # General
 # ------------------------------------
 
-alias lg='lazygit'
-
+alias cat=bat
 alias cd-='cd -'
+alias lg='lazygit'
+alias v=vim
 
 # LSDeluxe
 # ------------------------------------
