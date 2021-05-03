@@ -6,11 +6,16 @@ HISTSIZE=2000
 # Zsh options
 # -------------------------
 
+# Perform the cd command to a directory if provided as a command
 setopt AUTO_CD
-# share history across multiple zsh sessions
+# Share history across multiple zsh sessions
 setopt SHARE_HISTORY
-# append to history
+# Append to history
 setopt APPEND_HISTORY
+# Try to correct the spelling of commands.
+setopt CORRECT
+# Try to correct the spelling of all arguments in a line.
+setopt CORRECT_ALL
 
 # Imports
 # -------------------------
