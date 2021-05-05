@@ -5,3 +5,7 @@ pve.test
 
 [workstations]
 xps-13-pop-os.test ansible_connection=local
+
+[workstations:vars]
+ansible_python_interpreter=/usr/bin/python3
+
