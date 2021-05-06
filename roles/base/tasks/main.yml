@@ -5,7 +5,6 @@
       - htop
       - tmux
       - vim
-      - fish
     state: latest
 
 - name: Copy git config
@@ -124,10 +123,43 @@
     group: brian
     mode: 0664
 
+- name: Add the fish repository Apt signing key (Debian)
+  when: ansible_distribution in ["Debian"]
+  ansible.builtin.apt_key:
+    url: https://download.opensuse.org/repositories/shells:fish/Debian_10/Release.key
+    state: present
+    keyring: /etc/apt/trusted.gpg.d/shells_fish.gpg
+
+- name: Add fish repository and install its signing key (Debian)
+  when: ansible_distribution in ["Debian"]
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/shells:/fish/Debian_10/ /
+    state: present
+
+- name: Add fish repository from PPA and install its signing key (Ubuntu based)
+  when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
+  apt_repository:
+    repo: ppa:fish-shell/release-3
+
+- name: Install fish packages (Ubuntu based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    update_cache: yes
+    pkg:
+      - fish 
+    state: latest
+
 - name: Set fish as default shell
   user:
     name: brian
     shell: /usr/bin/fish
+
+- name: Create fish config directory
+  file:
+    path: /home/brian/.config/fish
+    owner: brian
+    group: brian
+    state: directory
 
 - name: Copy fish config
   copy:
