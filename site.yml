@@ -12,7 +12,7 @@
 - hosts: all
   become: true
   roles:
-    - base
+    - common 
 
 - hosts: workstations
   become: true
