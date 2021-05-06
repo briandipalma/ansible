@@ -52,8 +52,14 @@
   apt:
     deb: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb
 
-- name: Install delta
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+- name: Install delta (Debian)
+  when: ansible_distribution in ["Debian"]
+  apt:
+    # Install musl due to https://github.com/dandavison/delta/issues/504
+    deb: https://github.com/dandavison/delta/releases/download/0.7.1/git-delta-musl_0.7.1_amd64.deb
+
+- name: Install delta (Ubuntu based)
+  when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
   apt:
     deb: https://github.com/dandavison/delta/releases/download/0.7.1/git-delta_0.7.1_amd64.deb
 
