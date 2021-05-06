@@ -1,7 +1,6 @@
 [servers]
 srv.test
-pi.hole
-pve.test
+pve.test ansible_python_interpreter=/usr/bin/python3
 
 [workstations]
 xps-13-pop-os.test ansible_connection=local
