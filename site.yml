@@ -12,10 +12,7 @@
 - hosts: all
   become: true
   roles:
-    - common 
+    - common
 
-- hosts: workstations
-  become: true
-  roles:
-    - workstations
+- import_playbook: workstations.yml
 
