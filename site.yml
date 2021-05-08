@@ -9,10 +9,6 @@
     apt:
       update_cache: yes
 
-- hosts: all
-  become: true
-  roles:
-    - common
-
+- import_playbook: servers.yml
 - import_playbook: workstations.yml
 

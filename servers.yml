@@ -1,0 +1,6 @@
+---
+- hosts: servers
+  become: true
+  roles:
+    - common
+
