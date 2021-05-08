@@ -1,0 +1,26 @@
+- name: Copy git config
+  copy:
+    src: .gitconfig
+    dest: /home/brian/.gitconfig
+    owner: brian
+    group: brian
+    mode: 0664
+  tags: git
+
+- name: Create git config directory
+  file:
+    path: /home/brian/.config/git
+    owner: brian
+    group: brian
+    state: directory
+  tags: git
+
+- name: Copy git message template config
+  copy:
+    src: git-message-template 
+    dest: /home/brian/.config/git/message-template
+    owner: brian
+    group: brian
+    mode: 0664
+  tags: git
+
