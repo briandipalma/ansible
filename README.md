@@ -34,6 +34,12 @@ To reconfigure git on everything:
 ansible-playbook -i production site.yml --tags git
 ```
 
+To reconfigure aliases and lsdeluxe on everything:
+
+```bash
+ ansible-playbook --ask-become-pass --tags "aliases,lsd" site.yml
+```
+
 To reconfigure just my workstations:
 
 ```bash
