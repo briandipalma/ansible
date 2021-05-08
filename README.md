@@ -20,10 +20,29 @@ Run
 $ sudo ansible-pull -U https://github.com/briandipalma/ansible.git
 ```
 
-or
+## Example commands
+
+Limit the run to one machine:
 
 ```bash
-ansible-playbook --ask-become-pass --limit xps-13-pop-os.test local.yml
+ansible-playbook --ask-become-pass --limit xps-13-pop-os.test site.yml
 ```
 
-For dev testing
+To reconfigure git on everything:
+
+```bash
+ansible-playbook -i production site.yml --tags git
+```
+
+To reconfigure just my workstations:
+
+```bash
+ansible-playbook -i production webservers.yml
+```
+
+Ad-hoc stuff is also possible:
+
+```bash
+ansible pve.test -i production -m ping
+ansible pve.test -i production -m command -a '/sbin/reboot'
+```
