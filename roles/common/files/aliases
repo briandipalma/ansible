@@ -2,20 +2,26 @@
 # ------------------------------------
 
 alias cat=bat
-alias cd-='cd -'
-alias lg='lazygit'
+alias cd-="cd -"
+alias lg=lazygit
 alias v=vim
+
+# Git
+# -----------------------------------
+
+alias g=git
 
 # LSDeluxe
 # ------------------------------------
 
-alias l='lsd -AF --group-dirs first'
+alias l="lsd -AF --group-dirs first"
 alias ll='lsd -AFl --date "+%F %T" --group-dirs first'
-alias lt='lsd -AF --tree --group-dirs first'
+alias lt="lsd -AF --tree --group-dirs first"
 
 # Yarn
 # ------------------------------------
 
-alias yul='yarn unlink; yarn link'
-alias yl='yarn link'
+alias yl="yarn link"
+alias yul="yarn unlink; yarn link"
+alias yst="yarn start"
 
