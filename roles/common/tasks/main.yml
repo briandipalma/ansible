@@ -56,7 +56,24 @@
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     deb: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb
-  tags: lsdeluxe
+  tags: lsd
+
+- name: Create lsd config directory
+  file:
+    path: /home/brian/.config/lsd
+    owner: brian
+    group: brian
+    state: directory
+  tags: lsd
+
+- name: Copy lsd config
+  copy:
+    src: lsd-config.yaml 
+    dest: /home/brian/.config/lsd/config.yaml
+    owner: brian
+    group: brian
+    mode: 0664
+  tags: lsd
 
 - name: Install delta (Debian)
   when: ansible_distribution in ["Debian"]

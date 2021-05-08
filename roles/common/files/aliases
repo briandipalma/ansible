@@ -14,9 +14,11 @@ alias g=git
 # LSDeluxe
 # ------------------------------------
 
-alias l="lsd -AF --group-dirs first"
-alias ll='lsd -AFl --date "+%F %T" --group-dirs first'
-alias lt="lsd -AF --tree --group-dirs first"
+alias l="lsd"
+alias la="lsd -A"
+alias ll="lsd -l"
+alias lla="lsd -Al"
+alias lt="lsd --tree"
 
 # Yarn
 # ------------------------------------
