@@ -177,6 +177,7 @@
   when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
   apt_repository:
     repo: ppa:fish-shell/release-3
+    state: present
   tags: fish
 
 - name: Install fish packages (Ubuntu based)
