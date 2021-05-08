@@ -6,6 +6,7 @@
       - tmux
       - vim
     state: latest
+  tags: packages
 
 - name: Copy git config
   copy:
@@ -14,6 +15,7 @@
     owner: brian
     group: brian
     mode: 0664
+  tags: git
 
 - name: Create git config directory
   file:
@@ -21,6 +23,7 @@
     owner: brian
     group: brian
     state: directory
+  tags: git
 
 - name: Copy git message template config
   copy:
@@ -29,6 +32,7 @@
     owner: brian
     group: brian
     mode: 0664
+  tags: git
 
 - name: Copy tmux config
   copy:
@@ -37,6 +41,7 @@
     owner: brian
     group: brian
     mode: 0664
+  tags: tmux
 
 - name: Copy vim config
   copy:
@@ -45,27 +50,32 @@
     owner: brian
     group: brian
     mode: 0664
+  tags: vim
 
 - name: Install LSDeluxe
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     deb: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb
+  tags: lsdeluxe
 
 - name: Install delta (Debian)
   when: ansible_distribution in ["Debian"]
   apt:
     # Install musl due to https://github.com/dandavison/delta/issues/504
     deb: https://github.com/dandavison/delta/releases/download/0.7.1/git-delta-musl_0.7.1_amd64.deb
+  tags: delta
 
 - name: Install delta (Ubuntu based)
   when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
   apt:
     deb: https://github.com/dandavison/delta/releases/download/0.7.1/git-delta_0.7.1_amd64.deb
+  tags: delta
 
 - name: Install bat
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     deb: https://github.com/sharkdp/bat/releases/download/v0.18.0/bat_0.18.0_amd64.deb
+  tags: bat
 
 - name: Create bat config directory
   file:
@@ -73,6 +83,7 @@
     owner: brian
     group: brian
     state: directory
+  tags: bat
 
 - name: Copy bat config
   copy:
@@ -81,18 +92,21 @@
     owner: brian
     group: brian
     mode: 0664
+  tags: bat
 
 - name: Install zoxide
   get_url:
     url: https://github.com/ajeetdsouza/zoxide/releases/download/v0.6.0/zoxide-x86_64-unknown-linux-gnu
     dest: /usr/local/bin/zoxide
     mode: 0755
+  tags: zoxide
 
 - name: Install Starship
   unarchive:
     src: https://github.com/starship/starship/releases/download/v0.52.1/starship-x86_64-unknown-linux-gnu.tar.gz
     dest: /usr/local/bin
     remote_src: yes
+  tags: starship
 
 - name: Copy starship config
   copy:
@@ -101,12 +115,14 @@
     owner: brian
     group: brian
     mode: 0664
+  tags: starship
 
 - name: Install lazygit
   unarchive:
     src: https://github.com/jesseduffield/lazygit/releases/download/v0.28.1/lazygit_0.28.1_Linux_x86_64.tar.gz
     dest: /usr/local/bin
     remote_src: yes
+  tags: lazygit
 
 - name: Create lazygit config directory
   file:
@@ -114,6 +130,7 @@
     owner: brian
     group: brian
     state: directory
+  tags: lazygit
 
 - name: Copy lazygit config
   copy:
@@ -122,6 +139,7 @@
     owner: brian
     group: brian
     mode: 0664
+  tags: lazygit
 
 - name: Add the fish repository Apt signing key (Debian)
   when: ansible_distribution in ["Debian"]
@@ -129,17 +147,20 @@
     url: https://download.opensuse.org/repositories/shells:fish/Debian_10/Release.key
     state: present
     keyring: /etc/apt/trusted.gpg.d/shells_fish.gpg
+  tags: fish
 
 - name: Add fish repository and install its signing key (Debian)
   when: ansible_distribution in ["Debian"]
   apt_repository:
     repo: deb http://download.opensuse.org/repositories/shells:/fish/Debian_10/ /
     state: present
+  tags: fish
 
 - name: Add fish repository from PPA and install its signing key (Ubuntu based)
   when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
   apt_repository:
     repo: ppa:fish-shell/release-3
+  tags: fish
 
 - name: Install fish packages (Ubuntu based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
@@ -148,11 +169,13 @@
     pkg:
       - fish 
     state: latest
+  tags: fish
 
 - name: Set fish as default shell
   user:
     name: brian
     shell: /usr/bin/fish
+  tags: fish
 
 - name: Create fish config directory
   file:
@@ -160,6 +183,7 @@
     owner: brian
     group: brian
     state: directory
+  tags: fish
 
 - name: Copy fish config
   copy:
@@ -168,6 +192,7 @@
     owner: brian
     group: brian
     mode: 0664
+  tags: fish
 
 - name: Copy aliases config
   copy:
@@ -176,4 +201,5 @@
     owner: brian
     group: brian
     mode: 0664
+  tags: aliases
 
