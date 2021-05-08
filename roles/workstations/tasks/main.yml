@@ -6,6 +6,7 @@
       - fonts-open-sans
       - fonts-roboto-slab
     state: latest
+  tags: packages
 
 - name: Create fonts directory
   file:
@@ -13,12 +14,14 @@
     owner: brian
     group: brian
     state: directory
+  tags: fonts
 
 - name: Install Fira Code nerd fonts
   unarchive:
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
     dest: /home/brian/.local/share/fonts
     remote_src: yes
+  tags: fonts
 
 - name: Install alacritty dependencies
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
@@ -32,10 +35,12 @@
       - python3
       - cargo
     state: latest
+  tags: alacritty
 
 - name: Install alacritty
   command: cargo install alacritty
   become_user: brian
+  tags: alacritty
 
 - name: Link alacritty binary
   file:
@@ -44,6 +49,7 @@
     owner: brian
     group: brian
     state: link
+  tags: alacritty
 
 - name: Create alacritty directory
   file:
@@ -51,6 +57,7 @@
     owner: brian
     group: brian
     state: directory
+  tags: alacritty
 
 - name: Copy alacritty config
   copy:
@@ -59,6 +66,7 @@
     owner: brian
     group: brian
     mode: 0664
+  tags: alacritty
 
 - name: Copy alacritty desktop file
   copy:
@@ -67,11 +75,15 @@
     owner: brian
     group: brian
     mode: 0664
+  tags: alacritty
 
 - name: Copy alacritty icon
   copy:
     src: alacritty-term.svg
     dest: /usr/share/pixmaps/Alacritty.svg
+  tags: alacritty
 
 - name: Install alacritty terminfo
   command: tic -xe alacritty,alacritty-direct /home/brian/dev/ansible/roles/workstations/files/alacritty.info
+  tags: alacritty
+
