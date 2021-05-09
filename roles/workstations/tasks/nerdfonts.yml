@@ -1,0 +1,15 @@
+- name: Create fonts directory
+  file:
+    path: /home/brian/.local/share/fonts
+    owner: brian
+    group: brian
+    state: directory
+  tags: fonts
+
+- name: Install Fira Code nerd fonts
+  unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+    dest: /home/brian/.local/share/fonts
+    remote_src: yes
+  tags: fonts
+

@@ -1,28 +1,4 @@
-- name: Install workstation packages
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
-    pkg:
-      - unzip
-      - fonts-open-sans
-      - fonts-roboto-slab
-    state: latest
-  tags: packages
-
-- name: Create fonts directory
-  file:
-    path: /home/brian/.local/share/fonts
-    owner: brian
-    group: brian
-    state: directory
-  tags: fonts
-
-- name: Install Fira Code nerd fonts
-  unarchive:
-    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
-    dest: /home/brian/.local/share/fonts
-    remote_src: yes
-  tags: fonts
-
+- import_tasks: packages.yml
+- import_tasks: nerdfonts.yml
 - import_tasks: alacritty.yml
-
 

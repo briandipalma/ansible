@@ -1,0 +1,10 @@
+- name: Install workstation packages
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - unzip
+      - fonts-open-sans
+      - fonts-roboto-slab
+    state: latest
+  tags: packages
+
