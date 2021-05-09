@@ -1,0 +1,7 @@
+- name: Install zoxide
+  get_url:
+    url: https://github.com/ajeetdsouza/zoxide/releases/download/v0.6.0/zoxide-x86_64-unknown-linux-gnu
+    dest: /usr/local/bin/zoxide
+    mode: 0755
+  tags: zoxide
+

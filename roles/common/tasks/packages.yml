@@ -1,0 +1,28 @@
+- name: Install core packages (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - htop
+      - tmux
+      - vim
+    state: latest
+  tags: packages
+
+- name: Copy tmux config
+  copy:
+    src: .tmux.conf
+    dest: /home/brian/.tmux.conf
+    owner: brian
+    group: brian
+    mode: 0664
+  tags: tmux
+
+- name: Copy vim config
+  copy:
+    src: .vimrc
+    dest: /home/brian/.vimrc
+    owner: brian
+    group: brian
+    mode: 0664
+  tags: vim
+

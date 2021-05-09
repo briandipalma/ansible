@@ -1,0 +1,24 @@
+- name: Install lazygit
+  unarchive:
+    src: https://github.com/jesseduffield/lazygit/releases/download/v0.28.1/lazygit_0.28.1_Linux_x86_64.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+  tags: lazygit
+
+- name: Create lazygit config directory
+  file:
+    path: /home/brian/.config/jesseduffield/lazygit
+    owner: brian
+    group: brian
+    state: directory
+  tags: lazygit
+
+- name: Copy lazygit config
+  copy:
+    src: lazygit-config.yml
+    dest: /home/brian/.config/jesseduffield/lazygit/config.yml
+    owner: brian
+    group: brian
+    mode: 0664
+  tags: lazygit
+

@@ -1,0 +1,23 @@
+- name: Install bat
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    deb: https://github.com/sharkdp/bat/releases/download/v0.18.0/bat_0.18.0_amd64.deb
+  tags: bat
+
+- name: Create bat config directory
+  file:
+    path: /home/brian/.config/bat
+    owner: brian
+    group: brian
+    state: directory
+  tags: bat
+
+- name: Copy bat config
+  copy:
+    src: bat-config.conf
+    dest: /home/brian/.config/bat/config
+    owner: brian
+    group: brian
+    mode: 0664
+  tags: bat
+
