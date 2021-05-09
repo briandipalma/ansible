@@ -23,67 +23,6 @@
     remote_src: yes
   tags: fonts
 
-- name: Install alacritty dependencies
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
-    pkg:
-      - cmake
-      - pkg-config
-      - libfreetype6-dev
-      - libfontconfig1-dev
-      - libxcb-xfixes0-dev
-      - python3
-      - cargo
-    state: latest
-  tags: alacritty
+- import_tasks: alacritty.yml
 
-- name: Install alacritty
-  command: cargo install alacritty
-  become_user: brian
-  tags: alacritty
-
-- name: Link alacritty binary
-  file:
-    src: /home/brian/.cargo/bin/alacritty
-    dest: /usr/local/bin/alacritty
-    owner: brian
-    group: brian
-    state: link
-  tags: alacritty
-
-- name: Create alacritty directory
-  file:
-    path: /home/brian/.config/alacritty
-    owner: brian
-    group: brian
-    state: directory
-  tags: alacritty
-
-- name: Copy alacritty config
-  copy:
-    src: alacritty.yml
-    dest: /home/brian/.config/alacritty/alacritty.yml
-    owner: brian
-    group: brian
-    mode: 0664
-  tags: alacritty
-
-- name: Copy alacritty desktop file
-  copy:
-    src: Alacritty.desktop
-    dest: /home/brian/.local/share/applications/Alacritty.desktop
-    owner: brian
-    group: brian
-    mode: 0664
-  tags: alacritty
-
-- name: Copy alacritty icon
-  copy:
-    src: alacritty-term.svg
-    dest: /usr/share/pixmaps/Alacritty.svg
-  tags: alacritty
-
-- name: Install alacritty terminfo
-  command: tic -xe alacritty,alacritty-direct /home/brian/dev/ansible/roles/workstations/files/alacritty.info
-  tags: alacritty
 
