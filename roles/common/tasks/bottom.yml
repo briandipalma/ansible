@@ -1,0 +1,23 @@
+- name: Install bottom
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    deb: https://github.com/ClementTsang/bottom/releases/download/0.6.0/bottom_0.6.0_amd64.deb
+  tags: bottom
+
+- name: Create bottom config directory
+  file:
+    path: /home/brian/.config/bottom
+    owner: brian
+    group: brian
+    state: directory
+  tags: bottom
+
+- name: Copy bottom config
+  copy:
+    src: bottom.toml
+    dest: /home/brian/.config/bottom/bottom.toml
+    owner: brian
+    group: brian
+    mode: 0664
+  tags: bottom
+

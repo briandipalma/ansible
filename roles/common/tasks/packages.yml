@@ -2,7 +2,6 @@
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     pkg:
-      - htop
       - tmux
       - vim
     state: latest
