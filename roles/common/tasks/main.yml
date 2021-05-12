@@ -9,4 +9,5 @@
 - import_tasks: aliases.yml
 - import_tasks: zoxide.yml
 - import_tasks: bottom.yml
+- import_tasks: neovim.yml
 

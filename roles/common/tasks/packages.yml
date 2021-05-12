@@ -3,7 +3,7 @@
   apt:
     pkg:
       - tmux
-      - vim
+      - neovim
     state: latest
   tags: packages
 
@@ -15,13 +15,4 @@
     group: brian
     mode: 0664
   tags: tmux
-
-- name: Copy vim config
-  copy:
-    src: .vimrc
-    dest: /home/brian/.vimrc
-    owner: brian
-    group: brian
-    mode: 0664
-  tags: vim
 
