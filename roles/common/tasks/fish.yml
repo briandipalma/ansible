@@ -35,33 +35,11 @@
     shell: /usr/bin/fish
   tags: fish
 
-- name: Create fish config directory
-  file:
-    path: /home/brian/.config/fish
+- name: Copy fish config 
+  copy:
+    src: fish
+    dest: /home/brian/.config
     owner: brian
     group: brian
-    state: directory
-  tags: fish
-
-- name: Create fish conf.d directory
-  file:
-    path: /home/brian/.config/fish/conf.d
-    owner: brian
-    group: brian
-    state: directory
-  tags: fish
-
-- name: Copy fish config
-  copy:
-    src: config.fish
-    dest: /home/brian/.config/fish/config.fish
-    owner: brian
-  tags: fish
-
-- name: Copy fish functions
-  copy:
-    src: functions
-    dest: /home/brian/.config/fish
-    owner: brian
   tags: fish
 

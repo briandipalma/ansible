@@ -1,9 +1,0 @@
-- name: Copy aliases config
-  copy:
-    src: aliases
-    dest: /home/brian/.config/aliases
-    owner: brian
-    group: brian
-    mode: 0664
-  tags: aliases
-
