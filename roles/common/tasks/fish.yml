@@ -43,6 +43,14 @@
     state: directory
   tags: fish
 
+- name: Create fish conf.d directory
+  file:
+    path: /home/brian/.config/fish/conf.d
+    owner: brian
+    group: brian
+    state: directory
+  tags: fish
+
 - name: Copy fish config
   copy:
     src: config.fish

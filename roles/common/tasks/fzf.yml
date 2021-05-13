@@ -8,7 +8,9 @@
 - name: Install fzf fish keybindings
   get_url:
     url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish
-    dest: /home/brian/.config/fish/fzf-key-bindings.fish
+    dest: /home/brian/.config/fish/conf.d/fzf-key-bindings.fish
+    owner: brian
+    group: brian
     mode: 0644
-  tags: fzf 
+  tags: fzf
 
