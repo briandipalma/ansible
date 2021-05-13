@@ -1,0 +1,14 @@
+- name: Install fzf
+  unarchive:
+    src: https://github.com/junegunn/fzf/releases/download/0.27.0/fzf-0.27.0-linux_amd64.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+  tags: fzf 
+
+- name: Install fzf fish keybindings
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish
+    dest: /home/brian/.config/fish/fzf-key-bindings.fish
+    mode: 0644
+  tags: fzf 
+
