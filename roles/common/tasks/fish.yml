@@ -48,4 +48,12 @@
     src: config.fish
     dest: /home/brian/.config/fish/config.fish
     owner: brian
+  tags: fish
+
+- name: Copy fish functions
+  copy:
+    src: functions
+    dest: /home/brian/.config/fish
+    owner: brian
+  tags: fish
 
