@@ -16,7 +16,7 @@ call plug#end()
 
 " Key mappings
 
-nnoremap <C-n> :NERDTree<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-b> :NERDTreeToggle<CR>
 
 " Exit Vim if NERDTree is the only window left.
