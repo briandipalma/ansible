@@ -10,4 +10,5 @@
 - import_tasks: bottom.yml
 - import_tasks: neovim.yml
 - import_tasks: fzf.yml
+- import_tasks: ripgrep.yml
 
