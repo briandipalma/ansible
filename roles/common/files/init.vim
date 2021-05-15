@@ -8,6 +8,8 @@ call plug#begin()
   Plug 'ryanoasis/vim-devicons', { 'on':  'NERDTreeToggle' }
   " Theme
   Plug 'overcache/NeoSolarized'
+  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf.vim'
 call plug#end()
 
 """
