@@ -12,6 +12,5 @@
     dest: /home/brian/.config
     owner: brian
     group: brian
-    mode: 0664
   tags: git
 

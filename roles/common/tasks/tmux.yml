@@ -10,7 +10,7 @@
   copy:
     src: .tmux.conf
     # /home/brian/.config/tmux/tmux.conf support was added to tmux 3.1a
-    # but Debian hasn't yet released yet
+    # but Debian hasn't released it yet
     dest: /home/brian/.tmux.conf
     owner: brian
     group: brian
