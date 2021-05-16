@@ -43,7 +43,7 @@ To reconfigure aliases and lsdeluxe on everything:
 To reconfigure just my workstations:
 
 ```bash
-ansible-playbook -i production webservers.yml
+ansible-playbook -i production workstations.yml
 ```
 
 Ad-hoc stuff is also possible:
