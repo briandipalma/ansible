@@ -1,0 +1,19 @@
+- name: Install tmux (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - tmux
+    state: latest
+  tags: tmux
+
+- name: Copy tmux config
+  copy:
+    src: .tmux.conf
+    # /home/brian/.config/tmux/tmux.conf support was added to tmux 3.1a
+    # but Debian hasn't yet released yet
+    dest: /home/brian/.tmux.conf
+    owner: brian
+    group: brian
+    mode: 0664
+  tags: tmux
+

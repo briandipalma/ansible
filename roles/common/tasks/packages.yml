@@ -2,17 +2,7 @@
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     pkg:
-      - tmux
       - neovim
     state: latest
   tags: packages
-
-- name: Copy tmux config
-  copy:
-    src: .tmux.conf
-    dest: /home/brian/.tmux.conf
-    owner: brian
-    group: brian
-    mode: 0664
-  tags: tmux
 
