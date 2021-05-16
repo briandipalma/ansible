@@ -1,24 +1,26 @@
 # Ansible
-Ansible machine setup playbooks
+Ansible machine setup playbooks. Installs and configures all the software I use on servers and workstations.
 
 ## Setup
 
-Set the correct hostname for the machine you are configuring.
+1. Get/set the hostname for the machine you are configuring.
 
-```bash
-$ hostnamectl
-...
+   ```bash
+   $ hostnamectl
+   ...
 
-$ sudo hostnamectl set-hostname host.test
-```
+   $ sudo hostnamectl set-hostname host.test
+   ```
 
-Install ansible
+2. Add the hostname to the [Ansible inventory file](https://github.com/briandipalma/ansible/blob/main/production) under the correct group (workstation/server)
 
-Run
+3. Install ansible or setup SSH key login on the machine
 
-```bash
-$ sudo ansible-pull -U https://github.com/briandipalma/ansible.git
-```
+4. Run
+
+   ```bash
+   ansible-playbook --ask-become-pass site.yml
+   ```
 
 ## Example commands
 
@@ -40,7 +42,7 @@ To reconfigure aliases and lsdeluxe on everything:
  ansible-playbook --ask-become-pass --tags "aliases,lsd" site.yml
 ```
 
-To reconfigure just my workstations:
+To reconfigure just workstations:
 
 ```bash
 ansible-playbook -i production workstations.yml
