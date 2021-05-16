@@ -1,8 +1,0 @@
-- name: Install core packages (Debian based)
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
-    pkg:
-      - neovim
-    state: latest
-  tags: packages
-

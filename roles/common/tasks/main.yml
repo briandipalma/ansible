@@ -1,4 +1,3 @@
-- import_tasks: packages.yml
 - import_tasks: tmux.yml
 - import_tasks: git.yml
 - import_tasks: lsd.yml

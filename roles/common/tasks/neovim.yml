@@ -1,18 +1,17 @@
-- name: Create neovim config directory
-  file:
-    path: /home/brian/.config/nvim
-    owner: brian
-    group: brian
-    state: directory
+- name: Install neovim (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - neovim
+    state: latest
   tags: neovim
 
 - name: Copy neovim config
   copy:
-    src: init.vim
-    dest: /home/brian/.config/nvim/init.vim
+    src: nvim
+    dest: /home/brian/.config
     owner: brian
     group: brian
-    mode: 0644
   tags: neovim
 
 - name: Create neovim autoload directory
