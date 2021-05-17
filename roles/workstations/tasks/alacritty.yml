@@ -26,21 +26,12 @@
     state: link
   tags: alacritty
 
-- name: Create alacritty directory
-  file:
-    path: /home/brian/.config/alacritty
-    owner: brian
-    group: brian
-    state: directory
-  tags: alacritty
-
 - name: Copy alacritty config
   copy:
-    src: alacritty.yml
-    dest: /home/brian/.config/alacritty/alacritty.yml
+    src: alacritty
+    dest: /home/brian/.config
     owner: brian
     group: brian
-    mode: 0664
   tags: alacritty
 
 - name: Copy alacritty desktop file
