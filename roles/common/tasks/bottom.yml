@@ -1,7 +1,7 @@
 - name: Install bottom
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
-    deb: https://github.com/ClementTsang/bottom/releases/download/0.6.0/bottom_0.6.0_amd64.deb
+    deb: https://github.com/ClementTsang/bottom/releases/download/0.6.1/bottom_0.6.1_amd64.deb
   tags: bottom
 
 - name: Copy bottom config
