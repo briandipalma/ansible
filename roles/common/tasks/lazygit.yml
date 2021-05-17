@@ -5,20 +5,11 @@
     remote_src: yes
   tags: lazygit
 
-- name: Create lazygit config directory
-  file:
-    path: /home/brian/.config/jesseduffield/lazygit
-    owner: brian
-    group: brian
-    state: directory
-  tags: lazygit
-
 - name: Copy lazygit config
   copy:
-    src: lazygit-config.yml
-    dest: /home/brian/.config/jesseduffield/lazygit/config.yml
+    src: lazygit
+    dest: /home/brian/.config
     owner: brian
     group: brian
-    mode: 0664
   tags: lazygit
 
