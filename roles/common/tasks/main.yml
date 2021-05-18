@@ -13,4 +13,5 @@
 - import_tasks: ripgrep.yml
 - import_tasks: fd.yml
 - import_tasks: dust.yml
+- import_tasks: tldr.yml
 
