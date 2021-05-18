@@ -12,4 +12,5 @@
 - import_tasks: fzf.yml
 - import_tasks: ripgrep.yml
 - import_tasks: fd.yml
+- import_tasks: dust.yml
 
