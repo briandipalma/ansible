@@ -10,5 +10,6 @@ call plug#begin()
   Plug 'overcache/NeoSolarized'
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
+  Plug 'mbbill/undotree'
 call plug#end()
 
