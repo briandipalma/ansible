@@ -12,6 +12,3 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
 call plug#end()
 
-""" Neovim configuration
-colorscheme NeoSolarized
-
