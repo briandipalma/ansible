@@ -14,4 +14,10 @@ set undodir=~/.config/nvim/undodir
 set undofile
 " No need with undotree
 set noswapfile
+" Number of lines to keep above and below cursor when scrolling 
+set scrolloff=8
+" Side column for code errors/linting/git markers
+set signcolumn=yes
+" Show column to help limit rightwards drift
+set colorcolumn=80
 
