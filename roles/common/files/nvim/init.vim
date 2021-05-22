@@ -12,6 +12,8 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
   Plug 'mbbill/undotree'
   Plug 'tpope/vim-fugitive'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Map the leader key to space, more convenient than default `\`
