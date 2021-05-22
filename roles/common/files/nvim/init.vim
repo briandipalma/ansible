@@ -11,5 +11,6 @@ call plug#begin()
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'mbbill/undotree'
+  Plug 'tpope/vim-fugitive'
 call plug#end()
 
