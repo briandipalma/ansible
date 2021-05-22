@@ -14,3 +14,6 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
 call plug#end()
 
+" Map the leader key to space, more convenient than default `\`
+let mapleader = " "
+
