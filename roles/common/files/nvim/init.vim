@@ -2,10 +2,10 @@
 
 call plug#begin()
   " NERDTree plugins
-  Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
-  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on':  'NERDTreeToggle' }
-  Plug 'ryanoasis/vim-devicons', { 'on':  'NERDTreeToggle' }
+  Plug 'preservim/nerdtree', { 'on':  'NERDTreeFocus' }
+  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeFocus' }
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on':  'NERDTreeFocus' }
+  Plug 'ryanoasis/vim-devicons', { 'on':  'NERDTreeFocus' }
   " Theme
   Plug 'overcache/NeoSolarized'
   Plug 'junegunn/fzf'
