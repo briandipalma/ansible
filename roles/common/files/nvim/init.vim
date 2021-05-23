@@ -14,6 +14,7 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " Map the leader key to space, more convenient than default `\`
