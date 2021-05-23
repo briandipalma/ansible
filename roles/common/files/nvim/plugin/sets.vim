@@ -20,4 +20,6 @@ set scrolloff=8
 set signcolumn=yes
 " Show column to help limit rightwards drift
 set colorcolumn=80
+" Remove noticeable delays, reduced from 4000 default
+set updatetime=100
 
