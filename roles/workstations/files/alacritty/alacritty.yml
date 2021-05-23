@@ -77,23 +77,29 @@ selection:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: zsh
+  program: fish
   args:
     - -l
     - -c
     - "tmux attach || tmux"
 
 key_bindings:
-  - { key: Back,        mods: Super,                  chars: "\x15"          } # delete word/line
-  - { key: Left,        mods: Alt,                    chars: "\x1bb"         } # one word left
-  - { key: Right,       mods: Alt,                    chars: "\x1bf"         } # one word right
+  # delete word/line
+  - { key: Back,        mods: Super,                  chars: "\x15"          } 
+  # one word left
+  - { key: Left,        mods: Alt,                    chars: "\x1bb"         }
+  # one word right
+  - { key: Right,       mods: Alt,                    chars: "\x1bf"         } 
   - { key: V,           mods: Control,                action: Paste          }
 
  # tmux shortcuts
 
-  - { key: Backslash,   mods: Control,                chars: "\x1c"          } # CTRL+\ required for Mac OS X
-  - { key: T,           mods: Control,                chars: "\x1c\x63"      } # New window in tmux
-  - { key: W,           mods: Control,                chars: "\x1c\x78"      } # Close pane in tmux
+  # CTRL+\ required for Mac OS X
+  - { key: Backslash,   mods: Control,                chars: "\x1c"          }
+  # New window in tmux
+  - { key: T,           mods: Control,                chars: "\x1c\x63"      }
+  # Close pane in tmux
+  - { key: W,           mods: Control,                chars: "\x1c\x78"      }
   # Move to panel x.
   - { key: Key1,        mods: Control,                chars: "\x1c\x31" }
   - { key: Key2,        mods: Control,                chars: "\x1c\x32" }
