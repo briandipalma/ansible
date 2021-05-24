@@ -11,12 +11,18 @@ Ansible machine setup playbooks. Installs and configures all the software I use 
 
    $ sudo hostnamectl set-hostname host.test
    ```
-
-2. Add the hostname to the [Ansible inventory file](https://github.com/briandipalma/ansible/blob/main/production) under the correct group (workstation/server)
-
+2. Add the hostname to the
+   [Ansible inventory file](https://github.com/briandipalma/ansible/blob/main/production)
+   under the correct group (workstation/server)
 3. Install ansible or setup SSH key login on the machine
-
 4. Run
+
+   ```bash
+   ansible-galaxy collection install community.general
+   ```
+   
+   To install the homebrew modules
+5. Run
 
    ```bash
    ansible-playbook --ask-become-pass site.yml
