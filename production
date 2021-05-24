@@ -4,6 +4,7 @@ pve.test ansible_python_interpreter=/usr/bin/python3
 
 [workstations]
 xps-13-pop-os.test ansible_connection=local
+Brians-MacBook-Pro.local ansible_connection=local
 
 [workstations:vars]
 ansible_python_interpreter=/usr/bin/python3

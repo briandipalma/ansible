@@ -1,0 +1,5 @@
+become_root: false
+user_name: briand
+fish_location: /usr/local/bin/fish
+home_dir: /Users/briand
+

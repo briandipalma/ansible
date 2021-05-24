@@ -1,6 +1,6 @@
 ---
 - hosts: workstations
-  become: true
+  become: "{{ become_root }}"
   roles:
     - common
     - workstations

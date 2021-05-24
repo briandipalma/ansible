@@ -29,17 +29,24 @@
     state: latest
   tags: fish
 
+- name: Install fish packages (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: fish
+    state: latest
+  tags: fish
+
 - name: Set fish as default shell
+  become: yes
   user:
-    name: brian
-    shell: /usr/bin/fish
+    name: "{{ user_name }}"
+    shell: "{{ fish_location }}" 
   tags: fish
 
 - name: Copy fish config 
   copy:
     src: fish
-    dest: /home/brian/.config
-    owner: brian
-    group: brian
+    dest: "{{ home_dir }}/.config"
+    owner: "{{ user_name }}"
   tags: fish
 
