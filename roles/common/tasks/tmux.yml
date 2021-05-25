@@ -6,14 +6,19 @@
     state: latest
   tags: tmux
 
+- name: Install tmux packages (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: tmux
+    state: latest
+  tags: tmux
+
 - name: Copy tmux config
   copy:
     src: tmux.conf
     # /home/brian/.config/tmux/tmux.conf support was added to tmux 3.1a
     # but Debian hasn't released it yet
-    dest: /home/brian/.tmux.conf
-    owner: brian
-    group: brian
-    mode: 0664
+    dest: "{{ home_dir }}/.tmux.conf"
+    owner: "{{ user_name }}"
   tags: tmux
 
