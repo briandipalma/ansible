@@ -6,11 +6,17 @@
     state: latest
   tags: git
  
+- name: Install git (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: git
+    state: latest
+  tags: git
+
 - name: Copy git config
   copy:
     src: git
-    dest: /home/brian/.config
+    dest: "{{ home_dir }}/.config"
     owner: brian
-    group: brian
   tags: git
 
