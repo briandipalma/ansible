@@ -1,14 +1,20 @@
-- name: Install bat
+- name: Install bat (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
-    deb: https://github.com/sharkdp/bat/releases/download/v0.18.0/bat_0.18.0_amd64.deb
+    deb: https://github.com/sharkdp/bat/releases/download/v0.18.1/bat_0.18.1_amd64.deb
+  tags: bat
+
+- name: Install bat (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: bat
+    state: latest
   tags: bat
 
 - name: Copy bat config
   copy:
     src: bat
-    dest: /home/brian/.config
-    owner: brian
-    group: brian
+    dest: "{{ home_dir }}/.config"
+    owner: "{{ user_name }}"
   tags: bat
 
