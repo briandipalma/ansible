@@ -1,15 +1,21 @@
-- name: Install lazygit
+- name: Install lazygit (Debian based)
   unarchive:
     src: https://github.com/jesseduffield/lazygit/releases/download/v0.28.1/lazygit_0.28.1_Linux_x86_64.tar.gz
     dest: /usr/local/bin
     remote_src: yes
   tags: lazygit
 
+- name: Install lazygit (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: jesseduffield/lazygit/lazygit
+    state: latest
+  tags: lazygit
+
 - name: Copy lazygit config
   copy:
     src: lazygit
-    dest: /home/brian/.config
-    owner: brian
-    group: brian
+    dest: "{{ home_dir }}/.config"
+    owner: "{{ user_name }}"
   tags: lazygit
 
