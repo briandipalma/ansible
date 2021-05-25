@@ -1,14 +1,20 @@
-- name: Install bottom
+- name: Install bottom (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     deb: https://github.com/ClementTsang/bottom/releases/download/0.6.1/bottom_0.6.1_amd64.deb
   tags: bottom
 
+- name: Install bottom (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: clementtsang/bottom/bottom 
+    state: latest
+  tags: bottom 
+
 - name: Copy bottom config
   copy:
     src: bottom
-    dest: /home/brian/.config
-    owner: brian
-    group: brian
+    dest: "{{ home_dir }}/.config"
+    owner: "{{ user_name }}"
   tags: bottom
 
