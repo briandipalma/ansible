@@ -1,6 +1,13 @@
-- name: Install fd
+- name: Install fd (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     deb: https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb
   tags: fd 
+
+- name: Install fd (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: fd
+    state: latest
+  tags: fd
 
