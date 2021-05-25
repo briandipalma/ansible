@@ -1,4 +1,5 @@
-- name: Install dust
+- name: Install dust (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
     src: https://github.com/bootandy/dust/releases/download/v0.5.4/dust-v0.5.4-x86_64-unknown-linux-gnu.tar.gz
     dest: /usr/local/bin
@@ -8,5 +9,12 @@
       # We want to strip the directory and only take the executable
       - "--strip-components=1"
       - "dust-v0.5.4-x86_64-unknown-linux-gnu/dust"
+  tags: dust
+
+- name: Install dust (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: dust
+    state: latest
   tags: dust
 
