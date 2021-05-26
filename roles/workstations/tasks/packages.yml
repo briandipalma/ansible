@@ -8,3 +8,17 @@
     state: latest
   tags: packages
 
+- name: Add fonts cask (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew_tap:
+    name: homebrew/cask-fonts
+    state: present
+  tags: fonts
+
+- name: Install fonts (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: font-open-sans, font-roboto-slab
+    state: latest
+  tags: fonts
+
