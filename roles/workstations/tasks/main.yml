@@ -1,4 +1,3 @@
-- import_tasks: packages.yml
 - import_tasks: fonts.yml
 - import_tasks: alacritty.yml
 

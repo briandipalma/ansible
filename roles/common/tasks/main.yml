@@ -1,3 +1,4 @@
+- import_tasks: packages.yml
 - import_tasks: fish.yml
 - import_tasks: starship.yml
 - import_tasks: tmux.yml
