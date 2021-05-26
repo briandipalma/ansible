@@ -17,6 +17,6 @@
   copy:
     src: git
     dest: "{{ home_dir }}/.config"
-    owner: brian
+    owner: "{{ user_name }}"
   tags: git
 
