@@ -2,4 +2,4 @@ become_root: true
 user_name: brian
 fish_location: /usr/bin/fish
 home_dir: /home/brian
-
+lazygit_config_dir: /home/brian/.config/

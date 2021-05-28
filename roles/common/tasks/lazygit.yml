@@ -16,7 +16,7 @@
 - name: Copy lazygit config
   copy:
     src: lazygit
-    dest: "{{ home_dir }}/.config"
+    dest: "{{ lazygit_config_dir }}"
     owner: "{{ user_name }}"
   tags: lazygit
 
