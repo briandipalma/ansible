@@ -6,8 +6,9 @@ nnoremap <silent> <leader>f :FzfRg<CR>
 command! FzfLastCommitFiles call fzf#run(
   \ fzf#wrap({
     \ 'source': 'git diff-tree --no-commit-id --name-only -r HEAD',
-    \ 'sink': 'e',
+    \ 'sink': 'vsplit',
     \ 'options': [
+      \ '--multi',
       \ '--preview',
       \ 'bat --style=numbers --color=always --line-range :500 {}'
       \]
