@@ -22,4 +22,5 @@ set signcolumn=yes
 set colorcolumn=80
 " Remove noticeable delays, reduced from 4000 default
 set updatetime=100
-
+" Highlight the screen line of the cursor
+set cursorline
