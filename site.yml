@@ -1,13 +1,6 @@
 ---
 - hosts: all
   become: true
-  pre_tasks:
-
-  - name: Update repo cache (Debian based)
-    when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-    changed_when: false
-    apt:
-      update_cache: yes
 
 - import_playbook: servers.yml
 - import_playbook: workstations.yml
