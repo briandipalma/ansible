@@ -14,7 +14,9 @@
 - name: Install delta (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
-    name: git-delta
+    name: 
+      - git-delta
+      - less
     state: latest
   tags: delta
 
