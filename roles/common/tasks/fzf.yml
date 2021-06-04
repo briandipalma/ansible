@@ -16,7 +16,7 @@
 - name: Install fzf fish keybindings
   get_url:
     url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish
-    dest: "{{ home_dir }}/.config/fish/conf.d/fzf-key-bindings.fish"
+    dest: "{{ home_dir }}/.config/fish/functions/fzf_key_bindings.fish"
     owner: "{{ user_name }}"
   tags: fzf
 
