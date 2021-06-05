@@ -89,15 +89,15 @@ key_bindings:
   # CTRL+\ required for Mac OS X
   - { key: Backslash,   mods: Control,                chars: "\x1c"     }
   # Move to window n
-  - { key: Key1,        mods: Control,                chars: "\x1c\x31" }
-  - { key: Key2,        mods: Control,                chars: "\x1c\x32" }
-  - { key: Key3,        mods: Control,                chars: "\x1c\x33" }
-  - { key: Key4,        mods: Control,                chars: "\x1c\x34" }
-  - { key: Key5,        mods: Control,                chars: "\x1c\x35" }
-  - { key: Key6,        mods: Control,                chars: "\x1c\x36" }
-  - { key: Key7,        mods: Control,                chars: "\x1c\x37" }
-  - { key: Key8,        mods: Control,                chars: "\x1c\x38" }
-  - { key: Key9,        mods: Control,                chars: "\x1c\x39" }
+  - { key: Key1, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 1"] }}
+  - { key: Key2, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 2"] }}
+  - { key: Key3, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 3"] }}
+  - { key: Key4, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 4"] }}
+  - { key: Key5, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 5"] }}
+  - { key: Key6, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 6"] }}
+  - { key: Key7, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 7"] }}
+  - { key: Key8, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 8"] }}
+  - { key: Key9, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 9"] }}
   # Move to pane n
   - { key: Key1,        mods: Alt,                chars: "\x1c\x1b\x31" }
   - { key: Key2,        mods: Alt,                chars: "\x1c\x1b\x32" }
