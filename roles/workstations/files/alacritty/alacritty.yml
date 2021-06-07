@@ -86,8 +86,10 @@ shell:
 key_bindings:
 # tmux shortcuts
 
-  # CTRL+\ required for Mac OS X
+  # CTRL+\ for Mac OS X
   - { key: Backslash,   mods: Control,                chars: "\x1c"     }
+  # Alt-C for Mac OS X https://github.com/alacritty/alacritty/issues/62
+  - { key: C,           mods: Alt,                    chars: "\x1bc"    }
   # Move to window n
   - { key: Key1, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 1"] }}
   - { key: Key2, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 2"] }}
