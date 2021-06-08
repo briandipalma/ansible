@@ -1,7 +1,6 @@
 ---
 - hosts: all
-  become: true
 
 - import_playbook: servers.yml
 - import_playbook: workstations.yml
-
+- import_playbook: personal_workstations.yml

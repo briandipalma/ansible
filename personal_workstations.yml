@@ -1,0 +1,7 @@
+---
+- hosts: personal_workstations
+  become: "{{ become_root }}"
+  roles:
+    - common
+    - workstations
+    - personal_workstations
