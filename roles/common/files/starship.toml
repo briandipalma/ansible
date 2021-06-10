@@ -1,5 +1,5 @@
 # Git can be quite slow in large repositories
-command_timeout = 700
+command_timeout = 1000
 
 [directory]
 fish_style_pwd_dir_length = 3
