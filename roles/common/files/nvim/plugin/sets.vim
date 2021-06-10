@@ -14,7 +14,7 @@ set undodir=~/.config/nvim/undodir
 set undofile
 " No need with undotree
 set noswapfile
-" Number of lines to keep above and below cursor when scrolling 
+" Number of lines buffer to keep above and below cursor line when scrolling 
 set scrolloff=8
 " Side column for code errors/linting/git markers
 set signcolumn=yes
@@ -24,3 +24,6 @@ set colorcolumn=80
 set updatetime=100
 " Highlight the screen line of the cursor
 set cursorline
+" Hide, don't unload, buffers when you navigate from them. Prevents requests
+" to write buffers on code/file navigation away from edited buffer
+set hidden
