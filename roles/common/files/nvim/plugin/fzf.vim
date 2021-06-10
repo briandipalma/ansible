@@ -18,10 +18,10 @@ let g:fzf_buffers_jump = 1
 " Enable per-command history
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-nnoremap <silent> <leader>o :FzfFiles<CR>
+nnoremap <silent> <C-p> :FzfFiles<CR>
 nnoremap <silent> <leader>f :FzfRg<CR>
 " Path completion with custom source command
-inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
+inoremap <expr> <C-x><C-f> fzf#vim#complete#path('fd')
 
 command! FzfLastCommitFiles call fzf#run(
   \ fzf#wrap('last-commit-files', {
