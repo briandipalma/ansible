@@ -84,12 +84,14 @@ shell:
     - "tmux attach || tmux"
 
 key_bindings:
-# tmux shortcuts
 
-  # CTRL+\ for Mac OS X
-  - { key: Backslash,   mods: Control,                chars: "\x1c"     }
+  # Mac OS X workaround https://github.com/alacritty/alacritty/issues/1359
+  - { key: Q,           mods: Control,                chars: "\x11"     }
   # Alt-C for Mac OS X https://github.com/alacritty/alacritty/issues/62
   - { key: C,           mods: Alt,                    chars: "\x1bc"    }
+  # tmux shortcuts
+  # CTRL+\ for Mac OS X
+  - { key: Backslash,   mods: Control,                chars: "\x1c"     }
   # Move to window n
   - { key: Key1, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 1"] }}
   - { key: Key2, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 2"] }}
