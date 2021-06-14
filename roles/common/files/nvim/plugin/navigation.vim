@@ -1,3 +1,6 @@
+" Easily select any open buffer
+nnoremap <C-S-b> :FzfBuffers<CR>
+
 " Keymaps and functions for opening/closing/navigating quick/location lists
 " Taken from ThePrimeagen's config
 nnoremap <C-j> :cnext<CR>zz
