@@ -16,6 +16,8 @@ call plug#begin()
   Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
   Plug 'dense-analysis/ale'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'LunarWatcher/auto-pairs', { 'tag': '*' }
 call plug#end()
 
 " Map the leader key to space, more convenient than default `\`
