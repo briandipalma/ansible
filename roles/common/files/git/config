@@ -20,6 +20,7 @@
   st = stash
   sa = submodule add
   wa = worktree add
+  wr = worktree remove
 
 [commit]
   template = ~/.config/git/message-template
