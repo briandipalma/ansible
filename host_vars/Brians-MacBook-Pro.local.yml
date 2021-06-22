@@ -1,3 +1,4 @@
+ansible_python_interpreter: /usr/local/bin/python3
 become_root: false
 user_name: briand
 fish_location: /usr/local/bin/fish
