@@ -1,7 +1,7 @@
 - name: Install Starship (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
-    src: https://github.com/starship/starship/releases/download/v0.54.0/starship-x86_64-unknown-linux-gnu.tar.gz
+    src: https://github.com/starship/starship/releases/download/v0.55.0/starship-x86_64-unknown-linux-gnu.tar.gz
     dest: /usr/local/bin
     remote_src: yes
   tags: starship
