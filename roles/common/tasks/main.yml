@@ -22,7 +22,6 @@
 - import_tasks: bat.yml
 - import_tasks: lazygit.yml
 - import_tasks: delta.yml
-- import_tasks: zoxide.yml
 - import_tasks: bottom.yml
 - import_tasks: fzf.yml
 - import_tasks: ripgrep.yml
