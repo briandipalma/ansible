@@ -1,0 +1,5 @@
+#! /bin/bash
+
+cd converted; yarn
+
+echo export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home > apps/salestrader/.envrc
