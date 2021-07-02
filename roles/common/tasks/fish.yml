@@ -49,4 +49,3 @@
     dest: "{{ home_dir }}/.config"
     owner: "{{ user_name }}"
   tags: fish
-

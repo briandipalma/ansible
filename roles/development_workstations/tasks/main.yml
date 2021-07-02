@@ -11,3 +11,10 @@
     src: karabiner.json
     dest: "{{ home_dir }}/.config/karabiner/"
   tags: karabiner
+
+- name: Copy fish config 
+  copy:
+    src: fish
+    dest: "{{ home_dir }}/.config"
+    owner: "{{ user_name }}"
+  tags: fish
