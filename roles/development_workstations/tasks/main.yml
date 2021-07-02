@@ -1,0 +1,13 @@
+- name: Install direnv
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: direnv 
+    state: latest
+  tags: direnv
+
+- name: Copy Karabiner config
+  when: ansible_distribution in ["MacOSX"]
+  copy:
+    src: karabiner.json
+    dest: "{{ home_dir }}/.config/karabiner/"
+  tags: karabiner

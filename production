@@ -2,7 +2,7 @@
 srv.test
 pve.test
 
-[workstations]
+[development_workstations]
 Brians-MacBook-Pro.local ansible_connection=local
 
 [personal_workstations]

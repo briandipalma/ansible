@@ -2,5 +2,5 @@
 - hosts: all
 
 - import_playbook: servers.yml
-- import_playbook: workstations.yml
+- import_playbook: development_workstations.yml
 - import_playbook: personal_workstations.yml
