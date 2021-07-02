@@ -1,5 +1,4 @@
 [servers]
-srv.test
 pve.test
 
 [development_workstations]
