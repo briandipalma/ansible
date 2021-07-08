@@ -3,14 +3,7 @@ Ansible machine setup playbooks. Installs and configures all the software I use 
 
 ## Setup
 
-1. Get/set the hostname for the machine you are configuring.
-
-   ```bash
-   $ hostnamectl
-   ...
-
-   $ sudo hostnamectl set-hostname host.test
-   ```
+1. Get/set the hostname for the machine you are configuring. Using DNS provider.
 2. Add the hostname to the
    [Ansible inventory file](https://github.com/briandipalma/ansible/blob/main/production)
    under the correct group (workstation/server)
