@@ -21,6 +21,7 @@
   sa = submodule add
   wa = worktree add
   wr = worktree remove
+  wl = worktree list
 
 [commit]
   template = ~/.config/git/message-template
