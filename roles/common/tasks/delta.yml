@@ -2,13 +2,13 @@
   when: ansible_distribution in ["Debian"]
   apt:
     # Install musl due to https://github.com/dandavison/delta/issues/504
-    deb: https://github.com/dandavison/delta/releases/download/0.8.2/git-delta-musl_0.8.2_amd64.deb
+    deb: https://github.com/dandavison/delta/releases/download/0.8.3/git-delta-musl_0.8.3_amd64.deb
   tags: delta
 
 - name: Install delta (Ubuntu based)
   when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
   apt:
-    deb: https://github.com/dandavison/delta/releases/download/0.8.2/git-delta_0.8.2_amd64.deb
+    deb: https://github.com/dandavison/delta/releases/download/0.8.3/git-delta_0.8.3_amd64.deb
   tags: delta
 
 - name: Install delta (MacOSX)
