@@ -8,9 +8,9 @@ function open-lazygit-tmux-popup
 
   if test -d $repo_root/.git
     # In a standard git repo
-    tmux popup -E -w 90% -h 90% "lazygit -p $repo_root"
+    tmux popup -E -w 100% -h 100% "lazygit -p $repo_root"
   else if test -f $repo_root/.git
     # In a git worktree
-    tmux popup -E -w 90% -h 90% "lazygit -w $repo_root"
+    tmux popup -E -w 100% -h 100% "lazygit -w $repo_root"
   end
 end
