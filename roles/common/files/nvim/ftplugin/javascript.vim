@@ -1,5 +1,4 @@
 set foldmethod=syntax
-set foldlevelstart=99
 
 " Fix files with prettier, and then ESLint.
 let b:ale_fixers = ['prettier', 'eslint']
