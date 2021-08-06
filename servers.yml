@@ -1,6 +1,5 @@
 ---
 - hosts: servers
-  become: true
+  become: "{{ become_root }}"
   roles:
     - common
-
