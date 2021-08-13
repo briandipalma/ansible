@@ -18,6 +18,7 @@ call plug#begin()
   Plug 'dense-analysis/ale'
   Plug 'sheerun/vim-polyglot'
   Plug 'LunarWatcher/auto-pairs', { 'tag': '*' }
+  Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Map the leader key to space, more convenient than default `\`
