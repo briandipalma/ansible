@@ -19,6 +19,7 @@ call plug#begin()
   Plug 'sheerun/vim-polyglot'
   Plug 'LunarWatcher/auto-pairs', { 'tag': '*' }
   Plug 'Yggdroot/indentLine'
+  Plug 'tpope/vim-commentary'
 call plug#end()
 
 " Map the leader key to space, more convenient than default `\`
