@@ -21,3 +21,9 @@
     owner: "{{ user_name }}"
   tags: tldr
 
+- name: Update tldr cache
+  ansible.builtin.command:
+    argv:
+      - tldr
+      - --update
+  tags: tldr
