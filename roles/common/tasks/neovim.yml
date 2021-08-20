@@ -1,3 +1,10 @@
+- name: Add neovim repository from PPA and install its signing key (Ubuntu based)
+  when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
+  apt_repository:
+    repo: ppa:neovim-ppa/unstable
+    state: present
+  tags: neovim
+
 - name: Install neovim (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
