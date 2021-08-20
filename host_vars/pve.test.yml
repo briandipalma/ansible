@@ -1,1 +1,6 @@
+ansible_user: root
 ansible_python_interpreter: /usr/bin/python3
+become_root: false
+user_name: root
+home_dir: /root
+lazygit_config_dir: /root/.config/
