@@ -29,3 +29,5 @@ set cursorline
 set hidden
 " Stop auto folding when files are opened
 set foldlevelstart=99
+" Show invisibles
+set list lcs=tab:▹\ ,eol:◦
