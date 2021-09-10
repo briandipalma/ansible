@@ -24,4 +24,3 @@ call plug#end()
 
 " Map the leader key to space, more convenient than default `\`
 let mapleader = " "
-

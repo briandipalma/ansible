@@ -40,7 +40,7 @@ let g:fzf_buffers_jump = 1
 " Enable per-command history
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-nnoremap <C-p> :FzfFiles<CR>
+nnoremap <leader>o :FzfFiles<CR>
 nnoremap <leader>f :RG<CR>
 " Path completion with custom source command
 inoremap <expr> <C-x><C-f> fzf#vim#complete#path('fd')
