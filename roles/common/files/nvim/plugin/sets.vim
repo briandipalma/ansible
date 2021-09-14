@@ -31,3 +31,9 @@ set hidden
 set foldlevelstart=99
 " Show invisibles
 set list lcs=tab:▹\ ,eol:◦
+" Wrapped lines continue visually indented
+set breakindent
+" Wrapped line's beginning will be shifted to emphasize line continuation
+set breakindentopt=shift:2
+" String to put at start of wrapped lines
+set showbreak=↳

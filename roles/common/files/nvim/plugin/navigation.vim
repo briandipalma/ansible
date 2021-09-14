@@ -1,6 +1,14 @@
 " Easily select any open buffer
 nnoremap <leader>b :FzfBuffers<CR>
 
+" Center the cursor when navigating
+nnoremap {     {zz
+nnoremap }     }zz
+nnoremap n     nzz
+nnoremap N     Nzz
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
+
 " Keymaps and functions for opening/closing/navigating quick/location lists
 " Taken from ThePrimeagen's config
 nnoremap <C-j> :cnext<CR>zz
