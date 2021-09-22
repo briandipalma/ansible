@@ -99,8 +99,7 @@ key_bindings:
   - { key: Key3, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 3"] }}
   - { key: Key4, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 4"] }}
   - { key: Key5, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 5"] }}
-  # Control-6 toggles to last buffer in vim
-  - { key: Key6, mods: Control|Shift, command: { program: "fish", args: ["-c", "new-tmux-window 6"] }}
+  - { key: Key6, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 6"] }}
   - { key: Key7, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 7"] }}
   - { key: Key8, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 8"] }}
   - { key: Key9, mods: Control, command: { program: "fish", args: ["-c", "new-tmux-window 9"] }}
