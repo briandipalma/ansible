@@ -1,3 +1,6 @@
+" Open lazygit in a tmux popup window
+nnoremap <leader>g :!open-lazygit-tmux-popup<CR><CR>
+
 " Paste from clipboard, use C-q instead of C-v to insert literal text
 inoremap <C-v> <C-r>+
 

@@ -1,2 +1,2 @@
-" Open lazygit in a tmux popup window
-nnoremap <leader>g :!open-lazygit-tmux-popup<CR><CR>
+" Write even when making a typo
+:command W w
