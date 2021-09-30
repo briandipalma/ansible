@@ -1,8 +1,19 @@
 - name: Install fd (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
-    deb: https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb
-  tags: fd 
+    pkg:
+    - fd-find
+  tags: fd
+
+- name: Create a symbolic link to fdfind
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  ansible.builtin.file:
+    src: /usr/bin/fdfind
+    dest: /usr/local/bin/fd
+    owner: root
+    group: root
+    state: link
+  tags: fd
 
 - name: Install fd (MacOSX)
   when: ansible_distribution in ["MacOSX"]
@@ -10,4 +21,3 @@
     name: fd
     state: latest
   tags: fd
-
