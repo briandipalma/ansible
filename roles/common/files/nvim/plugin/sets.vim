@@ -37,3 +37,5 @@ set breakindent
 set breakindentopt=shift:2
 " String to put at start of wrapped lines
 set showbreak=↳
+" Wrap long lines on whole words not the last character that fits on the screen
+set linebreak
