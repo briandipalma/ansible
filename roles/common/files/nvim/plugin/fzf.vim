@@ -19,7 +19,7 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 command! FzfLastCommitFiles call fzf#run(
   \ fzf#wrap('last-commit-files', {
     \ 'source': 'git diff-tree --no-commit-id --name-only -r HEAD',
-    \ 'sink': 'vsplit',
+    \ 'sink': 'e',
     \ 'options': [
       \ '--multi',
       \ '--preview',
