@@ -38,6 +38,7 @@
 
 [diff]
   colorMoved = default
+  algorithm = patience
 
 [pager]
   diff = delta
