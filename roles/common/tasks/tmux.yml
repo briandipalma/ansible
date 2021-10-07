@@ -22,3 +22,16 @@
     owner: "{{ user_name }}"
   tags: tmux
 
+- name: Git checkout of tpm
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm.git
+    dest: "{{ home_dir }}/.tmux/plugins/tpm"
+  tags: tmux
+
+- name: Recursively change ownership of tpm directory
+  ansible.builtin.file:
+    path: "{{ home_dir }}/.tmux/"
+    state: directory
+    recurse: yes
+    owner: "{{ user_name }}"
+  tags: tmux
