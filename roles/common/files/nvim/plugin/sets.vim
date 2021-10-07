@@ -40,4 +40,4 @@ set showbreak=↳
 " Wrap long lines on whole words not the last character that fits on the screen
 set linebreak
 " Options for vimdiff/fugitive diff
-set diffopt+=vertical
+set diffopt+=vertical,algorithm:patience,indent-heuristic
