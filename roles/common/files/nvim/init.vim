@@ -1,6 +1,7 @@
 """ Vim-Plug
 
 call plug#begin()
+  Plug 'folke/which-key.nvim'
   " NERDTree plugins
   Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeFocus'] }
   Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeFind', 'NERDTreeFocus'] }
