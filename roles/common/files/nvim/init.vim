@@ -2,6 +2,7 @@
 
 call plug#begin()
   Plug 'folke/which-key.nvim'
+  Plug 'unblevable/quick-scope'
   Plug 'machakann/vim-highlightedyank'
   " NERDTree plugins
   Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeFocus'] }
