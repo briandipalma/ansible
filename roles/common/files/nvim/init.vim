@@ -1,7 +1,8 @@
+lua require('plugins')
+
 """ Vim-Plug
 
 call plug#begin()
-  Plug 'folke/which-key.nvim'
   Plug 'unblevable/quick-scope'
   Plug 'machakann/vim-highlightedyank'
   " NERDTree plugins
@@ -20,7 +21,6 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'dense-analysis/ale'
   Plug 'sheerun/vim-polyglot'
-  Plug 'LunarWatcher/auto-pairs', { 'tag': '*' }
   Plug 'Yggdroot/indentLine'
   Plug 'tpope/vim-commentary'
 call plug#end()

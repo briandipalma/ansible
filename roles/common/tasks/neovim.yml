@@ -39,3 +39,17 @@
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: "{{ home_dir }}/.local/share/nvim/site/autoload/plug.vim"
   tags: neovim
+
+- name: Git checkout of packer
+  ansible.builtin.git:
+    repo: https://github.com/wbthomason/packer.nvim
+    dest: "{{ home_dir }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  tags: neovim
+
+- name: Recursively change ownership of packer directory
+  ansible.builtin.file:
+    path: "{{ home_dir }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    state: directory
+    recurse: yes
+    owner: "{{ user_name }}"
+  tags: neovim
