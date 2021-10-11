@@ -4,8 +4,3 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 
 nnoremap <s-A-o> :ALEOrganizeImports<cr>
-nnoremap <F12> :ALEGoToDefinition<cr>
-" In a terminal Shift-F12 seems to be mapped to F24 tested on Mac/Linux and with
-" multiple keyboards
-nnoremap <F24> :ALEFindReferences<cr>
-nnoremap <F2> :ALERename<cr>
