@@ -7,4 +7,11 @@ return require('packer').startup(function()
   use 'folke/which-key.nvim'
   -- Configurations for Neovim's LSP client
   use 'neovim/nvim-lspconfig'
+  -- Autocompletion plugin and sources
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source
+  use 'hrsh7th/cmp-buffer' -- Buffers source
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use "rafamadriz/friendly-snippets" -- Collection of snippets
 end)
