@@ -1,8 +1,6 @@
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  -- Auto close quotes, brackets when you press enter
-  use 'rstacruz/vim-closer'
   -- Show key combinations after pressing a key
   use 'folke/which-key.nvim'
   -- Configurations for Neovim's LSP client
@@ -26,4 +24,6 @@ return require('packer').startup(function()
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- Auto close pairs, brackets/quotes
+  use 'windwp/nvim-autopairs'
 end)
