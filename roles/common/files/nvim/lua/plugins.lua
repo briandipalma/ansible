@@ -14,4 +14,10 @@ return require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use "rafamadriz/friendly-snippets" -- Collection of snippets
+  -- File explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require'nvim-tree'.setup {} end
+  }
 end)

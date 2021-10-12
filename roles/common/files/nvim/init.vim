@@ -5,11 +5,6 @@ lua require('plugins')
 call plug#begin()
   Plug 'unblevable/quick-scope'
   Plug 'machakann/vim-highlightedyank'
-  " NERDTree plugins
-  Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeFocus'] }
-  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeFind', 'NERDTreeFocus'] }
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': ['NERDTreeFind', 'NERDTreeFocus'] }
-  Plug 'ryanoasis/vim-devicons', { 'on': ['NERDTreeFind', 'NERDTreeFocus'] }
   " Theme
   Plug 'overcache/NeoSolarized'
   Plug 'junegunn/fzf'
