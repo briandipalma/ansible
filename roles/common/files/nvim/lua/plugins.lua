@@ -20,4 +20,9 @@ return require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons',
     config = function() require'nvim-tree'.setup {} end
   }
+  -- Fuzzy finder over lists
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
 end)

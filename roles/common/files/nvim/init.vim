@@ -7,8 +7,6 @@ call plug#begin()
   Plug 'machakann/vim-highlightedyank'
   " Theme
   Plug 'overcache/NeoSolarized'
-  Plug 'junegunn/fzf'
-  Plug 'junegunn/fzf.vim'
   Plug 'mbbill/undotree'
   Plug 'tpope/vim-fugitive'
   Plug 'vim-airline/vim-airline'

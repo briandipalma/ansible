@@ -1,6 +1,3 @@
-" Easily select any open buffer
-nnoremap <leader>b :FzfBuffers<CR>
-
 " Center the cursor when navigating
 nnoremap {     {zz
 nnoremap }     }zz
