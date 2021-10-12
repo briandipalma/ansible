@@ -100,6 +100,12 @@ key_bindings:
   - { key: I,           mods: Alt,                    chars: "\x1bi"    }
   - { key: J,           mods: Alt,                    chars: "\x1bj"    }
   - { key: K,           mods: Alt,                    chars: "\x1bk"    }
+  - { key: L,           mods: Alt,                    chars: "\x1bl"    }
+  - { key: M,           mods: Alt,                    chars: "\x1bm"    }
+  - { key: N,           mods: Alt,                    chars: "\x1bn"    }
+  - { key: O,           mods: Alt,                    chars: "\x1bo"    }
+  - { key: P,           mods: Alt,                    chars: "\x1bp"    }
+  - { key: Q,           mods: Alt,                    chars: "\x1bq"    }
   # tmux shortcuts
   # CTRL+\ for Mac OS X
   - { key: Backslash,   mods: Control,                chars: "\x1c"     }
