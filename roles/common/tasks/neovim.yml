@@ -48,7 +48,7 @@
 
 - name: Recursively change ownership of packer directory
   ansible.builtin.file:
-    path: "{{ home_dir }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path: "{{ home_dir }}/.local/share/nvim/site/pack/packer/"
     state: directory
     recurse: yes
     owner: "{{ user_name }}"
