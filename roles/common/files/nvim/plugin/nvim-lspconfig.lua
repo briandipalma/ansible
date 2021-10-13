@@ -34,11 +34,14 @@ end
 
 -- Add capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+--Enable (broadcasting) snippet capability for completion, cssls needs it
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Use a loop to call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'tsserver' }
+local servers = { 'cssls', 'tsserver' }
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
