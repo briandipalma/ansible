@@ -21,7 +21,7 @@ return require('packer').startup(function()
   -- Fuzzy finder over lists
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { 'nvim-lua/plenary.nvim' }
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   -- Auto close pairs, brackets/quotes
@@ -31,5 +31,13 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     branch = '0.5-compat',
     run = ':TSUpdate'
+  }
+  -- Gutter git decorations
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('gitsigns').setup()
+    end
   }
 end)
