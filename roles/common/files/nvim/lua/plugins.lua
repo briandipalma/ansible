@@ -23,7 +23,7 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   -- Auto close pairs, brackets/quotes
   use 'windwp/nvim-autopairs'
   -- Tree-sitter
@@ -39,5 +39,10 @@ return require('packer').startup(function()
     config = function()
       require('gitsigns').setup()
     end
+  }
+  -- Statusline plugin
+  use {
+    'hoob3rt/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 end)

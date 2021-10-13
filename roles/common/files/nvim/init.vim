@@ -9,8 +9,6 @@ call plug#begin()
   Plug 'overcache/NeoSolarized'
   Plug 'mbbill/undotree'
   Plug 'tpope/vim-fugitive'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'dense-analysis/ale'
   Plug 'Yggdroot/indentLine'
   Plug 'tpope/vim-commentary'
