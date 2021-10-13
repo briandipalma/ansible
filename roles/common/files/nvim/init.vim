@@ -13,7 +13,6 @@ call plug#begin()
   Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
   Plug 'dense-analysis/ale'
-  Plug 'sheerun/vim-polyglot'
   Plug 'Yggdroot/indentLine'
   Plug 'tpope/vim-commentary'
 call plug#end()

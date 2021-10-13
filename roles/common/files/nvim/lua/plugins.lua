@@ -26,4 +26,10 @@ return require('packer').startup(function()
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   -- Auto close pairs, brackets/quotes
   use 'windwp/nvim-autopairs'
+  -- Tree-sitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    branch = '0.5-compat',
+    run = ':TSUpdate'
+  }
 end)
