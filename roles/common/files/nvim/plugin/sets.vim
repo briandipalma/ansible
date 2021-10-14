@@ -15,7 +15,8 @@ set undofile
 " No need with undotree
 set noswapfile
 " Number of lines buffer to keep above and below cursor line when scrolling
-set scrolloff=8
+" A large number keeps the cursor centered
+set scrolloff=999
 " Side column for code errors/linting/git markers
 set signcolumn=yes
 " Show column to help limit rightwards drift
