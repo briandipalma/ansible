@@ -1,8 +1,6 @@
-local nvim_lsp = require('lspconfig')
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -32,23 +30,60 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Add capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- Configure lua language server for neovim development
+local lua_settings = {
+  Lua = {
+    runtime = {
+      -- LuaJIT in the case of Neovim
+      version = "LuaJIT",
+      path = vim.split(package.path, ";"),
+    },
+    diagnostics = {
+      -- Get the language server to recognize the `vim` global
+      globals = { "vim" },
+    },
+    workspace = {
+      -- Make the server aware of Neovim runtime files
+      library = vim.api.nvim_get_runtime_file("", true),
+    },
+  },
+}
 
---Enable (broadcasting) snippet capability for completion, cssls needs it
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- config that activates keymaps and enables snippet support
+local function make_config()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  -- enable snippet support
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  -- Add capabilities supported by nvim-cmp
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- Use a loop to call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'ansiblels', 'cssls', 'html', 'jsonls', 'tsserver', 'yamlls' }
-
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
+  return {
     capabilities = capabilities,
+    on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     }
   }
 end
+
+-- lsp-install
+local function setup_servers()
+  require'lspinstall'.setup()
+
+  -- get all installed servers
+  local servers = require'lspinstall'.installed_servers()
+
+  for _, server in pairs(servers) do
+    local config = make_config()
+
+    -- language specific config
+    if server == "sumneko_lua" then
+      config.cmd = { "lua-language-server" }
+      config.settings = lua_settings
+    end
+
+    require'lspconfig'[server].setup(config)
+  end
+end
+
+setup_servers()

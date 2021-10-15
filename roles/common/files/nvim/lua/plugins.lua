@@ -1,10 +1,11 @@
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  -- Show key combinations after pressing a key
-  use 'folke/which-key.nvim'
   -- Configurations for Neovim's LSP client
   use 'neovim/nvim-lspconfig'
+  use 'kabouzeid/nvim-lspinstall'
+  -- Show key combinations after pressing a key
+  use 'folke/which-key.nvim'
   -- Autocompletion plugin and sources
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source
