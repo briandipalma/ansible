@@ -46,4 +46,6 @@ return require('packer').startup(function(use)
     'hoob3rt/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+  -- Visualize Neovim's undo tree
+  use 'mbbill/undotree'
 end)

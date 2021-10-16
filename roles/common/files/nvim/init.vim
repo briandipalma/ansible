@@ -8,7 +8,6 @@ call plug#begin()
   Plug 'machakann/vim-highlightedyank'
   " Theme
   Plug 'overcache/NeoSolarized'
-  Plug 'mbbill/undotree'
   Plug 'dense-analysis/ale'
   Plug 'Yggdroot/indentLine'
 call plug#end()
