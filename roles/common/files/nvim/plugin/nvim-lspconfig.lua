@@ -1,3 +1,5 @@
+local lsp_installer = require("nvim-lsp-installer")
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(_, bufnr)
@@ -66,24 +68,15 @@ local function make_config()
   }
 end
 
--- lsp-install
-local function setup_servers()
-  require'lspinstall'.setup()
-
-  -- get all installed servers
-  local servers = require'lspinstall'.installed_servers()
-
-  for _, server in pairs(servers) do
+lsp_installer.on_server_ready(function(server)
     local config = make_config()
 
     -- language specific config
-    if server == "sumneko_lua" then
+    if server.name == "sumneko_lua" then
       config.cmd = { "lua-language-server" }
       config.settings = lua_settings
     end
 
-    require'lspconfig'[server].setup(config)
-  end
-end
-
-setup_servers()
+    server:setup(config)
+    vim.cmd [[ do User LspAttachBuffers ]]
+end)
