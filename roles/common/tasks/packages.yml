@@ -5,4 +5,3 @@
       - unzip
     state: latest
   tags: packages
-

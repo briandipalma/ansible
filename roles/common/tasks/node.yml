@@ -1,0 +1,22 @@
+- name: Add the node source repository Apt signing key
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  ansible.builtin.apt_key:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    state: present
+    keyring: /usr/share/keyrings/nodesource.gpg
+  tags: node
+
+- name: Add node source repository
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt_repository:
+    repo: deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x focal main
+    state: present
+  tags: node
+
+- name: Install Ansible task required packages (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - nodejs
+    state: latest
+  tags: node
