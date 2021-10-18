@@ -48,4 +48,12 @@ return require('packer').startup(function(use)
   }
   -- Visualize Neovim's undo tree
   use 'mbbill/undotree'
+  -- Faster left-right movement, highlight unique characters in line
+  use 'unblevable/quick-scope'
+  -- Highlight yanked text
+  use 'machakann/vim-highlightedyank'
+  -- Display indention levels for space indented code
+  use 'Yggdroot/indentLine'
+  -- Prettier
+  use 'dense-analysis/ale'
 end)
