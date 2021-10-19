@@ -56,4 +56,6 @@ return require('packer').startup(function(use)
   use 'Yggdroot/indentLine'
   -- Prettier
   use 'dense-analysis/ale'
+  -- Theme
+  use 'gruvbox-community/gruvbox'
 end)

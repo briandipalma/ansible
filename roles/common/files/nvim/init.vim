@@ -1,12 +1,6 @@
 lua require('plugins')
 lua require('navigation')
-
-""" Vim-Plug
-
-call plug#begin()
-  " Theme
-  Plug 'overcache/NeoSolarized'
-call plug#end()
+lua require('theme')
 
 " Map the leader key to space, more convenient than default `\`
 let mapleader = " "
