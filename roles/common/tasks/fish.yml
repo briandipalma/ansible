@@ -49,3 +49,17 @@
     dest: "{{ home_dir }}/.config"
     owner: "{{ user_name }}"
   tags: fish
+
+- name: Install bass step 1
+  get_url:
+    url: https://raw.githubusercontent.com/edc/bass/master/functions/__bass.py
+    dest: "{{ home_dir }}/.config/fish/functions/"
+    owner: "{{ user_name }}"
+  tags: fish
+
+- name: Install bass step 2
+  get_url:
+    url: https://raw.githubusercontent.com/edc/bass/master/functions/bass.fish
+    dest: "{{ home_dir }}/.config/fish/functions/"
+    owner: "{{ user_name }}"
+  tags: fish

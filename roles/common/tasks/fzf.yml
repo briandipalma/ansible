@@ -19,4 +19,3 @@
     dest: "{{ home_dir }}/.config/fish/functions/fzf_key_bindings.fish"
     owner: "{{ user_name }}"
   tags: fzf
-
