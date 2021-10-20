@@ -73,7 +73,6 @@ lsp_installer.on_server_ready(function(server)
 
     -- language specific config
     if server.name == "sumneko_lua" then
-      config.cmd = { "lua-language-server" }
       config.settings = lua_settings
     end
 
