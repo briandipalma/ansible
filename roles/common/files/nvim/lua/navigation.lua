@@ -1,6 +1,6 @@
--- Center the cursor when navigating
 local opts = { noremap=true, silent=true }
 
+-- Center the cursor when navigating
 vim.api.nvim_set_keymap('n', '{', '{zz', opts)
 vim.api.nvim_set_keymap('n', '}', '}zz', opts)
 vim.api.nvim_set_keymap('n', 'n', 'nzz', opts)

@@ -2,7 +2,7 @@ local luasnip = require 'luasnip'
 local cmp = require 'cmp'
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone'
+vim.o.completeopt = 'menuone,preview'
 
 cmp.setup {
   snippet = {
@@ -42,6 +42,7 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'buffer' },
     { name = 'luasnip' },
   },
 }
