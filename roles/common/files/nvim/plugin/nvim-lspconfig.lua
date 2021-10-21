@@ -26,6 +26,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>lf', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<leader>le', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<leader>lm', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
   if client.name == "tsserver" then
     buf_set_keymap('n', '<leader>lo', '<cmd>lua require"nvim-lsp-installer.extras.tsserver".organize_imports()<CR>', opts)
@@ -69,13 +70,13 @@ local function make_config()
 end
 
 lsp_installer.on_server_ready(function(server)
-    local config = make_config()
+  local config = make_config()
 
-    -- language specific config
-    if server.name == "sumneko_lua" then
-      config.settings = lua_settings
-    end
+  -- language specific config
+  if server.name == "sumneko_lua" then
+    config.settings = lua_settings
+  end
 
-    server:setup(config)
-    vim.cmd [[ do User LspAttachBuffers ]]
+  server:setup(config)
+  vim.cmd [[ do User LspAttachBuffers ]]
 end)
