@@ -6,3 +6,5 @@ set.scrolloff = 8
 set.foldmethod = "expr"
 -- Use treesitter to obtain a line's fold level
 set.foldexpr = "nvim_treesitter#foldexpr()"
+-- Don't highlight all search pattern matches
+set.hlsearch = false
