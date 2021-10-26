@@ -8,3 +8,5 @@ set.foldmethod = "expr"
 set.foldexpr = "nvim_treesitter#foldexpr()"
 -- Don't highlight all search pattern matches
 set.hlsearch = false
+-- Expand tab characters into spaces
+set.expandtab = true
