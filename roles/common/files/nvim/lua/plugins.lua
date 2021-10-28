@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
   -- File explorer
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons'
+    requires = { 'kyazdani42/nvim-web-devicons'}
   }
   -- Fuzzy finder over lists
   use {
@@ -33,17 +33,14 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use {
     'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('gitsigns').setup()
-    end
+    requires = { 'nvim-lua/plenary.nvim' }
   }
   -- Show key combinations after pressing a key
   use 'folke/which-key.nvim'
   -- Statusline plugin
   use {
     'hoob3rt/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'kyazdani42/nvim-web-devicons' }
   }
   -- Visualize Neovim's undo tree
   use 'mbbill/undotree'
