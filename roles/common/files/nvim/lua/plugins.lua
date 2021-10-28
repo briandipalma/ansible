@@ -23,6 +23,8 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source
   use 'hrsh7th/cmp-buffer' -- Buffers source
+  use 'hrsh7th/cmp-path' -- File system paths source
+  use 'hrsh7th/cmp-cmdline' -- Neovim commands source
   -- Snippets and autocompletion sources
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source
