@@ -2,5 +2,4 @@
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 # Clear the startup greeting message
-set -U fish_greeting 
-
+set -U fish_greeting

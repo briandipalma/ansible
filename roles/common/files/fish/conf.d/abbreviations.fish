@@ -1,2 +1,1 @@
 abbr --add --global - "cd -"
-
