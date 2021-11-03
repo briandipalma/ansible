@@ -1,9 +1,30 @@
 - name: Install direnv
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
-    name: direnv 
+    name: direnv
     state: latest
   tags: direnv
+
+- name: Install StyLua
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: stylua
+    state: latest
+  tags: stylua
+
+- name: Install Selene
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: selene
+    state: latest
+  tags: selene
+
+- name: Install yamllint
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: yamllint
+    state: latest
+  tags: yamllint
 
 - name: Copy Karabiner config
   when: ansible_distribution in ["MacOSX"]
@@ -12,7 +33,7 @@
     dest: "{{ home_dir }}/.config/karabiner/"
   tags: karabiner
 
-- name: Copy fish config 
+- name: Copy fish config
   copy:
     src: fish
     dest: "{{ home_dir }}/.config"
