@@ -96,9 +96,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -157,9 +157,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -220,9 +220,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -281,9 +281,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -347,9 +347,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -413,9 +413,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -506,9 +506,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -572,9 +572,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -638,9 +638,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -704,9 +704,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -771,9 +771,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -832,9 +832,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -893,9 +893,9 @@
                                             "^io\\.alacritty$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
-					"file_paths": [
-					    "/alacritty$"
-					],
+                                        "file_paths": [
+                                            "/alacritty$"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
