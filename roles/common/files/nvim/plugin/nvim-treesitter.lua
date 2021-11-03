@@ -1,12 +1,22 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    "css", "fish", "html", "java", "javascript", "json", "kotlin", "lua", "scss", "typescript", "yaml"
-  },
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-  indent = {
-    enable = true
-  }
-}
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"css",
+		"fish",
+		"html",
+		"java",
+		"javascript",
+		"json",
+		"kotlin",
+		"lua",
+		"scss",
+		"typescript",
+		"yaml",
+	},
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+	indent = {
+		enable = true,
+	},
+})

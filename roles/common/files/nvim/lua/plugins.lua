@@ -1,61 +1,61 @@
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-  -- Configurations for Neovim's LSP client
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' }
-  }
-  -- Tree-sitter
-  use { 'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate' }
-  -- Comment toggling
-  use 'tpope/vim-commentary'
-  -- File explorer
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = { 'kyazdani42/nvim-web-devicons'}
-  }
-  -- Fuzzy finder over lists
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }
-  }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  -- Autocompletion plugin and sources
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source
-  use 'hrsh7th/cmp-buffer' -- Buffers source
-  use 'hrsh7th/cmp-path' -- File system paths source
-  use 'hrsh7th/cmp-cmdline' -- Neovim commands source
-  -- Snippets and autocompletion sources
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source
-  use "rafamadriz/friendly-snippets" -- Collection of snippets
-  -- Auto close pairs, brackets/quotes
-  use 'windwp/nvim-autopairs'
-  -- git plugins, gutter git decorations
-  use 'tpope/vim-fugitive'
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }
-  }
-  -- Show key combinations after pressing a key
-  use 'folke/which-key.nvim'
-  -- Statusline plugin
-  use {
-    'hoob3rt/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' }
-  }
-  -- Visualize Neovim's undo tree
-  use 'mbbill/undotree'
-  -- Faster left-right movement, highlight unique characters in line
-  use 'unblevable/quick-scope'
-  -- Highlight yanked text
-  use 'machakann/vim-highlightedyank'
-  -- Display indention levels for space indented code
-  use 'Yggdroot/indentLine'
-  -- Theme
-  use 'gruvbox-community/gruvbox'
+return require("packer").startup(function(use)
+	-- Packer can manage itself
+	use("wbthomason/packer.nvim")
+	-- Configurations for Neovim's LSP client
+	use("neovim/nvim-lspconfig")
+	use("williamboman/nvim-lsp-installer")
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+	})
+	-- Tree-sitter
+	use({ "nvim-treesitter/nvim-treesitter", branch = "0.5-compat", run = ":TSUpdate" })
+	-- Comment toggling
+	use("tpope/vim-commentary")
+	-- File explorer
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
+	-- Fuzzy finder over lists
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	-- Autocompletion plugin and sources
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-nvim-lsp") -- LSP source
+	use("hrsh7th/cmp-buffer") -- Buffers source
+	use("hrsh7th/cmp-path") -- File system paths source
+	use("hrsh7th/cmp-cmdline") -- Neovim commands source
+	-- Snippets and autocompletion sources
+	use("L3MON4D3/LuaSnip") -- Snippets plugin
+	use("saadparwaiz1/cmp_luasnip") -- Snippets source
+	use("rafamadriz/friendly-snippets") -- Collection of snippets
+	-- Auto close pairs, brackets/quotes
+	use("windwp/nvim-autopairs")
+	-- git plugins, gutter git decorations
+	use("tpope/vim-fugitive")
+	use({
+		"lewis6991/gitsigns.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+	-- Show key combinations after pressing a key
+	use("folke/which-key.nvim")
+	-- Statusline plugin
+	use({
+		"hoob3rt/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
+	-- Visualize Neovim's undo tree
+	use("mbbill/undotree")
+	-- Faster left-right movement, highlight unique characters in line
+	use("unblevable/quick-scope")
+	-- Highlight yanked text
+	use("machakann/vim-highlightedyank")
+	-- Display indention levels for space indented code
+	use("Yggdroot/indentLine")
+	-- Theme
+	use("gruvbox-community/gruvbox")
 end)
