@@ -4,6 +4,10 @@ return require('packer').startup(function(use)
   -- Configurations for Neovim's LSP client
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' }
+  }
   -- Tree-sitter
   use { 'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate' }
   -- Comment toggling
@@ -52,8 +56,6 @@ return require('packer').startup(function(use)
   use 'machakann/vim-highlightedyank'
   -- Display indention levels for space indented code
   use 'Yggdroot/indentLine'
-  -- Prettier
-  use 'dense-analysis/ale'
   -- Theme
   use 'gruvbox-community/gruvbox'
 end)

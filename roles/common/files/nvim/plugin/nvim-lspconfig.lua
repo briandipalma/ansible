@@ -33,6 +33,10 @@ local on_attach = function(client, bufnr)
     client.resolved_capabilities.document_range_formatting = false
     buf_set_keymap('n', '<leader>lo', '<cmd>lua require"nvim-lsp-installer.extras.tsserver".organize_imports()<CR>', opts)
   end
+
+  if client.resolved_capabilities.document_formatting then
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+  end
 end
 
 -- Configure lua language server for neovim development
@@ -70,6 +74,10 @@ local function make_config()
     }
   }
 end
+
+require("lspconfig")["null-ls"].setup({
+    on_attach = on_attach
+})
 
 lsp_installer.on_server_ready(function(server)
   local config = make_config()
