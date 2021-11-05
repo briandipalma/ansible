@@ -19,13 +19,6 @@
     state: latest
   tags: selene
 
-- name: Install yamllint
-  when: ansible_distribution in ["MacOSX"]
-  community.general.homebrew:
-    name: yamllint
-    state: latest
-  tags: yamllint
-
 - name: Copy Karabiner config
   when: ansible_distribution in ["MacOSX"]
   copy:

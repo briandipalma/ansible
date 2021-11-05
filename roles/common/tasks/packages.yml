@@ -3,5 +3,17 @@
   apt:
     pkg:
       - unzip
+      - python3-pip
     state: latest
+  tags: packages
+
+- name: Install yamllint python package
+  pip:
+    name: yamllint
+  tags: packages
+
+- name: Install "prettierd" node.js package globally.
+  community.general.npm:
+    name: '@fsouza/prettierd'
+    global: yes
   tags: packages
