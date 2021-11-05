@@ -1,9 +1,10 @@
+---
 - name: Install fzf (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
-    src: https://github.com/junegunn/fzf/releases/download/0.27.3/fzf-0.27.3-linux_amd64.tar.gz
+    src: https://github.com/junegunn/fzf/releases/download/0.28.0/fzf-0.28.0-linux_amd64.tar.gz
     dest: /usr/local/bin
-    remote_src: yes
+    remote_src: true
   tags: fzf
 
 - name: Install fzf (MacOSX)
