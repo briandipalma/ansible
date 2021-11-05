@@ -1,3 +1,4 @@
+---
 - name: Install tldr (Linux)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   get_url:

@@ -1,3 +1,4 @@
+---
 - name: Install bat (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:

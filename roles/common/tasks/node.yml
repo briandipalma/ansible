@@ -1,3 +1,4 @@
+---
 - name: Add the node source repository Apt signing key
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   ansible.builtin.apt_key:

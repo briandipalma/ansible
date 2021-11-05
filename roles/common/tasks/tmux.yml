@@ -1,3 +1,4 @@
+---
 - name: Install tmux (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
@@ -32,6 +33,6 @@
   ansible.builtin.file:
     path: "{{ home_dir }}/.tmux/"
     state: directory
-    recurse: yes
+    recurse: true
     owner: "{{ user_name }}"
   tags: tmux

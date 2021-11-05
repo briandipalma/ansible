@@ -1,3 +1,4 @@
+---
 - name: Install git (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
@@ -5,7 +6,7 @@
       - git
     state: latest
   tags: git
- 
+
 - name: Install git (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
@@ -19,4 +20,3 @@
     dest: "{{ home_dir }}/.config"
     owner: "{{ user_name }}"
   tags: git
-

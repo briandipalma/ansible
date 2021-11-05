@@ -1,3 +1,4 @@
+---
 - name: Install Ansible task required packages (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
@@ -9,11 +10,13 @@
 
 - name: Install yamllint python package
   pip:
-    name: yamllint
+    name:
+      - yamllint
+      - ansible-lint
   tags: packages
 
 - name: Install "prettierd" node.js package globally.
   community.general.npm:
-    name: '@fsouza/prettierd'
-    global: yes
+    name: "@fsouza/prettierd"
+    global: true
   tags: packages

@@ -1,15 +1,16 @@
+---
 - name: Update repo cache (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   changed_when: false
   apt:
-    update_cache: yes
+    update_cache: true
   tags: always
 
 - name: Update repo cache (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   changed_when: false
   community.general.homebrew:
-    update_homebrew: yes
+    update_homebrew: true
   tags: always
 
 - import_tasks: packages.yml

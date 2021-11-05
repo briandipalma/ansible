@@ -1,3 +1,4 @@
+---
 - name: Install bottom (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
@@ -7,9 +8,9 @@
 - name: Install bottom (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
-    name: clementtsang/bottom/bottom 
+    name: clementtsang/bottom/bottom
     state: latest
-  tags: bottom 
+  tags: bottom
 
 - name: Copy bottom config
   copy:
@@ -17,4 +18,3 @@
     dest: "{{ home_dir }}/.config"
     owner: "{{ user_name }}"
   tags: bottom
-

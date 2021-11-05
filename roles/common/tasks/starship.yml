@@ -1,15 +1,16 @@
+---
 - name: Install Starship (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
     src: https://github.com/starship/starship/releases/download/v0.58.0/starship-x86_64-unknown-linux-gnu.tar.gz
     dest: /usr/local/bin
-    remote_src: yes
+    remote_src: true
   tags: starship
 
 - name: Install Starship
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
-    name: starship 
+    name: starship
     state: latest
   tags: starship
 
@@ -19,4 +20,3 @@
     dest: "{{ home_dir }}/.config/starship.toml"
     owner: "{{ user_name }}"
   tags: starship
-

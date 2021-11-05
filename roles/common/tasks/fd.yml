@@ -1,8 +1,9 @@
+---
 - name: Install fd (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     pkg:
-    - fd-find
+      - fd-find
   tags: fd
 
 - name: Create a symbolic link to fdfind
