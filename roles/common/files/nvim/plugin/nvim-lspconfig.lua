@@ -33,14 +33,17 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>lm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
 	if client.name == "tsserver" then
+		local ts_utils = require("nvim-lsp-ts-utils")
+
+		ts_utils.setup({
+			enable_import_on_completion = true,
+		})
+		-- required to fix code action ranges and filter diagnostics
+		ts_utils.setup_client(client)
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
-		buf_set_keymap(
-			"n",
-			"<leader>lo",
-			'<cmd>lua require"nvim-lsp-installer.extras.tsserver".organize_imports()<CR>',
-			opts
-		)
+		buf_set_keymap("n", "<leader>lo", ":TSLspOrganize<CR>", opts)
+		buf_set_keymap("n", "<leader>lt", ":TSLspImportAll<CR>", opts)
 	end
 
 	if client.resolved_capabilities.document_formatting then
