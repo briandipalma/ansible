@@ -13,10 +13,23 @@
     name:
       - yamllint
       - ansible-lint
+      - proselint
   tags: packages
 
 - name: Install "prettierd" node.js package globally.
   community.general.npm:
     name: "@fsouza/prettierd"
+    global: true
+  tags: packages
+
+- name: Install write-good node.js package globally.
+  community.general.npm:
+    name: write-good
+    global: true
+  tags: packages
+
+- name: Install markdownlint node.js package globally.
+  community.general.npm:
+    name: markdownlint-cli
     global: true
   tags: packages

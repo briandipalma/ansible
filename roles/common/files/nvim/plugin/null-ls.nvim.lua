@@ -11,8 +11,10 @@ local sources = {
 	null_ls.builtins.diagnostics.eslint_d,
 	null_ls.builtins.diagnostics.selene,
 	null_ls.builtins.diagnostics.write_good,
+	null_ls.builtins.diagnostics.markdownlint,
 	null_ls.builtins.diagnostics.stylelint,
 	null_ls.builtins.diagnostics.yamllint,
+	null_ls.builtins.hover.dictionary,
 }
 
 null_ls.config({ sources = sources })
