@@ -63,4 +63,6 @@ return require("packer").startup(function(use)
 	use("Yggdroot/indentLine")
 	-- Theme
 	use("gruvbox-community/gruvbox")
+	-- Personal wiki
+	use("lervag/wiki.vim")
 end)
