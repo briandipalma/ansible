@@ -12,6 +12,7 @@ return require("packer").startup(function(use)
 		"jose-elias-alvarez/nvim-lsp-ts-utils",
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	})
+	use("ray-x/lsp_signature.nvim")
 	-- Tree-sitter
 	use({ "nvim-treesitter/nvim-treesitter", branch = "0.5-compat", run = ":TSUpdate" })
 	-- Comment toggling
