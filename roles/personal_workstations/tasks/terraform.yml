@@ -1,7 +1,8 @@
+---
 - name: Install terraform (Pop!_OS)
   when: ansible_distribution in ["Pop!_OS"]
   unarchive:
-    src: https://releases.hashicorp.com/terraform/1.0.10/terraform_1.0.10_linux_amd64.zip
+    src: https://releases.hashicorp.com/terraform/1.0.11/terraform_1.0.11_linux_amd64.zip
     dest: /usr/local/bin
-    remote_src: yes
+    remote_src: true
   tags: terraform
