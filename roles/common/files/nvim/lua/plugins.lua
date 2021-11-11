@@ -13,6 +13,7 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	})
 	use("ray-x/lsp_signature.nvim")
+	use("onsails/lspkind-nvim")
 	-- Tree-sitter
 	use({ "nvim-treesitter/nvim-treesitter", branch = "0.5-compat", run = ":TSUpdate" })
 	-- Comment toggling
