@@ -12,7 +12,15 @@ vim.o.completeopt = "menu,menuone,noselect,preview"
 
 cmp.setup({
 	formatting = {
-		format = lspkind.cmp_format({}),
+		format = lspkind.cmp_format({
+			menu = {
+				buffer = "[buf]",
+				nvim_lsp = "[LSP]",
+				nvim_lua = "[api]",
+				path = "[path]",
+				luasnip = "[snip]",
+			},
+		}),
 	},
 	snippet = {
 		expand = function(args)
@@ -20,12 +28,14 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-		["<C-e>"] = cmp.mapping({
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		}),
+		["<C-d>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-e>"] = cmp.mapping.close(),
+		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<C-y>"] = cmp.mapping(
+			cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
+			{ "i", "c" }
+		),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
@@ -57,10 +67,15 @@ cmp.setup({
 		}),
 	},
 	sources = {
+		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
-		{ name = "buffer" },
-		{ name = "luasnip" },
 		{ name = "path" },
+		{ name = "luasnip" },
+		{ name = "buffer", keyword_length = 4 },
+	},
+	experimental = {
+		native_menu = false,
+		ghost_text = true,
 	},
 })
 
