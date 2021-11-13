@@ -1,11 +1,12 @@
-- name: Install font packages (Debian based) 
+---
+- name: Install font packages (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     pkg:
       - fonts-open-sans
       - fonts-roboto-slab
     state: latest
-  tags: fonts 
+  tags: fonts
 
 - name: Add fonts cask (MacOSX)
   when: ansible_distribution in ["MacOSX"]
@@ -39,4 +40,3 @@
     dest: /home/brian/.local/share/fonts
     remote_src: yes
   tags: fonts
-

@@ -1,0 +1,21 @@
+---
+- name: Install Taskwarrior packages (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - taskwarrior
+    state: latest
+  tags: taskwarrior
+
+- name: Install Taskwarrior packages (MacOSX based)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: task
+    state: latest
+  tags: taskwarrior
+
+- name: Copy Taskwarrior config
+  copy:
+    src: .taskrc
+    dest: "{{ home_dir }}"
+  tags: taskwarrior

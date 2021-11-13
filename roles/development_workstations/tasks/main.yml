@@ -1,3 +1,4 @@
+---
 - name: Install direnv
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:

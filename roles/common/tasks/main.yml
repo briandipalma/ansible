@@ -15,6 +15,7 @@
 
 - import_tasks: packages.yml
 - import_tasks: repos.yml
+- import_tasks: taskwarrior.yml
 - import_tasks: fish.yml
 - import_tasks: starship.yml
 - import_tasks: tmux.yml
