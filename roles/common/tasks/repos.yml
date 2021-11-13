@@ -1,0 +1,16 @@
+---
+- name: Git checkout of my-data repo
+  ansible.builtin.git:
+    repo: git@github.com:briandipalma/my-data.git
+    accept_hostkey: true
+    key_file: "{{ home_dir }}/.ssh/id_ed25519"
+    dest: "{{ home_dir }}/dev/my-data"
+  tags: repos
+
+- name: Recursively change ownership of my-data directory
+  ansible.builtin.file:
+    path: "{{ home_dir }}/dev/my-data"
+    state: directory
+    recurse: true
+    owner: "{{ user_name }}"
+  tags: repos

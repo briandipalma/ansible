@@ -1,3 +1,4 @@
+---
 become_root: true
 user_name: brian
 fish_location: /usr/bin/fish
