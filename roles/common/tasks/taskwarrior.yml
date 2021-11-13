@@ -18,4 +18,5 @@
   copy:
     src: .taskrc
     dest: "{{ home_dir }}"
+    owner: "{{ user_name }}"
   tags: taskwarrior

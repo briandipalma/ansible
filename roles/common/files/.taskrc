@@ -26,5 +26,5 @@ data.location=~/dev/my-data/task
 #include /usr/share/taskwarrior/dark-gray-256.theme
 #include /usr/share/taskwarrior/dark-gray-blue-256.theme
 #include /usr/share/taskwarrior/solarized-dark-256.theme
-#include /usr/share/taskwarrior/solarized-light-256.theme
+include /usr/share/taskwarrior/solarized-light-256.theme
 #include /usr/share/taskwarrior/no-color.theme
