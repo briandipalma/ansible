@@ -1,6 +1,8 @@
+---
 ansible_python_interpreter: /usr/local/bin/python3
 become_root: false
 user_name: briand
 fish_location: /usr/local/bin/fish
 home_dir: /Users/briand
 lazygit_config_dir: /Users/briand/Library/Application Support/
+taskwarrior_theme_path: solarized-light-256.theme

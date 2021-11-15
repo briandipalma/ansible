@@ -14,8 +14,8 @@
     state: latest
   tags: taskwarrior
 
-- name: Copy Taskwarrior config
-  copy:
+- name: Copy Taskwarrior config template
+  ansible.builtin.template:
     src: .taskrc
     dest: "{{ home_dir }}"
     owner: "{{ user_name }}"
