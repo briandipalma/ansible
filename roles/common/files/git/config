@@ -42,9 +42,11 @@
 
 [pager]
   diff = delta
-  log = delta
-  reflog = delta
   show = delta
+  log = delta
+  blame = delta
+  grep = delta
+  reflog = delta
 
 [interactive]
   diffFilter = delta --color-only
