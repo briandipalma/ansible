@@ -1,0 +1,8 @@
+---
+- name: Install kitty (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew_cask:
+    name:
+      - kitty
+    state: latest
+  tags: kitty

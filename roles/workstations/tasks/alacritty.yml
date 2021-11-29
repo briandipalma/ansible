@@ -1,3 +1,4 @@
+---
 - name: Install alacritty dependencies (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
@@ -23,7 +24,7 @@
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew_cask:
     name:
-      - alacritty 
+      - alacritty
     state: latest
   tags: alacritty
 
@@ -65,4 +66,3 @@
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   command: tic -xe alacritty,alacritty-direct /home/brian/dev/ansible/roles/workstations/files/alacritty.info
   tags: alacritty
-

@@ -1,3 +1,4 @@
+---
 - import_tasks: fonts.yml
 - import_tasks: alacritty.yml
-
+- import_tasks: kitty.yml
