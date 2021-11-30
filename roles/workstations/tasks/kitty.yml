@@ -6,3 +6,10 @@
       - kitty
     state: latest
   tags: kitty
+
+- name: Copy kitty config
+  copy:
+    src: kitty
+    dest: "{{ home_dir }}/.config"
+    owner: "{{ user_name }}"
+  tags: kitty
