@@ -1,8 +1,8 @@
+---
 gui:
   theme:
-    lightTheme: true
     activeBorderColor:
-      - blue
+      - magenta
       - bold
     inactiveBorderColor:
       - yellow
