@@ -7,6 +7,29 @@
     state: latest
   tags: kitty
 
+- name: Create kitty directory (Pop!_OS)
+  when: ansible_distribution in ["Pop!_OS"]
+  file:
+    path: "{{ home_dir }}/.local/kitty"
+    state: directory
+  tags: kitty
+
+- name: Install kitty (Pop!_OS)
+  when: ansible_distribution in ["Pop!_OS"]
+  unarchive:
+    src: https://github.com/kovidgoyal/kitty/releases/download/v0.23.1/kitty-0.23.1-x86_64.txz
+    dest: "{{ home_dir }}/.local/kitty"
+    remote_src: true
+  tags: kitty
+
+- name: Link kitty binary (Pop!_OS)
+  when: ansible_distribution in ["Pop!_OS"]
+  file:
+    src: "{{ home_dir }}/.local/kitty/bin/kitty"
+    dest: /usr/local/bin/kitty
+    state: link
+  tags: kitty
+
 - name: Copy kitty config
   copy:
     src: kitty
