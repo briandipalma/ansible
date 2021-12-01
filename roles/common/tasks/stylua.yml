@@ -1,0 +1,16 @@
+---
+- name: Install StyLua (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: stylua
+    state: latest
+  tags: stylua
+
+- name: Install StyLua (Pop!_OS)
+  when: ansible_distribution in ["Pop!_OS"]
+  unarchive:
+    src: https://github.com/JohnnyMorganz/StyLua/releases/download/v0.11.2/stylua-0.11.2-linux.zip
+    dest: /usr/local/bin
+    remote_src: true
+    mode: o+x
+  tags: stylua

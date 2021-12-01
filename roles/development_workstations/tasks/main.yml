@@ -6,13 +6,6 @@
     state: latest
   tags: direnv
 
-- name: Install StyLua
-  when: ansible_distribution in ["MacOSX"]
-  community.general.homebrew:
-    name: stylua
-    state: latest
-  tags: stylua
-
 - name: Copy Karabiner config
   when: ansible_distribution in ["MacOSX"]
   copy:
