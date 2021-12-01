@@ -10,3 +10,6 @@ set.foldexpr = "nvim_treesitter#foldexpr()"
 set.hlsearch = false
 -- Number of spaces that a <Tab> counts for
 set.tabstop = 2
+-- Show invisibles
+set.list = true
+set.listchars:append({ tab = "ᐧ ", eol = "◦" })

@@ -64,7 +64,10 @@ return require("packer").startup(function(use)
 	-- Display indention levels for space indented code
 	use("Yggdroot/indentLine")
 	-- Theme
-	use("gruvbox-community/gruvbox")
+	use({
+		"rose-pine/neovim",
+		as = "rose-pine",
+	})
 	-- Personal wiki
 	use("lervag/wiki.vim")
 end)
