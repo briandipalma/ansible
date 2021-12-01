@@ -70,4 +70,6 @@ return require("packer").startup(function(use)
 	})
 	-- Personal wiki
 	use("lervag/wiki.vim")
+	-- Terminal
+	use("akinsho/toggleterm.nvim")
 end)

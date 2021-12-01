@@ -1,7 +1,5 @@
--- Open a terminal, in a horizontal row at the bottom
-vim.api.nvim_set_keymap("n", "<leader>tt", "<C-w>s<C-w>J:ter<CR>i", {})
--- Hide the current terminal
-vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n><C-w>c", {})
+-- Exit from terminal insert mode
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {})
 -- Easier writing
 vim.api.nvim_set_keymap("n", "<leader>s", ":w<CR>", {})
 -- Move focused window
