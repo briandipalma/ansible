@@ -32,3 +32,4 @@
 - import_tasks: dust.yml
 - import_tasks: tldr.yml
 - import_tasks: node.yml
+- import_tasks: selene.yml

@@ -13,13 +13,6 @@
     state: latest
   tags: stylua
 
-- name: Install Selene
-  when: ansible_distribution in ["MacOSX"]
-  community.general.homebrew:
-    name: selene
-    state: latest
-  tags: selene
-
 - name: Copy Karabiner config
   when: ansible_distribution in ["MacOSX"]
   copy:
