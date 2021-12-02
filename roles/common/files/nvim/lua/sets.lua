@@ -6,8 +6,6 @@ set.scrolloff = 8
 set.foldmethod = "expr"
 -- Use treesitter to obtain a line's fold level
 set.foldexpr = "nvim_treesitter#foldexpr()"
--- Don't highlight all search pattern matches
-set.hlsearch = false
 -- Number of spaces that a <Tab> counts for
 set.tabstop = 2
 -- Show invisibles

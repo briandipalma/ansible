@@ -8,8 +8,6 @@ set termguicolors
 set number
 " Show line numbers relative to line with cursor
 set relativenumber
-" Set undodir list or undofile below has no effect
-set undodir=~/.config/nvim/undodir
 " Save and restore undo history to disk
 set undofile
 " No need with undotree
@@ -22,9 +20,6 @@ set colorcolumn=80
 set updatetime=100
 " Highlight the screen line of the cursor
 set cursorline
-" Hide, don't unload, buffers when you navigate from them. Prevents requests
-" to write buffers on code/file navigation away from edited buffer
-set hidden
 " Stop auto folding when files are opened
 set foldlevelstart=99
 " Wrapped lines continue visually indented

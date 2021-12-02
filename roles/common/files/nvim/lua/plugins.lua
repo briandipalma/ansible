@@ -15,7 +15,7 @@ return require("packer").startup(function(use)
 	use("ray-x/lsp_signature.nvim")
 	use("onsails/lspkind-nvim")
 	-- Tree-sitter
-	use({ "nvim-treesitter/nvim-treesitter", branch = "0.5-compat", run = ":TSUpdate" })
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	-- Comment toggling
 	use("tpope/vim-commentary")
 	-- File explorer
