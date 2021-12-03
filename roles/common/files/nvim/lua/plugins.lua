@@ -17,6 +17,7 @@ return require("packer").startup(function(use)
 	-- Tree-sitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-refactor")
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 	-- Comment toggling
 	use("tpope/vim-commentary")
 	-- File explorer

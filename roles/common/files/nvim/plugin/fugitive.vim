@@ -1,2 +1,2 @@
 " Git diff current and previous version
-nnoremap <leader>d :Gvdiffsplit HEAD~1<CR>
+nnoremap <leader>dd :Gvdiffsplit HEAD~1<CR>
