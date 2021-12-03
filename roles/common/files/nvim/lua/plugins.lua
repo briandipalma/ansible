@@ -16,6 +16,7 @@ return require("packer").startup(function(use)
 	use("onsails/lspkind-nvim")
 	-- Tree-sitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use("nvim-treesitter/nvim-treesitter-refactor")
 	-- Comment toggling
 	use("tpope/vim-commentary")
 	-- File explorer
