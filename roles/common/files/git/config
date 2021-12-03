@@ -22,6 +22,11 @@
   wa = worktree add
   wr = worktree remove
   wl = worktree list
+  rn = "!f() { git branch -m $1 $2; git push origin :$1 $2; git push origin -u $2; }; f"
+  pm = "!f() { git branch --merged | grep -v -E \"master|main|develop|^\\+\" | xargs git branch -d; }; f"
+
+[fetch]
+  prune = true
 
 [commit]
   template = ~/.config/git/message-template
