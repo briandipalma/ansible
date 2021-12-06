@@ -1,5 +1,5 @@
 -- Exit from terminal insert mode
-vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {})
+vim.api.nvim_set_keymap("t", "<C-\\>", "<C-\\><C-n>", {})
 -- Easier writing
 vim.api.nvim_set_keymap("n", "<leader>s", ":update<CR>", {})
 -- Move focused window
