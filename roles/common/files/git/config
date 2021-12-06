@@ -56,6 +56,9 @@
 [interactive]
   diffFilter = delta --color-only
 
+[merge]
+  conflictstyle = diff3
+
 [delta]
   features = side-by-side line-numbers decorations
   syntax-theme = Solarized (light)
