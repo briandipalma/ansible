@@ -1,5 +1,2 @@
 [flags]
 battery = true
-# Built-in themes.  Valid values are "default", "default-light", "gruvbox", "gruvbox-light", "nord", "nord-light"
-color = "default-light"
-
