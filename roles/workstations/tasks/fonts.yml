@@ -11,6 +11,7 @@
   ansible.builtin.tempfile:
     state: directory
   register: temp_font_dir
+  become_user: "{{ user_name }}"
   tags: fonts
 
 - name: Download JetBrains Mono into temporary fonts directory
