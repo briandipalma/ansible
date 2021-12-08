@@ -1,9 +1,36 @@
 ---
+- name: Create fonts directory (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  file:
+    path: /home/brian/.local/share/fonts
+    owner: brian
+    state: directory
+  tags: fonts
+
+- name: Create temporary font extraction directory
+  ansible.builtin.tempfile:
+    state: directory
+  register: temp_font_dir
+  tags: fonts
+
+- name: Download JetBrains Mono into temporary fonts directory
+  unarchive:
+    src: https://download-cdn.jetbrains.com/fonts/JetBrainsMono-2.242.zip
+    dest: "{{ temp_font_dir.path }}"
+    remote_src: true
+  tags: fonts
+
+- name: Copy JetBrains Mono to fonts directory
+  ansible.builtin.copy:
+    src: "{{ temp_font_dir.path }}/fonts/variable/"
+    dest: "{{ home_dir }}{{ fonts_directory }}"
+  tags: fonts
+
 - name: Install font packages (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     pkg:
-      - fonts-open-sans
+      - fonts-noto
       - fonts-roboto-slab
     state: latest
   tags: fonts
@@ -19,24 +46,7 @@
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew_cask:
     name:
-      - font-open-sans
+      - font-noto-sans
       - font-roboto-slab
-      - font-fira-code-nerd-font
     state: latest
-  tags: fonts
-
-- name: Create fonts directory (Debian based)
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  file:
-    path: /home/brian/.local/share/fonts
-    owner: brian
-    state: directory
-  tags: fonts
-
-- name: Install Fira Code nerd fonts
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  unarchive:
-    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
-    dest: /home/brian/.local/share/fonts
-    remote_src: yes
   tags: fonts
