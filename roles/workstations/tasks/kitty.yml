@@ -36,3 +36,10 @@
     dest: "{{ home_dir }}/.config"
     owner: "{{ user_name }}"
   tags: kitty
+
+- name: Link host specific config
+  file:
+    src: "{{ home_dir }}/.config/kitty/{{ inventory_hostname }}.conf"
+    dest: "{{ home_dir }}/.config/kitty/host-config.conf"
+    state: link
+  tags: kitty
