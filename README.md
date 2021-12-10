@@ -1,5 +1,6 @@
 # Ansible
-Ansible machine setup playbooks. Installs and configures all the software I use on servers and workstations.
+
+Machine setup playbooks. Installs and configures all the software I use.
 
 ## Setup
 
@@ -13,8 +14,9 @@ Ansible machine setup playbooks. Installs and configures all the software I use 
    ```bash
    ansible-galaxy collection install community.general
    ```
-   
+
    To install the homebrew modules
+
 5. Run
 
    ```bash
@@ -41,13 +43,13 @@ To reconfigure aliases and lsdeluxe on everything:
  ansible-playbook --ask-become-pass --tags "aliases,lsd" site.yml
 ```
 
-To reconfigure just workstations:
+Configure workstations:
 
 ```bash
 ansible-playbook -i production workstations.yml
 ```
 
-Ad-hoc stuff is also possible:
+Ad-hoc tasks are also possible:
 
 ```bash
 ansible pve.test -i production -m ping

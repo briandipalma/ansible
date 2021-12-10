@@ -1,6 +1,3 @@
-[servers]
-pve.test
-
 [development_workstations]
 Brians-MacBook-Pro.local ansible_connection=local
 
