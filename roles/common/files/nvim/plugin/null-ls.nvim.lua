@@ -1,4 +1,5 @@
 local null_ls = require("null-ls")
+local on_attach = require("bdp-lsp-utils").on_attach
 
 local sources = {
 	null_ls.builtins.formatting.eslint_d,
@@ -16,4 +17,4 @@ local sources = {
 	null_ls.builtins.hover.dictionary,
 }
 
-null_ls.config({ sources = sources })
+null_ls.setup({ sources = sources, on_attach = on_attach })
