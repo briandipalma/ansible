@@ -20,8 +20,6 @@ set colorcolumn=80
 set updatetime=100
 " Highlight the screen line of the cursor
 set cursorline
-" Stop auto folding when files are opened
-set foldlevelstart=99
 " Wrapped lines continue visually indented
 set breakindent
 " Wrapped line's beginning will be shifted to emphasize line continuation
