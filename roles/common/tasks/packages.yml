@@ -5,6 +5,7 @@
     pkg:
       - unzip
       - python3-pip
+      - nodejs
     state: latest
   tags: packages
 
