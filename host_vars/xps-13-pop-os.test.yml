@@ -1,4 +1,0 @@
----
-ansible_python_interpreter: /usr/bin/python3
-taskwarrior_theme_path: /usr/share/taskwarrior/light-256.theme
-fonts_directory: /.local/share/fonts
