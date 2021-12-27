@@ -16,20 +16,14 @@ return require("packer").startup(function(use)
 	use("onsails/lspkind-nvim")
 	-- Tree-sitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use("nvim-treesitter/nvim-treesitter-refactor")
-	use("nvim-treesitter/nvim-treesitter-textobjects")
+	use({ "nvim-treesitter/nvim-treesitter-refactor", requires = "nvim-treesitter/nvim-treesitter" })
+	use({ "nvim-treesitter/nvim-treesitter-textobjects", requires = "nvim-treesitter/nvim-treesitter" })
 	-- Comment toggling
 	use("tpope/vim-commentary")
 	-- File explorer
-	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
+	use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
 	-- Fuzzy finder over lists
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
-	})
+	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	-- Autocompletion plugin and sources
 	use("hrsh7th/nvim-cmp")
@@ -46,17 +40,11 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	-- git plugins, gutter git decorations
 	use("tpope/vim-fugitive")
-	use({
-		"lewis6991/gitsigns.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
-	})
+	use({ "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" })
 	-- Show key combinations after pressing a key
 	use("folke/which-key.nvim")
 	-- Statusline plugin
-	use({
-		"hoob3rt/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
+	use({ "hoob3rt/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" })
 	-- Visualize Neovim's undo tree
 	use("mbbill/undotree")
 	-- Faster left-right movement, highlight unique characters in line
