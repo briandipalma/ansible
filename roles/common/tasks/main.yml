@@ -29,6 +29,7 @@
 - import_tasks: bottom.yml
   tags: bottom
 - import_tasks: fzf.yml
+  tags: fzf
 - import_tasks: ripgrep.yml
 - import_tasks: fd.yml
 - import_tasks: dust.yml

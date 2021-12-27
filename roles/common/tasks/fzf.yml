@@ -2,21 +2,18 @@
 - name: Install fzf (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
-    src: https://github.com/junegunn/fzf/releases/download/0.28.0/fzf-0.28.0-linux_amd64.tar.gz
+    src: https://github.com/junegunn/fzf/releases/download/0.29.0/fzf-0.29.0-linux_amd64.tar.gz
     dest: /usr/local/bin
     remote_src: true
-  tags: fzf
 
 - name: Install fzf (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
     name: fzf
     state: latest
-  tags: fzf
 
 - name: Install fzf fish keybindings
   get_url:
     url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish
     dest: "{{ home_dir }}/.config/fish/functions/fzf_key_bindings.fish"
     owner: "{{ user_name }}"
-  tags: fzf
