@@ -3,3 +3,5 @@ Brians-MacBook-Pro.local ansible_connection=local
 
 [personal_workstations]
 xps-13-pop-os.test ansible_connection=local
+pop-os-vm.test ansible_connection=local
+
