@@ -22,12 +22,36 @@
     remote_src: true
   tags: kitty
 
+- name: Create local bin directory (Pop!_OS)
+  when: ansible_distribution in ["Pop!_OS"]
+  file:
+    path: "{{ home_dir }}/.local/bin"
+    state: directory
+  become_user: "{{ user_name }}"
+  tags: kitty
+
 - name: Link kitty binary (Pop!_OS)
   when: ansible_distribution in ["Pop!_OS"]
   file:
     src: "{{ home_dir }}/.local/kitty/bin/kitty"
-    dest: /usr/local/bin/kitty
+    dest: "{{ home_dir }}/.local/bin/kitty"
     state: link
+  tags: kitty
+
+- name: Copy kitty icon
+  when: ansible_distribution in ["Pop!_OS"]
+  copy:
+    src: "{{ home_dir }}/.local/kitty/share/applications/kitty.desktop"
+    dest: "{{ home_dir }}/.local/share/applications"
+    owner: "{{ user_name }}"
+  tags: kitty
+
+- name: Change kitty icon file path
+  when: ansible_distribution in ["Pop!_OS"]
+  ansible.builtin.lineinfile:
+    path: "{{ home_dir }}/.local/share/applications/kitty.desktop"
+    regexp: "^Icon=kitty$"
+    line: "Icon={{ home_dir }}/.local/kitty/share/icons/hicolor/256x256/apps/kitty.png"
   tags: kitty
 
 - name: Copy kitty config
