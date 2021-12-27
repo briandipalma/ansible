@@ -27,6 +27,7 @@
 - import_tasks: lazygit.yml
 - import_tasks: delta.yml
 - import_tasks: bottom.yml
+  tags: bottom
 - import_tasks: fzf.yml
 - import_tasks: ripgrep.yml
 - import_tasks: fd.yml
