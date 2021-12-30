@@ -21,6 +21,7 @@
 - import_tasks: starship.yml
 - import_tasks: tmux.yml
 - import_tasks: neovim.yml
+  tags: neovim
 - import_tasks: git.yml
 - import_tasks: lsd.yml
 - import_tasks: bat.yml
