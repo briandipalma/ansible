@@ -5,4 +5,3 @@
     accept_hostkey: true
     dest: "{{ home_dir }}/dev/my-data"
   become_user: "{{ user_name }}"
-  tags: repos

@@ -16,6 +16,7 @@
 - import_tasks: node.yml
 - import_tasks: packages.yml
 - import_tasks: repos.yml
+  tags: repos
 - import_tasks: taskwarrior.yml
 - import_tasks: fish.yml
 - import_tasks: starship.yml

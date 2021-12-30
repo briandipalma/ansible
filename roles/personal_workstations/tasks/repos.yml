@@ -1,0 +1,7 @@
+---
+- name: Git checkout of proxmox-services repo
+  ansible.builtin.git:
+    repo: git@github.com:briandipalma/proxmox-services.git
+    accept_hostkey: true
+    dest: "{{ home_dir }}/dev/proxmox-services"
+  become_user: "{{ user_name }}"
