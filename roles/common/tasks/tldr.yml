@@ -2,29 +2,25 @@
 - name: Install tldr (Linux)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   get_url:
-    url: https://github.com/dbrgn/tealdeer/releases/download/v1.4.1/tldr-linux-x86_64-musl
-    dest: /usr/local/bin/tldr
+    url: https://github.com/dbrgn/tealdeer/releases/download/v1.5.0/tealdeer-linux-x86_64-musl
+    dest: "{{ home_dir }}/.local/bin/tldr"
     mode: 0755
-  tags: tldr
 
 - name: Install tldr (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
     name: tealdeer
     state: latest
-  tags: tldr
 
 - name: Install tldr fish completions
   get_url:
-    url: https://github.com/dbrgn/tealdeer/releases/download/v1.4.1/completions_fish
+    url: https://github.com/dbrgn/tealdeer/releases/download/v1.5.0/completions_fish
     dest: "{{ home_dir }}/.config/fish/completions/tldr.fish"
     mode: 0644
     owner: "{{ user_name }}"
-  tags: tldr
 
 - name: Update tldr cache
   ansible.builtin.command:
     argv:
       - tldr
       - --update
-  tags: tldr
