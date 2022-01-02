@@ -39,3 +39,4 @@
   tags: tldr
 - import_tasks: selene.yml
 - import_tasks: stylua.yml
+  tags: stylua
