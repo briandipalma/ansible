@@ -1,3 +1,7 @@
 ---
 - import_tasks: fonts.yml
+  tags: fonts
 - import_tasks: kitty.yml
+  tags: kitty
+- import_tasks: remmina.yml
+  tags: remmina

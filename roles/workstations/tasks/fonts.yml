@@ -5,27 +5,23 @@
     path: /home/brian/.local/share/fonts
     owner: brian
     state: directory
-  tags: fonts
 
 - name: Create temporary font extraction directory
   ansible.builtin.tempfile:
     state: directory
   register: temp_font_dir
   become_user: "{{ user_name }}"
-  tags: fonts
 
 - name: Download JetBrains Mono into temporary fonts directory
   unarchive:
     src: https://download-cdn.jetbrains.com/fonts/JetBrainsMono-2.242.zip
     dest: "{{ temp_font_dir.path }}"
     remote_src: true
-  tags: fonts
 
 - name: Copy JetBrains Mono to fonts directory
   ansible.builtin.copy:
     src: "{{ temp_font_dir.path }}/fonts/variable/"
     dest: "{{ home_dir }}{{ fonts_directory }}"
-  tags: fonts
 
 - name: Install font packages (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
@@ -34,14 +30,12 @@
       - fonts-noto
       - fonts-roboto-slab
     state: latest
-  tags: fonts
 
 - name: Add fonts cask (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew_tap:
     name: homebrew/cask-fonts
     state: present
-  tags: fonts
 
 - name: Install font packages (MacOSX)
   when: ansible_distribution in ["MacOSX"]
@@ -50,4 +44,3 @@
       - font-noto-sans
       - font-roboto-slab
     state: latest
-  tags: fonts

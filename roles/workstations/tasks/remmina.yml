@@ -1,0 +1,7 @@
+---
+- name: Install remmina (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - remmina
+    state: latest

@@ -5,14 +5,12 @@
     name:
       - kitty
     state: latest
-  tags: kitty
 
 - name: Create kitty directory (Pop!_OS)
   when: ansible_distribution in ["Pop!_OS"]
   file:
     path: "{{ home_dir }}/.local/kitty"
     state: directory
-  tags: kitty
 
 - name: Install kitty (Pop!_OS)
   when: ansible_distribution in ["Pop!_OS"]
@@ -20,7 +18,6 @@
     src: https://github.com/kovidgoyal/kitty/releases/download/v0.23.1/kitty-0.23.1-x86_64.txz
     dest: "{{ home_dir }}/.local/kitty"
     remote_src: true
-  tags: kitty
 
 - name: Create local bin directory (Pop!_OS)
   when: ansible_distribution in ["Pop!_OS"]
@@ -28,7 +25,6 @@
     path: "{{ home_dir }}/.local/bin"
     state: directory
   become_user: "{{ user_name }}"
-  tags: kitty
 
 - name: Link kitty binary (Pop!_OS)
   when: ansible_distribution in ["Pop!_OS"]
@@ -36,7 +32,6 @@
     src: "{{ home_dir }}/.local/kitty/bin/kitty"
     dest: "{{ home_dir }}/.local/bin/kitty"
     state: link
-  tags: kitty
 
 - name: Copy kitty icon
   when: ansible_distribution in ["Pop!_OS"]
@@ -44,7 +39,6 @@
     src: "{{ home_dir }}/.local/kitty/share/applications/kitty.desktop"
     dest: "{{ home_dir }}/.local/share/applications"
     owner: "{{ user_name }}"
-  tags: kitty
 
 - name: Change kitty icon file path
   when: ansible_distribution in ["Pop!_OS"]
@@ -52,18 +46,15 @@
     path: "{{ home_dir }}/.local/share/applications/kitty.desktop"
     regexp: "^Icon=kitty$"
     line: "Icon={{ home_dir }}/.local/kitty/share/icons/hicolor/256x256/apps/kitty.png"
-  tags: kitty
 
 - name: Copy kitty config
   copy:
     src: kitty
     dest: "{{ home_dir }}/.config"
     owner: "{{ user_name }}"
-  tags: kitty
 
 - name: Link host specific config
   file:
     src: "{{ home_dir }}/.config/kitty/{{ inventory_hostname }}.conf"
     dest: "{{ home_dir }}/.config/kitty/host-config.conf"
     state: link
-  tags: kitty
