@@ -5,3 +5,6 @@
   tags: kitty
 - import_tasks: remmina.yml
   tags: remmina
+- import_tasks: gnome.yml
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  tags: gnome

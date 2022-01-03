@@ -1,0 +1,18 @@
+---
+- name: install playbook requirements
+  become: true
+  package:
+    name:
+      - python3-psutil
+
+- name: Switch to workspace 1 shortcut
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-1"
+    value: "['<Super>Home', '<Super>1']"
+  become_user: "{{ user_name }}"
+
+- name: Switch to workspace 2 shortcut
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-2"
+    value: "['<Super>2']"
+  become_user: "{{ user_name }}"
