@@ -16,3 +16,15 @@
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-2"
     value: "['<Super>2']"
   become_user: "{{ user_name }}"
+
+- name: Switch to workspace 3 shortcut
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-3"
+    value: "['<Super>3']"
+  become_user: "{{ user_name }}"
+
+- name: Switch to workspace 4 shortcut
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-4"
+    value: "['<Super>4']"
+  become_user: "{{ user_name }}"
