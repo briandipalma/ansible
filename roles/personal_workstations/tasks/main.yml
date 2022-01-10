@@ -1,5 +1,6 @@
 ---
 - import_tasks: terraform.yml
+  tags: terraform
 - import_tasks: repos.yml
   tags: repos
 - import_tasks: dropbox.yml
