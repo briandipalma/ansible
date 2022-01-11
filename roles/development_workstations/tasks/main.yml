@@ -1,4 +1,7 @@
 ---
+- import_tasks: packages.yml
+  tags: packages
+
 - name: Install direnv
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:

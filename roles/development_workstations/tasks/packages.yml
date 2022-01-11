@@ -1,0 +1,5 @@
+---
+- name: Install eslint_d node.js package globally.
+  community.general.npm:
+    name: eslint_d
+    global: true
