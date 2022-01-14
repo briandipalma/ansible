@@ -2,21 +2,18 @@
 - name: Install lazygit (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
-    src: https://github.com/jesseduffield/lazygit/releases/download/v0.31.4/lazygit_0.31.4_Linux_x86_64.tar.gz
+    src: https://github.com/jesseduffield/lazygit/releases/download/v0.32/lazygit_0.32_Linux_x86_64.tar.gz
     dest: /usr/local/bin
     remote_src: true
-  tags: lazygit
 
 - name: Install lazygit (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
     name: jesseduffield/lazygit/lazygit
     state: latest
-  tags: lazygit
 
 - name: Copy lazygit config
   copy:
     src: lazygit
     dest: "{{ lazygit_config_dir }}"
     owner: "{{ user_name }}"
-  tags: lazygit

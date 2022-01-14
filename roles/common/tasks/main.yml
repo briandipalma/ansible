@@ -28,6 +28,7 @@
 - import_tasks: bat.yml
   tags: bat
 - import_tasks: lazygit.yml
+  tags: lazygit
 - import_tasks: delta.yml
 - import_tasks: bottom.yml
   tags: bottom
