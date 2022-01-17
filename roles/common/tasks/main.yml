@@ -20,6 +20,7 @@
 - import_tasks: taskwarrior.yml
 - import_tasks: fish.yml
 - import_tasks: starship.yml
+  tags: starship
 - import_tasks: tmux.yml
 - import_tasks: neovim.yml
   tags: neovim

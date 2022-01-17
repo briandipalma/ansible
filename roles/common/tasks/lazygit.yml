@@ -2,7 +2,7 @@
 - name: Install lazygit (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
-    src: https://github.com/jesseduffield/lazygit/releases/download/v0.32/lazygit_0.32_Linux_x86_64.tar.gz
+    src: https://github.com/jesseduffield/lazygit/releases/download/v0.32.2/lazygit_0.32.2_Linux_x86_64.tar.gz
     dest: /usr/local/bin
     remote_src: true
 
