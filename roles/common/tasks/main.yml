@@ -25,6 +25,7 @@
   tags: neovim
 - import_tasks: git.yml
 - import_tasks: lsd.yml
+  tags: lsd
 - import_tasks: bat.yml
   tags: bat
 - import_tasks: lazygit.yml

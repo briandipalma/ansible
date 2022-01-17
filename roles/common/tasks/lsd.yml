@@ -2,19 +2,16 @@
 - name: Install LSDeluxe (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
-    deb: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb
-  tags: lsd
+    deb: https://github.com/Peltoche/lsd/releases/download/0.21.0/lsd_0.21.0_amd64.deb
 
 - name: Install LSDeluxe (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
     name: lsd
     state: latest
-  tags: lsd
 
 - name: Copy lsd config
   copy:
     src: lsd
     dest: "{{ home_dir }}/.config"
     owner: "{{ user_name }}"
-  tags: lsd
