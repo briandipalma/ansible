@@ -22,12 +22,17 @@ wk.register({
 		u = { "<cmd>Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" },
 		R = { "<cmd>Gitsigns reset_buffer<CR>", "Reset buffer" },
 		p = { "<cmd>Gitsigns preview_hunk<CR>", "Preview hunk" },
-		b = { "<cmd>lua require'gitsigns'.blame_line{full=true}<CR>", "Blame line" },
+		b = { "<cmd>lua require'gitsigns'.blame_line{full=true}<CR>", "Blame line popup" },
 		l = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Toggle line blame" },
-		d = { "<cmd>Gitsigns diffthis<CR>", "Diff this" },
-		D = { "<cmd>lua require'gitsigns'.diffthis('~')<CR>", "Diff this ~" },
+		d = { "<cmd>Gitsigns diffthis<CR>", "Diff this file against index" },
+		D = { "<cmd>lua require'gitsigns'.diffthis('~1')<CR>", "Diff this file against last commit" },
 		e = { "<cmd>Gitsigns toggle_deleted<CR>", "Toggle deleted" },
 	},
+})
+
+wk.register({
+	["]c"] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", "Next hunk", expr = true },
+	["[c"] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", "Previous hunk", expr = true },
 })
 
 -- Exit from terminal insert mode
