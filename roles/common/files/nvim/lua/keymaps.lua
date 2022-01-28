@@ -13,6 +13,23 @@ wk.register({
 	},
 })
 
+wk.register({
+	["<leader>h"] = {
+		name = "+git hunk",
+		s = { "<cmd>Gitsigns stage_hunk<CR>", "Stage hunk" },
+		r = { "<cmd>Gitsigns reset_hunk<CR>", "Reset hunk" },
+		S = { "<cmd>Gitsigns stage_buffer<CR>", "Stage buffer" },
+		u = { "<cmd>Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" },
+		R = { "<cmd>Gitsigns reset_buffer<CR>", "Reset buffer" },
+		p = { "<cmd>Gitsigns preview_hunk<CR>", "Preview hunk" },
+		b = { "<cmd>lua require'gitsigns'.blame_line{full=true}<CR>", "Blame line" },
+		l = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Toggle line blame" },
+		d = { "<cmd>Gitsigns diffthis<CR>", "Diff this" },
+		D = { "<cmd>lua require'gitsigns'.diffthis('~')<CR>", "Diff this ~" },
+		e = { "<cmd>Gitsigns toggle_deleted<CR>", "Toggle deleted" },
+	},
+})
+
 -- Exit from terminal insert mode
 vim.api.nvim_set_keymap("t", "<C-\\>", "<C-\\><C-n>", {})
 -- Easier writing

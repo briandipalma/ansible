@@ -58,8 +58,6 @@ return require("packer").startup(function(use)
 		"rose-pine/neovim",
 		as = "rose-pine",
 	})
-	-- Personal wiki
-	use("lervag/wiki.vim")
 	-- Terminal
 	use("akinsho/toggleterm.nvim")
 end)
