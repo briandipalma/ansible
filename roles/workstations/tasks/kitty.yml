@@ -58,3 +58,9 @@
     src: "{{ home_dir }}/.config/kitty/{{ inventory_hostname }}.conf"
     dest: "{{ home_dir }}/.config/kitty/host-config.conf"
     state: link
+
+- name: Install kitty-terminfo
+  apt:
+    pkg:
+      - kitty-terminfo
+    state: present

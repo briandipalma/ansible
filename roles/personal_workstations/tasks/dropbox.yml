@@ -1,3 +1,4 @@
+---
 - name: Add the Dropbox GPG keys
   ansible.builtin.apt_key:
     keyserver: pgp.mit.edu
