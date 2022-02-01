@@ -27,6 +27,8 @@ wk.register({
 		d = { "<cmd>Gitsigns diffthis<CR>", "Diff this file against index" },
 		D = { "<cmd>lua require'gitsigns'.diffthis('~1')<CR>", "Diff this file against last commit" },
 		e = { "<cmd>Gitsigns toggle_deleted<CR>", "Toggle deleted" },
+		j = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", "Next hunk", expr = true },
+		k = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", "Previous hunk", expr = true },
 	},
 })
 
