@@ -4,6 +4,7 @@
   changed_when: false
   apt:
     update_cache: true
+  become: true
   tags: always
 
 - name: Update repo cache (MacOSX)

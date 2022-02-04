@@ -1,16 +1,32 @@
 ---
 - name: Add the node source repository Apt signing key
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  ansible.builtin.apt_key:
+  ansible.builtin.get_url:
     url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-    state: present
-    keyring: /usr/share/keyrings/nodesource.gpg
+    dest: /usr/share/keyrings/nodesource
+  become: true
+
+- name: Dearmor the key
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  ansible.builtin.command:
+    argv:
+      - gpg
+      - --dearmor
+      - /usr/share/keyrings/nodesource
+  become: true
+
+- name: Remove armoured key
+  ansible.builtin.file:
+    path: /usr/share/keyrings/nodesource
+    state: absent
+  become: true
 
 - name: Add node source repository
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt_repository:
     repo: deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x focal main
     state: present
+  become: true
 
 - name: Install nodejs (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
@@ -18,6 +34,7 @@
     pkg:
       - nodejs
     state: latest
+  become: true
 
 - name: Install nodejs (MacOSX based)
   when: ansible_distribution in ["MacOSX"]
