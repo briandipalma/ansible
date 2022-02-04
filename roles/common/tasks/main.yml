@@ -39,6 +39,7 @@
 - import_tasks: lazygit.yml
   tags: lazygit
 - import_tasks: delta.yml
+  tags: delta
 - import_tasks: bottom.yml
   tags: bottom
 - import_tasks: fzf.yml

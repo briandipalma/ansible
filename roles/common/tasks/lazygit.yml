@@ -3,7 +3,7 @@
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
     src: https://github.com/jesseduffield/lazygit/releases/download/v0.32.2/lazygit_0.32.2_Linux_x86_64.tar.gz
-    dest: /usr/local/bin
+    dest: "{{ home_dir }}/.local/bin"
     remote_src: true
 
 - name: Install lazygit (MacOSX)
@@ -16,4 +16,3 @@
   copy:
     src: lazygit
     dest: "{{ lazygit_config_dir }}"
-    owner: "{{ user_name }}"

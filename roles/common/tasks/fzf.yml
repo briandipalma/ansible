@@ -3,7 +3,7 @@
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
     src: https://github.com/junegunn/fzf/releases/download/0.29.0/fzf-0.29.0-linux_amd64.tar.gz
-    dest: /usr/local/bin
+    dest: "{{ home_dir }}/.local/bin"
     remote_src: true
 
 - name: Install fzf (MacOSX)
@@ -16,4 +16,3 @@
   get_url:
     url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish
     dest: "{{ home_dir }}/.config/fish/functions/fzf_key_bindings.fish"
-    owner: "{{ user_name }}"

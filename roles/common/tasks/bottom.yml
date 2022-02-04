@@ -3,6 +3,7 @@
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     deb: https://github.com/ClementTsang/bottom/releases/download/0.6.8/bottom_0.6.8_amd64.deb
+  become: true
 
 - name: Install bottom (MacOSX)
   when: ansible_distribution in ["MacOSX"]
@@ -14,4 +15,3 @@
   copy:
     src: bottom
     dest: "{{ home_dir }}/.config"
-    owner: "{{ user_name }}"
