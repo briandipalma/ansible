@@ -9,6 +9,6 @@
   when: ansible_distribution in ["Pop!_OS"]
   unarchive:
     src: https://github.com/Kampfkarren/selene/releases/download/0.16.0/selene-0.16.0-linux.zip
-    dest: /usr/local/bin
+    dest: "{{ home_dir }}/.local/bin"
     remote_src: true
-    mode: o+x
+    mode: 0755

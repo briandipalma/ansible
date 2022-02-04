@@ -45,8 +45,11 @@
 - import_tasks: fzf.yml
   tags: fzf
 - import_tasks: ripgrep.yml
+  tags: ripgrep
 - import_tasks: fd.yml
+  tags: fd
 - import_tasks: dust.yml
+  tags: dust
 - import_tasks: tldr.yml
   tags: tldr
 - import_tasks: selene.yml

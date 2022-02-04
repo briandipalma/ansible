@@ -16,8 +16,6 @@
   get_url:
     url: https://github.com/dbrgn/tealdeer/releases/download/v1.5.0/completions_fish
     dest: "{{ home_dir }}/.config/fish/completions/tldr.fish"
-    mode: 0644
-    owner: "{{ user_name }}"
 
 - name: Update tldr cache
   ansible.builtin.command:

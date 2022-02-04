@@ -11,4 +11,4 @@
     src: https://github.com/JohnnyMorganz/StyLua/releases/download/v0.12.1/stylua-0.12.1-linux.zip
     dest: "{{ home_dir }}/.local/bin/"
     remote_src: true
-    mode: o+x
+    mode: 0755

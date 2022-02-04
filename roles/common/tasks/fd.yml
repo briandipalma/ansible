@@ -4,21 +4,16 @@
   apt:
     pkg:
       - fd-find
-  tags: fd
 
 - name: Create a symbolic link to fdfind
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   ansible.builtin.file:
     src: /usr/bin/fdfind
-    dest: /usr/local/bin/fd
-    owner: root
-    group: root
+    dest: "{{ home_dir }}/.local/bin/fd"
     state: link
-  tags: fd
 
 - name: Install fd (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
     name: fd
     state: latest
-  tags: fd

@@ -3,11 +3,10 @@
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     deb: https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
-  tags: ripgrep
+  become: true
 
 - name: Install ripgrep (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
     name: ripgrep
     state: latest
-  tags: ripgrep
