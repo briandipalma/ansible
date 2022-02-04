@@ -9,22 +9,38 @@
   dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-1"
     value: "['<Super>Home', '<Super>1']"
-  become_user: "{{ user_name }}"
 
 - name: Switch to workspace 2 shortcut
   dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-2"
     value: "['<Super>2']"
-  become_user: "{{ user_name }}"
 
 - name: Switch to workspace 3 shortcut
   dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-3"
     value: "['<Super>3']"
-  become_user: "{{ user_name }}"
 
 - name: Switch to workspace 4 shortcut
   dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-4"
     value: "['<Super>4']"
-  become_user: "{{ user_name }}"
+
+- name: Switch to workspace 5 shortcut
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-5"
+    value: "['<Super>5']"
+
+- name: Switch to workspace 6 shortcut
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-6"
+    value: "['<Super>6']"
+
+- name: Switch to workspace 7 shortcut
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-7"
+    value: "['<Super>7']"
+
+- name: Switch to workspace 8 shortcut
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-8"
+    value: "['<Super>8']"

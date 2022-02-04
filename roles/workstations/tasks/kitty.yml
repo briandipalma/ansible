@@ -24,7 +24,6 @@
   file:
     path: "{{ home_dir }}/.local/bin"
     state: directory
-  become_user: "{{ user_name }}"
 
 - name: Link kitty binary (Pop!_OS)
   when: ansible_distribution in ["Pop!_OS"]
@@ -38,7 +37,6 @@
   copy:
     src: "{{ home_dir }}/.local/kitty/share/applications/kitty.desktop"
     dest: "{{ home_dir }}/.local/share/applications"
-    owner: "{{ user_name }}"
 
 - name: Change kitty icon file path
   when: ansible_distribution in ["Pop!_OS"]
@@ -51,7 +49,6 @@
   copy:
     src: kitty
     dest: "{{ home_dir }}/.config"
-    owner: "{{ user_name }}"
 
 - name: Link host specific config
   file:

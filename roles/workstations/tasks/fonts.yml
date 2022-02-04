@@ -3,14 +3,12 @@
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   file:
     path: /home/brian/.local/share/fonts
-    owner: brian
     state: directory
 
 - name: Create temporary font extraction directory
   ansible.builtin.tempfile:
     state: directory
   register: temp_font_dir
-  become_user: "{{ user_name }}"
 
 - name: Download JetBrains Mono into temporary fonts directory
   unarchive:
@@ -30,6 +28,7 @@
       - fonts-noto
       - fonts-roboto-slab
     state: latest
+  become: true
 
 - name: Add fonts cask (MacOSX)
   when: ansible_distribution in ["MacOSX"]
@@ -43,4 +42,5 @@
     name:
       - font-noto-sans
       - font-roboto-slab
+      - font-jetbrains-mono
     state: latest

@@ -5,3 +5,4 @@
     pkg:
       - remmina
     state: latest
+  become: true
