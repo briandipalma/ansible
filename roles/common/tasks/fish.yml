@@ -5,21 +5,18 @@
     url: https://download.opensuse.org/repositories/shells:fish/Debian_10/Release.key
     state: present
     keyring: /etc/apt/trusted.gpg.d/shells_fish.gpg
-  tags: fish
 
 - name: Add fish repository and install its signing key (Debian)
   when: ansible_distribution in ["Debian"]
   apt_repository:
     repo: deb http://download.opensuse.org/repositories/shells:/fish/Debian_10/ /
     state: present
-  tags: fish
 
 - name: Add fish repository from PPA and install its signing key (Ubuntu based)
   when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
   apt_repository:
     repo: ppa:fish-shell/release-3
     state: present
-  tags: fish
 
 - name: Install fish packages (Ubuntu based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
@@ -28,39 +25,30 @@
     pkg:
       - fish
     state: latest
-  tags: fish
 
 - name: Install fish packages (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
     name: fish
     state: latest
-  tags: fish
 
 - name: Set fish as default shell
   become: true
   user:
     name: "{{ user_name }}"
     shell: "{{ fish_location }}"
-  tags: fish
 
 - name: Copy fish config
   copy:
     src: fish
     dest: "{{ home_dir }}/.config"
-    owner: "{{ user_name }}"
-  tags: fish
 
 - name: Install bass step 1
   get_url:
     url: https://raw.githubusercontent.com/edc/bass/master/functions/__bass.py
     dest: "{{ home_dir }}/.config/fish/functions/"
-    owner: "{{ user_name }}"
-  tags: fish
 
 - name: Install bass step 2
   get_url:
     url: https://raw.githubusercontent.com/edc/bass/master/functions/bass.fish
     dest: "{{ home_dir }}/.config/fish/functions/"
-    owner: "{{ user_name }}"
-  tags: fish

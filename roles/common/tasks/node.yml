@@ -5,19 +5,31 @@
     url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
     state: present
     keyring: /usr/share/keyrings/nodesource.gpg
-  tags: node
 
 - name: Add node source repository
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt_repository:
     repo: deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x focal main
     state: present
-  tags: node
 
-- name: Install Ansible task required packages (Debian based)
+- name: Install nodejs (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     pkg:
       - nodejs
     state: latest
-  tags: node
+
+- name: Install nodejs (MacOSX based)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: node@16
+    state: latest
+
+- name: Link nodejs
+  when: ansible_distribution in ["MacOSX"]
+  ansible.builtin.command:
+    argv:
+      - brew
+      - link
+      - --overwrite
+      - node@16

@@ -1,6 +1,5 @@
 ---
 - hosts: development_workstations
-  become: "{{ become_root }}"
   roles:
     - common
     - workstations

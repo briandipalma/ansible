@@ -14,11 +14,15 @@
   tags: always
 
 - import_tasks: node.yml
+  tags: node
 - import_tasks: packages.yml
+  tags: packages
 - import_tasks: repos.yml
   tags: repos
 - import_tasks: taskwarrior.yml
+  tags: taskwarrior
 - import_tasks: fish.yml
+  tags: fish
 - import_tasks: starship.yml
   tags: starship
 - import_tasks: tmux.yml

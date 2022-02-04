@@ -4,4 +4,3 @@
     repo: git@github.com:briandipalma/my-data.git
     accept_hostkey: true
     dest: "{{ home_dir }}/dev/my-data"
-  become_user: "{{ user_name }}"

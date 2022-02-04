@@ -5,18 +5,14 @@
     pkg:
       - taskwarrior
     state: latest
-  tags: taskwarrior
 
 - name: Install Taskwarrior packages (MacOSX based)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
     name: task
     state: latest
-  tags: taskwarrior
 
 - name: Copy Taskwarrior config template
   ansible.builtin.template:
     src: .taskrc
     dest: "{{ home_dir }}"
-    owner: "{{ user_name }}"
-  tags: taskwarrior
