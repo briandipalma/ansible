@@ -16,6 +16,7 @@
   become: true
 
 - name: Remove armoured key
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   ansible.builtin.file:
     path: /usr/share/keyrings/nodesource
     state: absent

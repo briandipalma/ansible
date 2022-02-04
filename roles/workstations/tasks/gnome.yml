@@ -1,9 +1,9 @@
 ---
 - name: install playbook requirements
-  become: true
   package:
     name:
       - python3-psutil
+  become: true
 
 - name: Switch to workspace 1 shortcut
   dconf:

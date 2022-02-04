@@ -5,6 +5,7 @@
     pkg:
       - taskwarrior
     state: latest
+  become: true
 
 - name: Install Taskwarrior packages (MacOSX based)
   when: ansible_distribution in ["MacOSX"]

@@ -1,22 +1,40 @@
 ---
 - name: Add the fish repository Apt signing key (Debian)
   when: ansible_distribution in ["Debian"]
-  ansible.builtin.apt_key:
-    url: https://download.opensuse.org/repositories/shells:fish/Debian_10/Release.key
-    state: present
-    keyring: /etc/apt/trusted.gpg.d/shells_fish.gpg
+  ansible.builtin.get_url:
+    url: https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key
+    dest: /usr/share/keyrings/shells_fish
+  become: true
 
-- name: Add fish repository and install its signing key (Debian)
+- name: Dearmor the key (Debian)
+  when: ansible_distribution in ["Debian"]
+  ansible.builtin.command:
+    argv:
+      - gpg
+      - --dearmor
+      - /usr/share/keyrings/shells_fish
+  become: true
+
+- name: Remove armoured key (Debian)
+  when: ansible_distribution in ["Debian"]
+  ansible.builtin.file:
+    path: /usr/share/keyrings/shells_fish
+    state: absent
+  become: true
+
+- name: Add fish repository (Debian)
   when: ansible_distribution in ["Debian"]
   apt_repository:
-    repo: deb http://download.opensuse.org/repositories/shells:/fish/Debian_10/ /
+    repo: deb [signed-by=/usr/share/keyrings/shells_fish.gpg] http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/ /
     state: present
+  become: true
 
 - name: Add fish repository from PPA and install its signing key (Ubuntu based)
   when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
   apt_repository:
     repo: ppa:fish-shell/release-3
     state: present
+  become: true
 
 - name: Install fish packages (Ubuntu based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
@@ -25,6 +43,7 @@
     pkg:
       - fish
     state: latest
+  become: true
 
 - name: Install fish packages (MacOSX)
   when: ansible_distribution in ["MacOSX"]
@@ -33,10 +52,10 @@
     state: latest
 
 - name: Set fish as default shell
-  become: true
   user:
     name: "{{ user_name }}"
     shell: "{{ fish_location }}"
+  become: true
 
 - name: Copy fish config
   copy:
