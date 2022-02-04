@@ -5,34 +5,22 @@
     pkg:
       - tmux
     state: latest
-  tags: tmux
+  become: true
 
 - name: Install tmux packages (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
     name: tmux
     state: latest
-  tags: tmux
 
 - name: Copy tmux config
   copy:
     src: tmux.conf
-    # /home/brian/.config/tmux/tmux.conf support was added to tmux 3.1a
+    # ~/.config/tmux/tmux.conf support was added to tmux 3.1a
     # but Debian hasn't released it yet
     dest: "{{ home_dir }}/.tmux.conf"
-    owner: "{{ user_name }}"
-  tags: tmux
 
 - name: Git checkout of tpm
   ansible.builtin.git:
     repo: https://github.com/tmux-plugins/tpm.git
     dest: "{{ home_dir }}/.tmux/plugins/tpm"
-  tags: tmux
-
-- name: Recursively change ownership of tpm directory
-  ansible.builtin.file:
-    path: "{{ home_dir }}/.tmux/"
-    state: directory
-    recurse: true
-    owner: "{{ user_name }}"
-  tags: tmux

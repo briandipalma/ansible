@@ -4,6 +4,7 @@
   apt_repository:
     repo: ppa:neovim-ppa/stable
     state: present
+  become: true
 
 - name: Install neovim (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
@@ -27,17 +28,8 @@
   copy:
     src: nvim
     dest: "{{ home_dir }}/.config"
-    owner: "{{ user_name }}"
 
 - name: Git checkout of packer
   ansible.builtin.git:
     repo: https://github.com/wbthomason/packer.nvim
     dest: "{{ home_dir }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  become_user: "{{ user_name }}"
-
-- name: Recursively change ownership of packer directory
-  ansible.builtin.file:
-    path: "{{ home_dir }}/.local/share/nvim/site/pack/packer/"
-    state: directory
-    recurse: true
-    owner: "{{ user_name }}"

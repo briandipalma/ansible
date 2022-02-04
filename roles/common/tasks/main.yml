@@ -18,6 +18,8 @@
   tags: node
 - import_tasks: packages.yml
   tags: packages
+- import_tasks: git.yml
+  tags: git
 - import_tasks: repos.yml
   tags: repos
 - import_tasks: taskwarrior.yml
@@ -27,9 +29,9 @@
 - import_tasks: starship.yml
   tags: starship
 - import_tasks: tmux.yml
+  tags: tmux
 - import_tasks: neovim.yml
   tags: neovim
-- import_tasks: git.yml
 - import_tasks: lsd.yml
   tags: lsd
 - import_tasks: bat.yml

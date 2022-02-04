@@ -3,7 +3,7 @@
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
     src: https://github.com/starship/starship/releases/download/v1.2.1/starship-x86_64-unknown-linux-gnu.tar.gz
-    dest: /usr/local/bin
+    dest: "{{ home_dir }}/.local/bin"
     remote_src: true
 
 - name: Install Starship
@@ -16,4 +16,3 @@
   copy:
     src: starship.toml
     dest: "{{ home_dir }}/.config/starship.toml"
-    owner: "{{ user_name }}"

@@ -5,18 +5,15 @@
     pkg:
       - git
     state: latest
-  tags: git
+  become: true
 
 - name: Install git (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
     name: git
     state: latest
-  tags: git
 
 - name: Copy git config
   copy:
     src: git
     dest: "{{ home_dir }}/.config"
-    owner: "{{ user_name }}"
-  tags: git
