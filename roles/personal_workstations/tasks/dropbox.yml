@@ -3,13 +3,13 @@
   ansible.builtin.apt_key:
     keyserver: pgp.mit.edu
     id: 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
-  tags: dropbox
+  become: true
 
 - name: Add the Dropbox repository
   ansible.builtin.apt_repository:
     repo: deb https://linux.dropbox.com/ubuntu bionic main
     state: present
-  tags: dropbox
+  become: true
 
 - name: Install Dropbox
   apt:
@@ -17,26 +17,22 @@
       - dropbox
       - python3-gpg
     state: present
-  tags: dropbox
+  become: true
 
 - name: Check dropboxd status
   command: dropbox status
   register: status
-  tags: dropbox
 
 - name: Start dropbox
   command: dropbox start
   when: status.stdout == "Dropbox isn't running!"
   register: start
-  tags: dropbox
 
 - name: Install dropboxd
   shell: dropbox start -i
   when: start.stdout.find("The Dropbox daemon is not installed!") != -1
   register: install
-  tags: dropbox
 
 - name: Start dropbox
   command: dropbox start
   when: install.changed
-  tags: dropbox
