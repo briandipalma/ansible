@@ -1,0 +1,4 @@
+---
+- hosts: all
+  tasks:
+    - import_tasks: roles/common/tasks/repos.yml
