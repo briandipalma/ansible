@@ -1,0 +1,8 @@
+---
+- name: Install packages (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - ubuntu-restricted-extras
+    state: latest
+  become: true
