@@ -1,0 +1,22 @@
+---
+- name: Add the Syncthing repository release key
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  ansible.builtin.get_url:
+    url: https://syncthing.net/release-key.gpg
+    dest: /usr/share/keyrings/syncthing-archive-keyring.gpg
+  become: true
+
+- name: Add Syncthing repository
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt_repository:
+    repo: deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable
+    state: present
+  become: true
+
+- name: Install Syncthing
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - syncthing
+    state: latest
+  become: true

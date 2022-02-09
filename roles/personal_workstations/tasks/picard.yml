@@ -1,0 +1,14 @@
+---
+- name: Add MusicBrainz PPA repository and install its signing key (Ubuntu based)
+  when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
+  apt_repository:
+    repo: ppa:musicbrainz-developers/stable
+    state: present
+  become: true
+
+- name: Install Picard (Ubuntu based)
+  when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - picard
+    state: present
