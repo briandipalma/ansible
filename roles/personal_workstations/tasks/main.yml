@@ -1,6 +1,8 @@
 ---
 - import_tasks: packages.yml
   tags: packages
+- import_tasks: ssh.yml
+  tags: ssh
 - import_tasks: picard.yml
   tags: picard
 - import_tasks: syncthing.yml
