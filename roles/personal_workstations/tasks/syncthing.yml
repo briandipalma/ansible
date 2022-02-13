@@ -20,3 +20,8 @@
       - syncthing
     state: latest
   become: true
+
+- name: Copy Syncthing start desktop file to autostart
+  ansible.builtin.copy:
+    src: /usr/share/applications/syncthing-start.desktop
+    dest: /home/brian/.config/autostart
