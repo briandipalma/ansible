@@ -44,7 +44,11 @@ return require("packer").startup(function(use)
 	-- Show key combinations after pressing a key
 	use("folke/which-key.nvim")
 	-- Statusline plugin
-	use({ "hoob3rt/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	use({
+		"nvim-lualine/lualine.nvim",
+		event = "ColorScheme",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 	-- Visualize Neovim's undo tree
 	use("mbbill/undotree")
 	-- Faster left-right movement, highlight unique characters in line
@@ -57,6 +61,7 @@ return require("packer").startup(function(use)
 	use({
 		"rose-pine/neovim",
 		as = "rose-pine",
+		tag = "v1.*",
 	})
 	-- Terminal
 	use("akinsho/toggleterm.nvim")
