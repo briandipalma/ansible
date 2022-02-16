@@ -1,11 +1,12 @@
 Host phone
-    HostName brians-oneplus3t
-    Port 8022
+  HostName brians-oneplus3t
+  Port 8022
 
 Host pi-hole-secondary
-    HostName pi-hole-secondary
-    User root
+  HostName pi-hole-secondary
 
 Host pi-hole-primary
-    HostName pi-hole-primary
-    User root
+  HostName pi-hole-primary
+
+Host *
+  User root
