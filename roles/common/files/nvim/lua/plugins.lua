@@ -46,7 +46,6 @@ return require("packer").startup(function(use)
 	-- Statusline plugin
 	use({
 		"nvim-lualine/lualine.nvim",
-		event = "ColorScheme",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 	-- Visualize Neovim's undo tree
