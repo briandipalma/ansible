@@ -49,6 +49,5 @@
     name:
       - font-noto-sans
       - font-roboto-slab
-      - font-jetbrains-mono
       - font-jetbrains-mono-nerd-font
     state: latest
