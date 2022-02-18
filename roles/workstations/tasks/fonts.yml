@@ -2,7 +2,7 @@
 - name: Create fonts directory (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   file:
-    path: /home/brian/.local/share/fonts
+    path: "{{ home_dir }}{{ fonts_directory }}"
     state: directory
 
 - name: Create temporary font extraction directory
@@ -30,6 +30,13 @@
     state: latest
   become: true
 
+- name: Install JetBrainsMono nerd font
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+    dest: "{{ home_dir }}{{ fonts_directory }}"
+    remote_src: true
+
 - name: Add fonts cask (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew_tap:
@@ -43,4 +50,5 @@
       - font-noto-sans
       - font-roboto-slab
       - font-jetbrains-mono
+      - font-jetbrains-mono-nerd-font
     state: latest
