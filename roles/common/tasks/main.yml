@@ -18,8 +18,6 @@
   tags: node
 - import_tasks: packages.yml
   tags: packages
-- import_tasks: git.yml
-  tags: git
 - import_tasks: fish.yml
   tags: fish
 - import_tasks: starship.yml
@@ -32,8 +30,6 @@
   tags: lsd
 - import_tasks: bat.yml
   tags: bat
-- import_tasks: lazygit.yml
-  tags: lazygit
 - import_tasks: delta.yml
   tags: delta
 - import_tasks: bottom.yml
