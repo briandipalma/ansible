@@ -1,6 +1,5 @@
 ---
 ansible_python_interpreter: /usr/bin/python3
-become_root: true
 user_name: brian
 fish_location: /usr/bin/fish
 home_dir: /home/brian
