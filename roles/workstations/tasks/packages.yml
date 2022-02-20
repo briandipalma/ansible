@@ -1,0 +1,36 @@
+---
+- name: Install Ansible task required packages (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - python3-pip
+    state: latest
+  become: true
+
+- name: Install pip/python (MacOSX based)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: python
+    state: latest
+
+- name: Install yamllint python package
+  pip:
+    name:
+      - yamllint
+      - ansible-lint
+      - proselint
+
+- name: Install "prettierd" node.js package globally.
+  community.general.npm:
+    name: "@fsouza/prettierd"
+    global: true
+
+- name: Install write-good node.js package globally.
+  community.general.npm:
+    name: write-good
+    global: true
+
+- name: Install markdownlint node.js package globally.
+  community.general.npm:
+    name: markdownlint-cli
+    global: true

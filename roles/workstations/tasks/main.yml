@@ -15,6 +15,8 @@
   tags: fonts
 - import_tasks: kitty.yml
   tags: kitty
+- import_tasks: node.yml
+  tags: node
 - import_tasks: remmina.yml
   tags: remmina
 - import_tasks: gnome.yml
