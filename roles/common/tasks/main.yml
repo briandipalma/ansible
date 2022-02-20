@@ -44,7 +44,3 @@
   tags: dust
 - import_tasks: tldr.yml
   tags: tldr
-- import_tasks: selene.yml
-  tags: selene
-- import_tasks: stylua.yml
-  tags: stylua

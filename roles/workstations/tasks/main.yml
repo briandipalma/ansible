@@ -3,6 +3,10 @@
   tags: git
 - import_tasks: lazygit.yml
   tags: lazygit
+- import_tasks: selene.yml
+  tags: selene
+- import_tasks: stylua.yml
+  tags: stylua
 - import_tasks: repos.yml
   tags: repos
 - import_tasks: taskwarrior.yml
