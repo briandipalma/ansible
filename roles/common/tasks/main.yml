@@ -14,8 +14,8 @@
     update_homebrew: true
   tags: always
 
-- import_tasks: packages.yml
-  tags: packages
+- import_tasks: dependencies.yml
+  tags: dependencies
 - import_tasks: fish.yml
   tags: fish
 - import_tasks: starship.yml

@@ -19,12 +19,6 @@
     dest: "{{ home_dir }}/.local/kitty"
     remote_src: true
 
-- name: Create local bin directory (Pop!_OS)
-  when: ansible_distribution in ["Pop!_OS"]
-  file:
-    path: "{{ home_dir }}/.local/bin"
-    state: directory
-
 - name: Link kitty binary (Pop!_OS)
   when: ansible_distribution in ["Pop!_OS"]
   file:

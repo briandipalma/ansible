@@ -1,0 +1,4 @@
+---
+ansible_user: root
+user_name: root
+home_dir: /root

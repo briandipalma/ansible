@@ -1,8 +1,0 @@
----
-- name: Install Ansible task required packages (Debian based)
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
-    pkg:
-      - unzip
-    state: latest
-  become: true
