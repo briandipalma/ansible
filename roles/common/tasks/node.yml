@@ -12,6 +12,7 @@
     argv:
       - gpg
       - --dearmor
+      - --yes
       - /usr/share/keyrings/nodesource
   become: true
 
