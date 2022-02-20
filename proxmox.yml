@@ -2,3 +2,4 @@
 - hosts: proxmox
   roles:
     - common
+    - proxmox
