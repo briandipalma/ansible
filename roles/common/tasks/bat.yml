@@ -2,7 +2,7 @@
 - name: Install bat (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
-    deb: https://github.com/sharkdp/bat/releases/download/v0.19.0/bat_0.19.0_amd64.deb
+    deb: https://github.com/sharkdp/bat/releases/download/v0.20.0/bat_0.20.0_amd64.deb
   become: true
 
 - name: Install bat (MacOSX)
