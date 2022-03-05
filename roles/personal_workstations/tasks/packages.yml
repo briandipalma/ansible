@@ -4,5 +4,6 @@
   apt:
     pkg:
       - ubuntu-restricted-extras
+      - wireguard
     state: latest
   become: true

@@ -15,6 +15,12 @@
       - local
       - ubuntu-18.04-standard_18.04.1-1_amd64.tar.gz
 
+- name: Install packages
+  apt:
+    pkg:
+      - wireguard
+    state: latest
+
 - name: Change ownership and set correct file/directory permissions
   include_tasks: setup_files.yml
   loop:
