@@ -1,4 +1,4 @@
 ---
 - hosts: all
   tasks:
-    - import_tasks: roles/common/tasks/repos.yml
+    - import_tasks: roles/personal_workstations/tasks/repos.yml

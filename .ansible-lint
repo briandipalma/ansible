@@ -1,0 +1,5 @@
+---
+exclude_paths:
+  - roles/workstations/files/lazygit/config.yml
+  - roles/common/files/lsd/themes/light.yaml
+  - roles/common/files/lsd/config.yaml
