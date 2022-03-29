@@ -9,6 +9,7 @@ local sources = {
 	null_ls.builtins.formatting.terraform_fmt,
 	null_ls.builtins.formatting.trim_newlines,
 	null_ls.builtins.formatting.trim_whitespace,
+	null_ls.builtins.diagnostics.ansiblelint,
 	null_ls.builtins.diagnostics.eslint_d,
 	null_ls.builtins.diagnostics.selene,
 	null_ls.builtins.diagnostics.write_good,
