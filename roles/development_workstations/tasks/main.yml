@@ -1,6 +1,8 @@
 ---
 - import_tasks: packages.yml
   tags: packages
+- import_tasks: slack.yml
+  tags: slack
 
 - name: Install direnv
   when: ansible_distribution in ["MacOSX"]

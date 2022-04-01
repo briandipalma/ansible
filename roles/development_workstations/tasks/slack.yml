@@ -1,0 +1,5 @@
+- name: Install Slack (Debian based)
+  when: ansible_distribution in ["Pop!_OS", "Ubuntu", "Debian"]
+  apt:
+    deb: https://downloads.slack-edge.com/releases/linux/4.24.0/prod/x64/slack-desktop-4.24.0-amd64.deb
+  become: true
