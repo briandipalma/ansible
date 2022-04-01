@@ -9,6 +9,15 @@
     state: latest
   tags: direnv
 
+- name: Install direnv (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - direnv
+    state: latest
+  become: true
+  tags: direnv
+
 - name: Copy Karabiner config
   when: ansible_distribution in ["MacOSX"]
   copy:

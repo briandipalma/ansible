@@ -44,3 +44,28 @@
   dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-8"
     value: "['<Super>8']"
+
+- name: Tile windows
+  dconf:
+    key: "/org/gnome/shell/extensions/pop-shell/tile-by-default"
+    value: "true"
+
+- name: No inner gap
+  dconf:
+    key: "/org/gnome/shell/extensions/pop-shell/gap-inner"
+    value: "uint32 0"
+
+- name: No outer gap
+  dconf:
+    key: "/org/gnome/shell/extensions/pop-shell/gap-outer"
+    value: "uint32 0"
+
+- name: Dynamic workspaces
+  dconf:
+    key: "/org/gnome/mutter/dynamic-workspaces"
+    value: "false"
+
+- name: Number of workspaces
+  dconf:
+    key: "/org/gnome/desktop/wm/preferences/num-workspaces"
+    value: "8"
