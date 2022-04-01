@@ -3,3 +3,4 @@
   community.general.npm:
     name: eslint_d
     global: true
+  become: true

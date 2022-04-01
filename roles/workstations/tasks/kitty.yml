@@ -55,3 +55,4 @@
     pkg:
       - kitty-terminfo
     state: present
+  become: true

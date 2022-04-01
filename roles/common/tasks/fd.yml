@@ -4,6 +4,7 @@
   apt:
     pkg:
       - fd-find
+  become: true
 
 - name: Create a symbolic link to fdfind
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]

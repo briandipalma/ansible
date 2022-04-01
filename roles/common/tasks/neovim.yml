@@ -4,6 +4,7 @@
   apt_repository:
     repo: ppa:neovim-ppa/stable
     state: present
+    codename: impish
   become: true
 
 - name: Install neovim (Debian based)
@@ -12,6 +13,7 @@
     pkg:
       - neovim
     state: present
+  become: true
 
 - name: Install neovim packages (MacOSX)
   when: ansible_distribution in ["MacOSX"]
