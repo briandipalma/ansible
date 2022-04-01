@@ -7,8 +7,6 @@
   tags: selene
 - import_tasks: stylua.yml
   tags: stylua
-- import_tasks: repos.yml
-  tags: repos
 - import_tasks: taskwarrior.yml
   tags: taskwarrior
 - import_tasks: fonts.yml

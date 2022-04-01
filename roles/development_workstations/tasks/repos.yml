@@ -1,0 +1,6 @@
+---
+- name: Git checkout of mono repo
+  ansible.builtin.git:
+    repo: git@gitlab.caplin.com:front-end/mono.git
+    accept_hostkey: true
+    dest: "{{ home_dir }}/dev/m/mono"

@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Create dev directory
+      file:
+        path: "{{ home_dir }}/dev/"
+        state: directory
+
+    - import_tasks: roles/workstations/tasks/repos.yml
+
+    - name: Install openconnect (Debian based)
+      when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+      apt:
+        pkg:
+          - openconnect
+        state: latest
+      become: true

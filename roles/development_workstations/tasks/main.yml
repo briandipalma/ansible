@@ -21,3 +21,6 @@
     src: fish
     dest: "{{ home_dir }}/.config"
   tags: fish
+
+- import_tasks: repos.yml
+  tags: repos

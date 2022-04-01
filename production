@@ -2,6 +2,7 @@
 pve.test
 
 [development_workstations]
+brian-pop-os-pc-specialist ansible_connection=local
 Brians-MacBook-Pro.local ansible_connection=local
 
 [personal_workstations]
