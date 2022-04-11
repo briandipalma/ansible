@@ -1,5 +1,20 @@
 require("nvim-treesitter.configs").setup({
-	ensure_installed = "maintained",
+	ensure_installed = {
+		"comment",
+		"css",
+		"dockerfile",
+		"fish",
+		"html",
+		"java",
+		"javascript",
+		"jsdoc",
+		"json",
+		"kotlin",
+		"lua",
+		"regex",
+		"typescript",
+		"yaml",
+	},
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
