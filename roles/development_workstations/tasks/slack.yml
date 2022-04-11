@@ -1,3 +1,4 @@
+---
 - name: Install Slack (Debian based)
   when: ansible_distribution in ["Pop!_OS", "Ubuntu", "Debian"]
   apt:
