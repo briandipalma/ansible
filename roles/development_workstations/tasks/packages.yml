@@ -10,3 +10,25 @@
     name: yarn
     global: true
   become: true
+
+- name: Install direnv (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: direnv
+    state: latest
+
+- name: Install direnv (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - direnv
+    state: latest
+  become: true
+
+- name: Install OpenJDK 8 (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - openjdk-8-jdk
+    state: latest
+  become: true
