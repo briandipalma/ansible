@@ -1,5 +1,5 @@
 ---
-- name: Install Ansible task required packages (Debian based)
+- name: Install pip (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     pkg:
@@ -24,13 +24,16 @@
   community.general.npm:
     name: "@fsouza/prettierd"
     global: true
+  become: true
 
 - name: Install write-good node.js package globally.
   community.general.npm:
     name: write-good
     global: true
+  become: true
 
 - name: Install markdownlint node.js package globally.
   community.general.npm:
     name: markdownlint-cli
     global: true
+  become: true
