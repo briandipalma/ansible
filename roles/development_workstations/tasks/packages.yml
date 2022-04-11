@@ -4,3 +4,9 @@
     name: eslint_d
     global: true
   become: true
+
+- name: Install yarn node.js package globally.
+  community.general.npm:
+    name: yarn
+    global: true
+  become: true
