@@ -30,7 +30,7 @@ local function on_attach(client, bufnr)
 	buf_set_keymap("n", "<leader>ll", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 	buf_set_keymap("n", "<leader>lm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
-	if client.name == "stylelint_lsp" then
+	if client.name == "stylelint_lsp" or client.name == "html" or client.name == "sumneko_lua" then
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
 	end
