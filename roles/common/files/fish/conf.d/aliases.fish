@@ -10,3 +10,4 @@ alias g=git
 alias icat="kitty +kitten icat"
 alias d="delta"
 alias dk="kitty +kitten diff"
+alias s="kitty +kitten ssh"
