@@ -5,6 +5,10 @@
     src: https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz
     dest: "{{ home_dir }}/.local/bin"
     remote_src: true
+    extra_opts:
+      # The lazygit zip contains the executable and some md files. We want to
+      # strip the md files and only take the executable
+      - "lazygit"
 
 - name: Install lazygit (MacOSX)
   when: ansible_distribution in ["MacOSX"]
