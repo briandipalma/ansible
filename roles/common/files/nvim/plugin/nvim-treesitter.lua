@@ -4,6 +4,7 @@ require("nvim-treesitter.configs").setup({
 		"css",
 		"dockerfile",
 		"fish",
+		"hcl",
 		"html",
 		"java",
 		"javascript",
