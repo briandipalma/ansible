@@ -2,7 +2,7 @@
 - name: Add the fish repository Apt signing key (Debian)
   when: ansible_distribution in ["Debian"]
   ansible.builtin.get_url:
-    url: https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key
+    url: https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key
     dest: /usr/share/keyrings/shells_fish
   become: true
 
@@ -26,7 +26,7 @@
 - name: Add fish repository (Debian)
   when: ansible_distribution in ["Debian"]
   apt_repository:
-    repo: deb [signed-by=/usr/share/keyrings/shells_fish.gpg] http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/ /
+    repo: deb [signed-by=/usr/share/keyrings/shells_fish.gpg] http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /
     state: present
   become: true
 
