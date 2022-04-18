@@ -1,18 +1,16 @@
 ---
-- name: Add neovim PPA repository and install its signing key (Ubuntu based)
+- name: Remove neovim PPA repository and install its signing key (Ubuntu based)
   when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
   apt_repository:
     repo: ppa:neovim-ppa/stable
-    state: present
+    state: absent
     codename: impish
   become: true
 
 - name: Install neovim (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
-    pkg:
-      - neovim
-    state: present
+    deb: https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
   become: true
 
 - name: Install neovim packages (MacOSX)
