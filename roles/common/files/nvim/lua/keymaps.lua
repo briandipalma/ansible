@@ -2,20 +2,20 @@ local wk = require("which-key")
 
 wk.register({
 	["<leader>f"] = {
-		name = "+find",
-		f = { "<cmd>Telescope find_files<cr>", "Find File" },
-		g = { "<cmd>Telescope grep_string<cr>", "Find String Under Cursor" },
-		b = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
-		l = { "<cmd>Telescope live_grep<cr>", "Find Inputted String" },
-		e = { "<cmd>Telescope file_browser<cr>", "Find Using File Browser" },
-		h = { "<cmd>Telescope help_tags<cr>", "Find Help Tag" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+		name = "find",
+		f = { "<cmd>Telescope find_files<cr>", "List files in cwd, respects .gitignore" },
+		g = { "<cmd>Telescope grep_string<cr>", "Searches for string under cursor" },
+		l = { "<cmd>Telescope live_grep<cr>", "Searches for string and get live results" },
+		b = { "<cmd>Telescope buffers<cr>", "List open buffers" },
+		h = { "<cmd>Telescope help_tags<cr>", "List available help tags" },
+		o = { "<cmd>Telescope oldfiles<cr>", "List previously open files" },
+		c = { "<cmd>Telescope commands<cr>", "List available plugin/user commands" },
 	},
 })
 
 wk.register({
 	["<leader>h"] = {
-		name = "+git hunk",
+		name = "git",
 		s = { "<cmd>Gitsigns stage_hunk<CR>", "Stage hunk" },
 		r = { "<cmd>Gitsigns reset_hunk<CR>", "Reset hunk" },
 		S = { "<cmd>Gitsigns stage_buffer<CR>", "Stage buffer" },
