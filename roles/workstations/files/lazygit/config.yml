@@ -13,9 +13,9 @@ git:
     pager: delta --paging=never
 
 customCommands:
-  - key: 'P'
-    command: "git push --force-with-lease"
-    context: 'global'
-    loadingText: 'Pushing changes using force-with-lease'
+  - key: "P"
+    command: "git push --force-with-lease -u origin {{.SelectedLocalBranch.Name}}"
+    context: "global"
+    loadingText: "Pushing changes using force-with-lease"
 
 startuppopupversion: 1
