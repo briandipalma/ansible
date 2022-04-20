@@ -10,6 +10,8 @@ wk.register({
 		h = { "<cmd>Telescope help_tags<cr>", "List available help tags" },
 		o = { "<cmd>Telescope oldfiles<cr>", "List previously open files" },
 		c = { "<cmd>Telescope commands<cr>", "List available plugin/user commands" },
+		d = { "<cmd>Telescope lsp_document_symbols<cr>", "Lists LSP document symbols in buffer" },
+		r = { "<cmd>Telescope lsp_references<cr>", "Lists LSP references for word under cursor" },
 	},
 })
 
