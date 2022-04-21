@@ -12,6 +12,7 @@ wk.register({
 		c = { "<cmd>Telescope commands<cr>", "List available plugin/user commands" },
 		d = { "<cmd>Telescope lsp_document_symbols<cr>", "Lists LSP document symbols in buffer" },
 		r = { "<cmd>Telescope lsp_references<cr>", "Lists LSP references for word under cursor" },
+		m = { "<cmd>Telescope git_bcommits<cr>", "Lists buffer's git commits with diff" },
 	},
 })
 
