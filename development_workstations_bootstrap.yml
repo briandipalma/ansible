@@ -9,11 +9,4 @@
         state: directory
 
     - import_tasks: roles/workstations/tasks/repos.yml
-
-    - name: Install openconnect (Debian based)
-      when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-      apt:
-        pkg:
-          - openconnect
-        state: latest
-      become: true
+    - import_tasks: roles/development_workstations/tasks/repos.yml

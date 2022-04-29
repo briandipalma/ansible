@@ -17,5 +17,5 @@
     dest: "{{ home_dir }}/.config"
   tags: fish
 
-- import_tasks: repos.yml
+- import_tasks: repos-setup.yml
   tags: repos

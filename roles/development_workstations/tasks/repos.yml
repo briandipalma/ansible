@@ -1,26 +1,6 @@
 ---
-- name: Check if mono repo exists
-  stat:
-    path: "{{ home_dir }}/dev/m/mono"
-  register: mono_repo
-
 - name: Git checkout of mono repo
   ansible.builtin.git:
     repo: git@gitlab.caplin.com:front-end/mono.git
     accept_hostkey: true
     dest: "{{ home_dir }}/dev/m/mono"
-  when: not mono_repo.stat.exists
-
-- name: Copy post-checkout hook
-  when: ansible_distribution in ["MacOSX"]
-  copy:
-    src: post-checkout
-    dest: "{{ home_dir }}/dev/m/mono/.git/hooks/"
-    mode: 0775
-
-- name: Copy post-checkout hook
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  copy:
-    src: post-checkout-linux
-    dest: "{{ home_dir }}/dev/m/mono/.git/hooks/post-checkout"
-    mode: 0775
