@@ -1,26 +1,21 @@
 ---
-- name: Install pip (Debian based)
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
-    pkg:
-      - python3-pip
-    state: latest
-  become: true
-
 - name: Install chrome (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   become: true
 
-- name: Install pip/python (MacOSX based)
+- name: Install lint python packages (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  pip:
+    name:
+      - yamllint
+      - ansible-lint
+      - proselint
+
+- name: Install lint python packages (macOS)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
-    name: python
-    state: latest
-
-- name: Install yamllint python package
-  pip:
     name:
       - yamllint
       - ansible-lint
