@@ -3,7 +3,7 @@ pve.test
 
 [development_workstations]
 brian-pop-os-pc-specialist ansible_connection=local
-Brians-MacBook-Pro.local ansible_connection=local
+brians-macbookpro-macos.local ansible_connection=local
 
 [personal_workstations]
 xps-13-pop-os.test ansible_connection=local
