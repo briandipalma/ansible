@@ -12,4 +12,3 @@
   file:
     path: "{{ home_dir }}/.local/bin"
     state: directory
-  become_user: "{{ user_name }}"

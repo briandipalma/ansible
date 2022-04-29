@@ -15,10 +15,8 @@
 
 - name: Copy tmux config
   copy:
-    src: tmux.conf
-    # ~/.config/tmux/tmux.conf support was added to tmux 3.1a
-    # but Debian hasn't released it yet
-    dest: "{{ home_dir }}/.tmux.conf"
+    src: tmux
+    dest: "{{ home_dir }}/.config"
 
 - name: Git checkout of tpm
   ansible.builtin.git:
