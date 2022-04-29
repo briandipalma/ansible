@@ -51,6 +51,7 @@
     state: link
 
 - name: Install kitty-terminfo
+  when: ansible_distribution in ["Pop!_OS"]
   apt:
     pkg:
       - kitty-terminfo
