@@ -8,7 +8,7 @@
 - name: Install bottom (MacOSX)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
-    name: clementtsang/bottom/bottom
+    name: bottom
     state: latest
 
 - name: Copy bottom config
