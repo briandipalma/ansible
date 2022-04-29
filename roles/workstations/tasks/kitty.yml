@@ -6,38 +6,46 @@
       - kitty
     state: latest
 
-- name: Create kitty directory (Pop!_OS)
-  when: ansible_distribution in ["Pop!_OS"]
+- name: Create kitty directory (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   file:
     path: "{{ home_dir }}/.local/kitty"
     state: directory
 
-- name: Install kitty (Pop!_OS)
-  when: ansible_distribution in ["Pop!_OS"]
+- name: Install kitty (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
     src: https://github.com/kovidgoyal/kitty/releases/download/v0.25.0/kitty-0.25.0-x86_64.txz
     dest: "{{ home_dir }}/.local/kitty"
     remote_src: true
 
-- name: Link kitty binary (Pop!_OS)
-  when: ansible_distribution in ["Pop!_OS"]
+- name: Link kitty binary (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   file:
     src: "{{ home_dir }}/.local/kitty/bin/kitty"
     dest: "{{ home_dir }}/.local/bin/kitty"
     state: link
 
-- name: Copy kitty icon
-  when: ansible_distribution in ["Pop!_OS"]
+- name: Copy kitty icon (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   copy:
     src: "{{ home_dir }}/.local/kitty/share/applications/kitty.desktop"
     dest: "{{ home_dir }}/.local/share/applications"
 
-- name: Change kitty icon file path
-  when: ansible_distribution in ["Pop!_OS"]
+- name: Change kitty icon file path (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   ansible.builtin.lineinfile:
     path: "{{ home_dir }}/.local/share/applications/kitty.desktop"
     regexp: "^Icon=kitty$"
     line: "Icon={{ home_dir }}/.local/kitty/share/icons/hicolor/256x256/apps/kitty.png"
+
+- name: Install kitty-terminfo (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - kitty-terminfo
+    state: present
+  become: true
 
 - name: Copy kitty config
   copy:
@@ -49,11 +57,3 @@
     src: "{{ home_dir }}/.config/kitty/{{ inventory_hostname }}.conf"
     dest: "{{ home_dir }}/.config/kitty/host-config.conf"
     state: link
-
-- name: Install kitty-terminfo
-  when: ansible_distribution in ["Pop!_OS"]
-  apt:
-    pkg:
-      - kitty-terminfo
-    state: present
-  become: true

@@ -5,8 +5,8 @@
     name: stylua
     state: latest
 
-- name: Install StyLua (Pop!_OS)
-  when: ansible_distribution in ["Pop!_OS"]
+- name: Install StyLua (Debian)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
     src: https://github.com/JohnnyMorganz/StyLua/releases/download/v0.13.1/stylua-linux.zip
     dest: "{{ home_dir }}/.local/bin/"

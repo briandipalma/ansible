@@ -21,6 +21,13 @@
     src: "{{ temp_font_dir.path }}/fonts/variable/"
     dest: "{{ home_dir }}{{ fonts_directory }}"
 
+- name: Install JetBrainsMono nerd font
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+    dest: "{{ home_dir }}{{ fonts_directory }}"
+    remote_src: true
+
 - name: Install font packages (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
@@ -29,13 +36,6 @@
       - fonts-roboto-slab
     state: latest
   become: true
-
-- name: Install JetBrainsMono nerd font
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  unarchive:
-    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
-    dest: "{{ home_dir }}{{ fonts_directory }}"
-    remote_src: true
 
 - name: Add fonts cask (MacOSX)
   when: ansible_distribution in ["MacOSX"]
