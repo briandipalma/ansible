@@ -79,3 +79,8 @@
   dconf:
     key: "/org/gnome/shell/extensions/dash-to-dock/intellihide"
     value: "true"
+
+- name: Hide window
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/minimize"
+    value: "['<Super>Down']"
