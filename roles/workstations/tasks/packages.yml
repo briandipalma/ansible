@@ -12,6 +12,7 @@
       - yamllint
       - ansible-lint
       - proselint
+    state: latest
 
 - name: Install lint python packages (macOS)
   when: ansible_distribution in ["MacOSX"]
@@ -25,16 +26,19 @@
   community.general.npm:
     name: "@fsouza/prettierd"
     global: true
+    state: latest
   become: true
 
 - name: Install write-good node.js package globally.
   community.general.npm:
     name: write-good
     global: true
+    state: latest
   become: true
 
 - name: Install markdownlint node.js package globally.
   community.general.npm:
     name: markdownlint-cli
     global: true
+    state: latest
   become: true
