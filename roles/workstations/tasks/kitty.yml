@@ -15,7 +15,7 @@
 - name: Install kitty (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
-    src: https://github.com/kovidgoyal/kitty/releases/download/v0.25.0/kitty-0.25.0-x86_64.txz
+    src: https://github.com/kovidgoyal/kitty/releases/download/v0.25.1/kitty-0.25.1-x86_64.txz
     dest: "{{ home_dir }}/.local/kitty"
     remote_src: true
 
