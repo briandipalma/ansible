@@ -25,6 +25,14 @@
     state: latest
   become: true
 
+- name: Install podman (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - podman
+    state: latest
+  become: true
+
 - name: Install OpenJDK 8 (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
