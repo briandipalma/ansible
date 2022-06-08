@@ -14,4 +14,4 @@ wk.show = function(keys, opts)
 	show(keys, opts)
 end
 
-wk.setup({ spelling = { enabled = true } })
+wk.setup({ plugins = { spelling = { enabled = true } } })

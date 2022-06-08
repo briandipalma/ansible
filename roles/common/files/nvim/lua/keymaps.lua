@@ -16,6 +16,9 @@ wk.register({
 	},
 })
 
+local nextGitHunk = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", "Next git hunk", expr = true }
+local prevGitHunk = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", "Previous git hunk", expr = true }
+
 wk.register({
 	["<leader>h"] = {
 		name = "git",
@@ -30,14 +33,25 @@ wk.register({
 		d = { "<cmd>Gitsigns diffthis<CR>", "Diff this file against index" },
 		D = { "<cmd>lua require'gitsigns'.diffthis('~1')<CR>", "Diff this file against last commit" },
 		e = { "<cmd>Gitsigns toggle_deleted<CR>", "Toggle deleted" },
-		j = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", "Next hunk", expr = true },
-		k = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", "Previous hunk", expr = true },
+		j = nextGitHunk,
+		k = prevGitHunk,
 	},
 })
 
 wk.register({
-	["]c"] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", "Next hunk", expr = true },
-	["[c"] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", "Previous hunk", expr = true },
+	["<leader>w"] = {
+		name = "window",
+		q = { "<cmd>copen<CR><C-w>J", "Open the quickfix window" },
+	},
+})
+
+wk.register({
+	["[c"] = prevGitHunk,
+	["]c"] = nextGitHunk,
+	["[q"] = { "<cmd>cprev<CR>", "Previous quickfix entry" },
+	["]q"] = { "<cmd>cnext<CR>", "Next quickfix entry" },
+	["[l"] = { "<cmd>lprev<CR>", "Previous location list entry" },
+	["]l"] = { "<cmd>lnext<CR>", "Next location list entry" },
 })
 
 -- Exit from terminal insert mode
