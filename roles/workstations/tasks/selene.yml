@@ -8,7 +8,7 @@
 - name: Install Selene (Debian)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   unarchive:
-    src: https://github.com/Kampfkarren/selene/releases/download/0.17.0/selene-0.17.0-linux.zip
+    src: https://github.com/Kampfkarren/selene/releases/download/0.18.1/selene-0.18.1-linux.zip
     dest: "{{ home_dir }}/.local/bin"
     remote_src: true
     mode: 0755
