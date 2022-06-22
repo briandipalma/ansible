@@ -39,6 +39,37 @@ wk.register({
 })
 
 wk.register({
+	["<leader>t"] = {
+		name = "terminal",
+		t = { "<cmd>ToggleTerm direction=tab<cr>", "Open tab terminal" },
+		h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Open horizontal terminal" },
+		v = { "<cmd>ToggleTerm direction=vertical<cr>", "Open vertical terminal" },
+		f = { "<cmd>ToggleTerm direction=float<cr>", "Open float terminal" },
+	},
+})
+
+wk.register({
+	["<leader>t"] = {
+		name = "terminal",
+		t = { "<cmd>ToggleTerm direction=tab<cr>", "Close tab terminal" },
+		h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Close horizontal terminal" },
+		v = { "<cmd>ToggleTerm direction=vertical<cr>", "Close vertical terminal" },
+		f = { "<cmd>ToggleTerm direction=float<cr>", "Close float terminal" },
+	},
+}, { mode = "t" })
+
+local terminal = require("terminal")
+
+wk.register({
+	["<leader>g"] = {
+		function()
+			terminal.lazygit_toggle()
+		end,
+		"Open lazygit",
+	},
+})
+
+wk.register({
 	["<leader>w"] = {
 		name = "window",
 		q = { "<cmd>copen<CR><C-w>J", "Open the quickfix window" },
