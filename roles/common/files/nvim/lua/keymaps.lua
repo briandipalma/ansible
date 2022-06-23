@@ -1,5 +1,48 @@
 local wk = require("which-key")
 
+--
+-- Terminal mode mappings
+--
+
+wk.register({
+	["<leader>t"] = {
+		name = "terminal",
+		t = { "<cmd>ToggleTerm direction=tab<cr>", "Close tab terminal" },
+		h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Close horizontal terminal" },
+		v = { "<cmd>ToggleTerm direction=vertical<cr>", "Close vertical terminal" },
+		f = { "<cmd>ToggleTerm direction=float<cr>", "Close float terminal" },
+	},
+}, { mode = "t" })
+
+-- Quicker exit from terminal insert mode
+vim.keymap.set("t", "<C-\\>", "<C-\\><C-n>")
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
+
+--
+-- Insert mode mappings
+--
+
+-- Paste from clipboard, use C-q instead of C-v to insert literal text
+vim.keymap.set("i", "<C-v>", "<C-r>+")
+
+--
+-- Normal mode mappings
+--
+
+-- Go to the first non-blank character of a line
+vim.keymap.set("n", "0", "^")
+-- Just in case you need to go to the very beginning of a line
+vim.keymap.set("n", "^", "0")
+-- Move focused window
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+-- https://github.com/neovim/neovim/issues/16416 workaround
+vim.keymap.set("n", "<C-c>", "<Esc>")
+
+wk.register({ ["<leader>s"] = { ":w<CR>", "Write file" } })
+
 wk.register({
 	["<leader>f"] = {
 		name = "find",
@@ -48,16 +91,6 @@ wk.register({
 	},
 })
 
-wk.register({
-	["<leader>t"] = {
-		name = "terminal",
-		t = { "<cmd>ToggleTerm direction=tab<cr>", "Close tab terminal" },
-		h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Close horizontal terminal" },
-		v = { "<cmd>ToggleTerm direction=vertical<cr>", "Close vertical terminal" },
-		f = { "<cmd>ToggleTerm direction=float<cr>", "Close float terminal" },
-	},
-}, { mode = "t" })
-
 local terminal = require("terminal")
 
 wk.register({
@@ -84,15 +117,3 @@ wk.register({
 	["[l"] = { "<cmd>lprev<CR>", "Previous location list entry" },
 	["]l"] = { "<cmd>lnext<CR>", "Next location list entry" },
 })
-
--- Exit from terminal insert mode
-vim.api.nvim_set_keymap("t", "<C-\\>", "<C-\\><C-n>", {})
--- Easier writing
-vim.api.nvim_set_keymap("n", "<leader>s", ":w<CR>", {})
--- Move focused window
-vim.api.nvim_set_keymap("n", "<Left>", "<C-w>h", {})
-vim.api.nvim_set_keymap("n", "<Right>", "<C-w>l", {})
-vim.api.nvim_set_keymap("n", "<Up>", "<C-w>k", {})
-vim.api.nvim_set_keymap("n", "<Down>", "<C-w>j", {})
--- https://github.com/neovim/neovim/issues/16416 workaround
-vim.api.nvim_set_keymap("n", "<C-c>", "<Esc>", {})
