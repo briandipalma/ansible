@@ -4,19 +4,9 @@ local wk = require("which-key")
 -- Terminal mode mappings
 --
 
-wk.register({
-	["<leader>t"] = {
-		name = "terminal",
-		t = { "<cmd>ToggleTerm direction=tab<cr>", "Close tab terminal" },
-		h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Close horizontal terminal" },
-		v = { "<cmd>ToggleTerm direction=vertical<cr>", "Close vertical terminal" },
-		f = { "<cmd>ToggleTerm direction=float<cr>", "Close float terminal" },
-	},
-}, { mode = "t" })
-
 -- Quicker exit from terminal insert mode
 vim.keymap.set("t", "<C-\\>", "<C-\\><C-n>")
-vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
+vim.keymap.set("t", "<A-k>", "<C-\\><C-n><C-w>k")
 
 --
 -- Insert mode mappings
@@ -34,10 +24,10 @@ vim.keymap.set("n", "0", "^")
 -- Just in case you need to go to the very beginning of a line
 vim.keymap.set("n", "^", "0")
 -- Move focused window
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<A-h>", "<C-w>h")
+vim.keymap.set("n", "<A-j>", "<C-w>j")
+vim.keymap.set("n", "<A-k>", "<C-w>k")
+vim.keymap.set("n", "<A-l>", "<C-w>l")
 -- https://github.com/neovim/neovim/issues/16416 workaround
 vim.keymap.set("n", "<C-c>", "<Esc>")
 
@@ -85,7 +75,7 @@ wk.register({
 	["<leader>t"] = {
 		name = "terminal",
 		t = { "<cmd>ToggleTerm direction=tab<cr>", "Open tab terminal" },
-		h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Open horizontal terminal" },
+		h = { '<cmd>execute v:count . "ToggleTerm direction=horizontal"<CR>', "Open horizontal terminal" },
 		v = { "<cmd>ToggleTerm direction=vertical<cr>", "Open vertical terminal" },
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Open float terminal" },
 	},
