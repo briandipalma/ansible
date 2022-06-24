@@ -39,7 +39,6 @@ return require("packer").startup(function(use)
 	-- Auto close pairs, brackets/quotes
 	use("windwp/nvim-autopairs")
 	-- git plugins, gutter git decorations
-	use("tpope/vim-fugitive")
 	use({ "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" })
 	-- Show key combinations after pressing a key
 	use("folke/which-key.nvim")
