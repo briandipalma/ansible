@@ -1,6 +1,6 @@
 ---
 fish_location: /usr/local/bin/fish
-home_dir: /Users/brian
-lazygit_config_dir: /Users/brian/Library/Application Support/
+home_dir: /Users/briand
+lazygit_config_dir: /Users/briand/Library/Application Support/
 taskwarrior_theme_path: light-256.theme
 fonts_directory: /Library/Fonts
