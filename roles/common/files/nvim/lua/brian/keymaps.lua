@@ -1,40 +1,42 @@
+local wk = require("which-key")
+
+local keymap = vim.keymap.set
+
 -- Map the leader key to space, more convenient than default `\`
 vim.g.mapleader = " "
 -- Buffer local mappings or operations local to your current line?
 vim.g.maplocalleader = "\\"
-
-local wk = require("which-key")
 
 --
 -- Terminal mode mappings
 --
 
 -- Quicker exit from terminal insert mode
-vim.keymap.set("t", "<C-\\>", "<C-\\><C-n>")
-vim.keymap.set("t", "<A-k>", "<C-\\><C-n><C-w>k")
+keymap("t", "<C-\\>", "<C-\\><C-n>")
+keymap("t", "<A-k>", "<C-\\><C-n><C-w>k")
 
 --
 -- Insert mode mappings
 --
 
 -- Paste from clipboard, use C-q instead of C-v to insert literal text
-vim.keymap.set("i", "<C-v>", "<C-r>+")
+keymap("i", "<C-v>", "<C-r>+")
 
 --
 -- Normal mode mappings
 --
 
 -- Go to the first non-blank character of a line
-vim.keymap.set("n", "0", "^")
+keymap("n", "0", "^")
 -- Just in case you need to go to the very beginning of a line
-vim.keymap.set("n", "^", "0")
+keymap("n", "^", "0")
 -- Move focused window
-vim.keymap.set("n", "<A-h>", "<C-w>h")
-vim.keymap.set("n", "<A-j>", "<C-w>j")
-vim.keymap.set("n", "<A-k>", "<C-w>k")
-vim.keymap.set("n", "<A-l>", "<C-w>l")
+keymap("n", "<A-h>", "<C-w>h")
+keymap("n", "<A-j>", "<C-w>j")
+keymap("n", "<A-k>", "<C-w>k")
+keymap("n", "<A-l>", "<C-w>l")
 -- https://github.com/neovim/neovim/issues/16416 workaround
-vim.keymap.set("n", "<C-c>", "<Esc>")
+keymap("n", "<C-c>", "<Esc>")
 
 wk.register({ ["<leader>s"] = { ":w<CR>", "Write file" } })
 
