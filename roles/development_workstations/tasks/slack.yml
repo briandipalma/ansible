@@ -4,3 +4,9 @@
   apt:
     deb: https://downloads.slack-edge.com/releases/linux/4.24.0/prod/x64/slack-desktop-4.24.0-amd64.deb
   become: true
+
+- name: Install Slack (macOS based)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew_cask:
+    name: slack
+    state: latest
