@@ -5,6 +5,20 @@
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   become: true
 
+- name: Install chrome (macOS)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew_cask:
+    name:
+      - google-chrome
+    state: latest
+
+- name: Install firefox (macOS)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew_cask:
+    name:
+      - firefox
+    state: latest
+
 - name: Install lint python packages (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   pip:
