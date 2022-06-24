@@ -33,6 +33,12 @@
     state: latest
   become: true
 
+- name: Install podman (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: podman
+    state: latest
+
 - name: Install OpenJDK 8 (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   apt:
