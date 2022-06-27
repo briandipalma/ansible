@@ -52,7 +52,7 @@ return require("packer").startup(function(use)
 	-- Faster left-right movement, highlight unique characters in line
 	use("unblevable/quick-scope")
 	-- Display indention levels for space indented code
-	use("Yggdroot/indentLine")
+	use("lukas-reineke/indent-blankline.nvim")
 	-- Theme
 	use({
 		"rose-pine/neovim",
