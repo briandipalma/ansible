@@ -46,3 +46,9 @@
       - openjdk-8-jdk
     state: latest
   become: true
+
+- name: Install OpenJDK 8 (macOS based)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: openjdk@8
+    state: latest

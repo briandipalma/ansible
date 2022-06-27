@@ -2,6 +2,6 @@
 
 yarn
 
-echo export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home >> apps/salestrader/.envrc
+echo export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-8.jdk/Contents/Home/ >> apps/salestrader/.envrc
 
 direnv allow apps/salestrader/
