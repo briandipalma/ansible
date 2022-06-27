@@ -1,6 +1,5 @@
 return require("packer").startup(function(use)
 	-- Packer can manage itself
-	use("wbthomason/packer.nvim")
 	-- Configurations for Neovim's LSP client
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
@@ -51,8 +50,6 @@ return require("packer").startup(function(use)
 	use("mbbill/undotree")
 	-- Faster left-right movement, highlight unique characters in line
 	use("unblevable/quick-scope")
-	-- Highlight yanked text
-	use("machakann/vim-highlightedyank")
 	-- Display indention levels for space indented code
 	use("Yggdroot/indentLine")
 	-- Theme

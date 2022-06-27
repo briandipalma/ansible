@@ -88,7 +88,7 @@ wk.register({
 	},
 })
 
-local terminal = require("terminal")
+local terminal = require("brian.lazygit")
 
 wk.register({
 	["<leader>g"] = {
