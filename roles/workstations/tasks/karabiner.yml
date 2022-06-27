@@ -1,0 +1,14 @@
+---
+- name: Install karabiner (MacOSX)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew_cask:
+    name:
+      - karabiner-elements
+    state: latest
+
+- name: Copy Karabiner config
+  when: ansible_distribution in ["MacOSX"]
+  copy:
+    src: karabiner.json
+    dest: "{{ home_dir }}/.config/karabiner/"
+  tags: karabiner
