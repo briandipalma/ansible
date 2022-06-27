@@ -1,5 +1,5 @@
 require("brian.options")
+require("brian.plugins")
 require("brian.keymaps")
 require("diagnostic")
-require("plugins")
 require("navigation")
