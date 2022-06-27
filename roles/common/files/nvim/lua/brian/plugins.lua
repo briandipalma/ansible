@@ -1,5 +1,6 @@
 return require("packer").startup(function(use)
 	-- Packer can manage itself
+	use("wbthomason/packer.nvim")
 	-- Configurations for Neovim's LSP client
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
