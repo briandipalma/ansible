@@ -2,63 +2,146 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 	-- Configurations for Neovim's LSP client
-	use("neovim/nvim-lspconfig")
+	use({
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("brian.plugins.lspconfig")
+		end,
+	})
 	use("williamboman/nvim-lsp-installer")
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		config = function()
+			require("brian.plugins.null-ls")
+		end,
 	})
 	use({
 		"jose-elias-alvarez/nvim-lsp-ts-utils",
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	})
-	use("ray-x/lsp_signature.nvim")
+	use({
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require("brian.plugins.lsp_signature")
+		end,
+	})
 	use("onsails/lspkind-nvim")
 	-- Tree-sitter
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+		config = function()
+			require("brian.plugins.treesitter")
+		end,
+	})
 	use({ "nvim-treesitter/nvim-treesitter-refactor", requires = "nvim-treesitter/nvim-treesitter" })
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", requires = "nvim-treesitter/nvim-treesitter" })
 	-- Comment toggling
-	use("tpope/vim-commentary")
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("brian.plugins.comment")
+		end,
+	})
 	-- File explorer
-	use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("brian.plugins.tree")
+		end,
+	})
 	-- Fuzzy finder over lists
-	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("brian.plugins.telescope")
+		end,
+	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	-- Autocompletion plugin and sources
-	use("hrsh7th/nvim-cmp")
+	use({
+		"hrsh7th/nvim-cmp",
+		config = function()
+			require("brian.plugins.cmp")
+		end,
+	})
 	use("hrsh7th/cmp-nvim-lsp") -- LSP source
 	use("hrsh7th/cmp-buffer") -- Buffers source
 	use("hrsh7th/cmp-path") -- File system paths source
 	use("hrsh7th/cmp-cmdline") -- Neovim commands source
 	use("hrsh7th/cmp-nvim-lua") -- Neovim Lua API source
 	-- Snippets and autocompletion sources
-	use("L3MON4D3/LuaSnip") -- Snippets plugin
+	use({
+		"L3MON4D3/LuaSnip",
+		config = function()
+			require("brian.plugins.luasnip")
+		end,
+	}) -- Snippets plugin
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source
 	use("rafamadriz/friendly-snippets") -- Collection of snippets
 	-- Auto close pairs, brackets/quotes
-	use("windwp/nvim-autopairs")
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("brian.plugins.autopairs")
+		end,
+	})
 	-- git plugins, gutter git decorations
-	use({ "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({
+		"lewis6991/gitsigns.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("brian.plugins.gitsigns")
+		end,
+	})
 	-- Show key combinations after pressing a key
-	use("folke/which-key.nvim")
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			require("brian.plugins.which-key")
+		end,
+	})
 	-- Statusline plugin
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = function()
+			require("brian.plugins.lualine")
+		end,
 	})
 	-- Visualize Neovim's undo tree
-	use("mbbill/undotree")
+	use({
+		"mbbill/undotree",
+		config = function()
+			require("brian.plugins.undotree")
+		end,
+	})
 	-- Faster left-right movement, highlight unique characters in line
 	use("unblevable/quick-scope")
 	-- Display indention levels for space indented code
-	use("lukas-reineke/indent-blankline.nvim")
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("brian.plugins.indent-blankline")
+		end,
+	})
 	-- Theme
 	use({
 		"rose-pine/neovim",
 		as = "rose-pine",
 		tag = "v1.*",
+		config = function()
+			require("brian.plugins.rose-pine")
+		end,
 	})
 	-- Terminal
-	use("akinsho/toggleterm.nvim")
+	use({
+		"akinsho/toggleterm.nvim",
+		config = function()
+			require("brian.plugins.toggleterm")
+		end,
+	})
 end)
