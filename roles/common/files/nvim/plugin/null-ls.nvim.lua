@@ -1,5 +1,5 @@
 local null_ls = require("null-ls")
-local on_attach = require("bdp-lsp-utils").on_attach
+local on_attach = require("brian.lsp.utils").on_attach
 
 local sources = {
 	null_ls.builtins.formatting.eslint_d,

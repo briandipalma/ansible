@@ -1,5 +1,5 @@
 local lsp_installer = require("nvim-lsp-installer")
-local on_attach = require("bdp-lsp-utils").on_attach
+local on_attach = require("brian.lsp.utils").on_attach
 
 -- Configure lua language server for neovim development
 local lua_settings = {
