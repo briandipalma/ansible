@@ -14,7 +14,7 @@ git:
 
 customCommands:
   - key: "P"
-    command: "git push --force-with-lease -u origin {{.SelectedLocalBranch.Name}}"
+    command: "git push --force-with-lease -u origin {{.CheckedOutBranch.Name}}"
     context: "global"
     loadingText: "Pushing changes using force-with-lease"
 
