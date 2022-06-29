@@ -1,5 +1,8 @@
-local lsp_installer = require("nvim-lsp-installer")
+local lspConfig = require("lspconfig")
+local lspInstaller = require("nvim-lsp-installer")
 local on_attach = require("brian.lsp.utils").on_attach
+
+lspInstaller.setup({ automatic_installation = true })
 
 -- Configure lua language server for neovim development
 local lua_settings = {
@@ -7,7 +10,6 @@ local lua_settings = {
 		runtime = {
 			-- LuaJIT in the case of Neovim
 			version = "LuaJIT",
-			path = vim.split(package.path, ";"),
 		},
 		diagnostics = {
 			-- Get the language server to recognize the `vim` global
@@ -17,32 +19,28 @@ local lua_settings = {
 			-- Make the server aware of Neovim runtime files
 			library = vim.api.nvim_get_runtime_file("", true),
 		},
+		telemetry = {
+			enable = false,
+		},
 	},
 }
 
--- config that activates keymaps and enables snippet support
-local function make_config()
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	-- enable snippet support
-	capabilities.textDocument.completion.completionItem.snippetSupport = true
-	-- Add capabilities supported by nvim-cmp
-	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- enable snippet support
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- Add capabilities supported by nvim-cmp
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-	return {
-		capabilities = capabilities,
-		on_attach = on_attach,
-		flags = { debounce_text_changes = 150 },
-	}
-end
+local defaultConfig = { capabilities = capabilities, on_attach = on_attach }
+local luaConfig = { capabilities = capabilities, on_attach = on_attach, settings = lua_settings }
 
-lsp_installer.on_server_ready(function(server)
-	local config = make_config()
-
-	-- language specific config
-	if server.name == "sumneko_lua" then
-		config.settings = lua_settings
-	end
-
-	server:setup(config)
-	vim.cmd([[ do User LspAttachBuffers ]])
-end)
+lspConfig.ansiblels.setup(defaultConfig)
+lspConfig.cssls.setup(defaultConfig)
+lspConfig.dockerls.setup(defaultConfig)
+lspConfig.gradle_ls.setup(defaultConfig)
+lspConfig.html.setup(defaultConfig)
+lspConfig.jdtls.setup(defaultConfig)
+lspConfig.jsonls.setup(defaultConfig)
+lspConfig.kotlin_language_server.setup(defaultConfig)
+lspConfig.sumneko_lua.setup(luaConfig)
+lspConfig.tsserver.setup(defaultConfig)

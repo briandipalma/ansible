@@ -4,11 +4,11 @@ return require("packer").startup(function(use)
 	-- Configurations for Neovim's LSP client
 	use({
 		"neovim/nvim-lspconfig",
+		requires = { "williamboman/nvim-lsp-installer" },
 		config = function()
 			require("brian.plugins.lspconfig")
 		end,
 	})
-	use("williamboman/nvim-lsp-installer")
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
