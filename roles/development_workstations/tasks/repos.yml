@@ -4,3 +4,9 @@
     repo: git@gitlab.caplin.com:front-end/mono.git
     accept_hostkey: true
     dest: "{{ home_dir }}/dev/m/mono"
+
+- name: Git checkout of mocks repo
+  ansible.builtin.git:
+    repo: git@gitlab.caplin.com:integration/MockFXMultiAdapter.git
+    accept_hostkey: true
+    dest: "{{ home_dir }}/dev/MockFXMultiAdapter"
