@@ -4,7 +4,7 @@ return require("packer").startup(function(use)
 	-- Configurations for Neovim's LSP client
 	use({
 		"neovim/nvim-lspconfig",
-		requires = { "williamboman/nvim-lsp-installer" },
+		requires = { "hrsh7th/cmp-nvim-lsp", "jose-elias-alvarez/typescript.nvim", "williamboman/nvim-lsp-installer" },
 		config = function()
 			require("brian.plugins.lspconfig")
 		end,
@@ -68,7 +68,6 @@ return require("packer").startup(function(use)
 			require("brian.plugins.cmp")
 		end,
 	})
-	use("hrsh7th/cmp-nvim-lsp") -- LSP source
 	use("hrsh7th/cmp-buffer") -- Buffers source
 	use("hrsh7th/cmp-path") -- File system paths source
 	use("hrsh7th/cmp-cmdline") -- Neovim commands source

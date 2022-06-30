@@ -1,46 +1,22 @@
 local lspConfig = require("lspconfig")
 local lspInstaller = require("nvim-lsp-installer")
-local on_attach = require("brian.lsp.utils").on_attach
+local defaultConfig = require("brian.lsp.config-default")
+local eslintConfig = require("brian.lsp.config-eslint")
+local luaConfig = require("brian.lsp.config-lua")
+local noFormatConfig = require("brian.lsp.config-noformat")
+local typescriptConfig = require("brian.lsp.config-typescript")
 
 lspInstaller.setup({ automatic_installation = true })
-
--- Configure lua language server for neovim development
-local lua_settings = {
-	Lua = {
-		runtime = {
-			-- LuaJIT in the case of Neovim
-			version = "LuaJIT",
-		},
-		diagnostics = {
-			-- Get the language server to recognize the `vim` global
-			globals = { "vim" },
-		},
-		workspace = {
-			-- Make the server aware of Neovim runtime files
-			library = vim.api.nvim_get_runtime_file("", true),
-		},
-		telemetry = {
-			enable = false,
-		},
-	},
-}
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
--- enable snippet support
-capabilities.textDocument.completion.completionItem.snippetSupport = true
--- Add capabilities supported by nvim-cmp
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
-local defaultConfig = { capabilities = capabilities, on_attach = on_attach }
-local luaConfig = { capabilities = capabilities, on_attach = on_attach, settings = lua_settings }
 
 lspConfig.ansiblels.setup(defaultConfig)
 lspConfig.cssls.setup(defaultConfig)
 lspConfig.dockerls.setup(defaultConfig)
+lspConfig.eslint.setup(eslintConfig)
 lspConfig.gradle_ls.setup(defaultConfig)
-lspConfig.html.setup(defaultConfig)
+lspConfig.html.setup(noFormatConfig)
 lspConfig.jdtls.setup(defaultConfig)
-lspConfig.jsonls.setup(defaultConfig)
+lspConfig.jsonls.setup(noFormatConfig)
 lspConfig.kotlin_language_server.setup(defaultConfig)
 lspConfig.sumneko_lua.setup(luaConfig)
-lspConfig.tsserver.setup(defaultConfig)
+lspConfig.terraformls.setup(defaultConfig)
+require("typescript").setup(typescriptConfig)
