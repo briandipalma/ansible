@@ -47,6 +47,14 @@
     state: latest
   become: true
 
+- name: Install OpenJDK 11 (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  apt:
+    pkg:
+      - openjdk-11-jdk
+    state: latest
+  become: true
+
 - name: Install OpenJDK 8 (macOS based)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
