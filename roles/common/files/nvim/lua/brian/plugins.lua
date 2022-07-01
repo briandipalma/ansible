@@ -1,4 +1,7 @@
-return require("packer").startup(function(use)
+local packer = require("packer")
+local util = require("packer.util")
+
+packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 	-- Configurations for Neovim's LSP client
@@ -144,3 +147,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 end)
+
+local fn = vim.fn
+local compile_path = util.join_paths(fn.stdpath("config"), "plugin", "packer_compiled.lua")
+
+if fn.empty(fn.glob(compile_path)) > 0 then
+	packer.sync()
+end

@@ -1,4 +1,5 @@
 local defaultConfig = require("brian.lsp.config-default")
+local disableFormatting = require("brian.lsp.disable-formatting")
 
 local function on_attach(client, bufnr)
 	defaultConfig.on_attach(client, bufnr)
@@ -9,8 +10,7 @@ local function on_attach(client, bufnr)
 
 	local opts = { noremap = true, silent = true }
 
-	client.resolved_capabilities.document_formatting = false
-	client.resolved_capabilities.document_range_formatting = false
+	disableFormatting(client)
 	buf_set_keymap("n", "<leader>lt", ":TypescriptAddMissingImports<CR>", opts)
 	buf_set_keymap("n", "<leader>lo", ":TypescriptOrganizeImports<CR>", opts)
 	buf_set_keymap("n", "<leader>lR", ":TypescriptRemoveUnused<CR>", opts)

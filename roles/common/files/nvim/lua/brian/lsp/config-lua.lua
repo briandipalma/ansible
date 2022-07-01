@@ -1,4 +1,11 @@
 local defaultConfig = require("brian.lsp.config-default")
+local disableFormatting = require("brian.lsp.disable-formatting")
+
+local function on_attach(client, bufnr)
+	defaultConfig.on_attach(client, bufnr)
+
+	disableFormatting(client)
+end
 
 -- Configure lua language server for neovim development
 local lua_settings = {
@@ -15,6 +22,9 @@ local lua_settings = {
 			-- Make the server aware of Neovim runtime files
 			library = vim.api.nvim_get_runtime_file("", true),
 		},
+		format = {
+			enable = false,
+		},
 		telemetry = {
 			enable = false,
 		},
@@ -23,6 +33,6 @@ local lua_settings = {
 
 return {
 	capabilities = defaultConfig.capabilities,
-	on_attach = defaultConfig.on_attach,
+	on_attach = on_attach,
 	settings = lua_settings,
 }
