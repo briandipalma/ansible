@@ -17,12 +17,6 @@ keymap("t", "<A-k>", "<C-\\><C-n><C-w>k")
 keymap("i", "<C-v>", "<C-r>+")
 keymap("i", "jk", "<ESC>")
 
--- Visual mode mappings --
-
--- Stay in indent mode
-keymap("v", "<", "<gv")
-keymap("v", ">", ">gv")
-
 -- Normal mode mappings --
 
 -- Go to the first non-blank character of a line

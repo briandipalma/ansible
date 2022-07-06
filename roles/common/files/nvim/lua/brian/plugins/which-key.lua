@@ -87,6 +87,19 @@ wk.register({
 })
 
 wk.register({
+	["<leader>c"] = {
+		name = "config",
+		l = { "<cmd>set list!<CR>", "Toggle whitespace characters" },
+		i = {
+			function()
+				require("indent_blankline/commands").toggle()
+			end,
+			"Toggle indentation guides",
+		},
+	},
+})
+
+wk.register({
 	["[c"] = prevGitHunk,
 	["]c"] = nextGitHunk,
 	["[q"] = { "<cmd>cprev<CR>", "Previous quickfix entry" },

@@ -12,8 +12,7 @@ set.foldexpr = "nvim_treesitter#foldexpr()"
 set.foldenable = false
 -- Number of spaces that a <Tab> counts for
 set.tabstop = 2
--- Show invisibles
-set.list = true
+-- Whitespace characters
 set.listchars:append({ tab = "ᐧ ", eol = "◦" })
 -- Only the last window will have a status line
 set.laststatus = 3
