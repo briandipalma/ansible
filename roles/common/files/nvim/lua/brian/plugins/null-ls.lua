@@ -1,4 +1,5 @@
 local null_ls = require("null-ls")
+local formatOnWrite = require("brian.lsp.format-on-write")
 
 local sources = {
 	null_ls.builtins.code_actions.proselint,
@@ -17,4 +18,4 @@ local sources = {
 	null_ls.builtins.hover.dictionary,
 }
 
-null_ls.setup({ sources = sources })
+null_ls.setup({ sources = sources, on_attach = formatOnWrite })

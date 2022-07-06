@@ -6,12 +6,12 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Add capabilities supported by nvim-cmp
 capabilities = cmpLSP.update_capabilities(capabilities)
 
-local function on_attach(client, bufnr)
+local opts = { noremap = true, silent = true }
+
+local function on_attach(_, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
-
-	local opts = { noremap = true, silent = true }
 
 	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>zz", opts)
 	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>zz", opts)
@@ -26,11 +26,6 @@ local function on_attach(client, bufnr)
 	buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	buf_set_keymap("n", "<leader>le", "<cmd>lua require('brian.diagnostic').show_line_diagnostics()<CR>", opts)
 	buf_set_keymap("n", "<leader>ll", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	buf_set_keymap("n", "<leader>lm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-
-	if client.resolved_capabilities.document_formatting then
-		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-	end
 end
 
 return { on_attach = on_attach, capabilities = capabilities }
