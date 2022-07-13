@@ -10,11 +10,6 @@ telescope.setup({
 			},
 		},
 	},
-	pickers = {
-		git_bcommits = {
-			git_command = { "git", "log", "--pretty=oneline", "--follow" },
-		},
-	},
 })
 
 telescope.load_extension("fzf")
