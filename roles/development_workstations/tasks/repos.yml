@@ -10,3 +10,9 @@
     repo: git@gitlab.caplin.com:integration/MockFXMultiAdapter.git
     accept_hostkey: true
     dest: "{{ home_dir }}/dev/MockFXMultiAdapter"
+
+- name: Git checkout of FXAPI repo
+  ansible.builtin.git:
+    repo: git@gitlab.caplin.com:integration/fx-integration-api.git
+    accept_hostkey: true
+    dest: "{{ home_dir }}/dev/fx-integration-api"
