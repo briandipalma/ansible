@@ -16,7 +16,7 @@ end
 
 wk.setup({ plugins = { spelling = { enabled = true } } })
 
-wk.register({ ["<leader>s"] = { ":w<CR>", "Write file" } })
+wk.register({ ["<leader>s"] = { ":up<CR>", "Write updated buffer" } })
 
 wk.register({
 	["<leader>f"] = {
@@ -109,3 +109,7 @@ wk.register({
 	["[l"] = { "<cmd>lprev<CR>", "Previous location list entry" },
 	["]l"] = { "<cmd>lnext<CR>", "Next location list entry" },
 })
+
+wk.register({ ["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Open file manager" } })
+
+wk.register({ ["<leader>n"] = { "<cmd>NvimTreeFindFile<CR>", "Open file manager to current buffer" } })
