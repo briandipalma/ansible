@@ -1,11 +1,12 @@
 ---
 gui:
+  showIcons: true
   theme:
     activeBorderColor:
-      - magenta
-      - bold
-    inactiveBorderColor:
       - yellow
+      - bold
+    selectedLineBgColor:
+      - black
 
 git:
   paging:
