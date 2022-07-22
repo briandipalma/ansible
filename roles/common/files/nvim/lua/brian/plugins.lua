@@ -91,6 +91,13 @@ packer.startup(function(use)
 			require("brian.plugins.autopairs")
 		end,
 	})
+	-- Modify surrounding delimiters
+	use({
+		"kylechui/nvim-surround",
+		config = function()
+			require("brian.plugins.surround")
+		end,
+	})
 	-- git plugins, gutter git decorations
 	use({
 		"lewis6991/gitsigns.nvim",
