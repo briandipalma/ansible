@@ -1,5 +1,6 @@
 local lspConfig = require("lspconfig")
-local lspInstaller = require("nvim-lsp-installer")
+local mason = require("mason")
+local masonLSP = require("mason-lspconfig")
 local defaultConfig = require("brian.lsp.config-default")
 local eslintConfig = require("brian.lsp.config-eslint")
 local kotlinConfig = require("brian.lsp.config-kotlin")
@@ -7,7 +8,8 @@ local luaConfig = require("brian.lsp.config-lua")
 local noFormatConfig = require("brian.lsp.config-noformat")
 local typescriptConfig = require("brian.lsp.config-typescript")
 
-lspInstaller.setup({ automatic_installation = true })
+mason.setup()
+masonLSP.setup({ automatic_installation = true })
 
 lspConfig.ansiblels.setup(defaultConfig)
 lspConfig.cssls.setup(defaultConfig)

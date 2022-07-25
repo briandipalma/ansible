@@ -7,7 +7,12 @@ packer.startup(function(use)
 	-- Configurations for Neovim's LSP client
 	use({
 		"neovim/nvim-lspconfig",
-		requires = { "hrsh7th/cmp-nvim-lsp", "jose-elias-alvarez/typescript.nvim", "williamboman/nvim-lsp-installer" },
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"jose-elias-alvarez/typescript.nvim",
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+		},
 		config = function()
 			require("brian.plugins.lspconfig")
 		end,
@@ -121,6 +126,7 @@ packer.startup(function(use)
 			require("brian.plugins.lualine")
 		end,
 	})
+	use("arkav/lualine-lsp-progress")
 	-- Visualize Neovim's undo tree
 	use({
 		"mbbill/undotree",
