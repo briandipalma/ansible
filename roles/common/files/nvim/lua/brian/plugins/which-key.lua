@@ -89,6 +89,13 @@ wk.register({
 })
 
 wk.register({
+	["<leader>u"] = {
+		":UndotreeShow<CR>",
+		"Open undotree",
+	},
+})
+
+wk.register({
 	["<leader>c"] = {
 		name = "config",
 		l = { "<cmd>set list!<CR>", "Toggle whitespace characters" },
