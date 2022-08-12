@@ -33,6 +33,8 @@ wk.register({
 		m = { "<cmd>Telescope git_bcommits<cr>", "Lists buffer's git commits with diff" },
 		s = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy find in current buffer" },
 		p = { "<cmd>Telescope resume<cr>", "Resume previous picker" },
+		M = { "<cmd>Telescope git_commits<cr>", "Lists git commits with diff" },
+		B = { "<cmd>Telescope git_branches<cr>", "Lists all branches with log preview" },
 	},
 })
 
