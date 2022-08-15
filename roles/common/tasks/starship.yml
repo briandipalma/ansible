@@ -1,8 +1,8 @@
 ---
 - name: Install Starship (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  unarchive:
-    src: https://github.com/starship/starship/releases/download/v1.9.1/starship-x86_64-unknown-linux-gnu.tar.gz
+  ansible.builtin.unarchive:
+    src: https://github.com/starship/starship/releases/download/v1.10.0/starship-x86_64-unknown-linux-gnu.tar.gz
     dest: "{{ home_dir }}/.local/bin"
     remote_src: true
 
@@ -13,6 +13,7 @@
     state: latest
 
 - name: Copy starship config
-  copy:
+  ansible.builtin.copy:
     src: starship.toml
     dest: "{{ home_dir }}/.config/starship.toml"
+    mode: 0664
