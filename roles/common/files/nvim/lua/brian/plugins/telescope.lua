@@ -33,6 +33,7 @@ telescope.setup({
 				},
 			},
 		},
+		lsp_references = { fname_width = 70 },
 	},
 })
 
