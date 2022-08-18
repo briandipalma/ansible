@@ -85,6 +85,7 @@ wk.register({
 	["<leader>w"] = {
 		name = "window",
 		q = { "<cmd>copen<CR><C-w>J", "Open the quickfix window" },
+		h = { "<cmd>chi<CR>", "Open the quickfix history" },
 		j = { ":resize -4<CR>", "Resize down" },
 		k = { ":resize +4<CR>", "Resize up" },
 	},
