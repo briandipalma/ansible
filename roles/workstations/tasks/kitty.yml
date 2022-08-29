@@ -8,29 +8,31 @@
 
 - name: Create kitty directory (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  file:
+  ansible.builtin.file:
     path: "{{ home_dir }}/.local/kitty"
     state: directory
+    mode: 0775
 
 - name: Install kitty (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  unarchive:
-    src: https://github.com/kovidgoyal/kitty/releases/download/v0.25.2/kitty-0.25.2-x86_64.txz
+  ansible.builtin.unarchive:
+    src: https://github.com/kovidgoyal/kitty/releases/download/v0.26.0/kitty-0.26.0-x86_64.txz
     dest: "{{ home_dir }}/.local/kitty"
     remote_src: true
 
 - name: Link kitty binary (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  file:
+  ansible.builtin.file:
     src: "{{ home_dir }}/.local/kitty/bin/kitty"
     dest: "{{ home_dir }}/.local/bin/kitty"
     state: link
 
 - name: Copy kitty icon (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  copy:
+  ansible.builtin.copy:
     src: "{{ home_dir }}/.local/kitty/share/applications/kitty.desktop"
     dest: "{{ home_dir }}/.local/share/applications"
+    mode: 0664
 
 - name: Change kitty icon file path (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
@@ -41,19 +43,20 @@
 
 - name: Install kitty-terminfo (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
+  ansible.builtin.apt:
     pkg:
       - kitty-terminfo
     state: present
   become: true
 
 - name: Copy kitty config
-  copy:
+  ansible.builtin.copy:
     src: kitty
     dest: "{{ home_dir }}/.config"
+    mode: 0775
 
 - name: Link host specific config
-  file:
+  ansible.builtin.file:
     src: "{{ home_dir }}/.config/kitty/{{ inventory_hostname }}.conf"
     dest: "{{ home_dir }}/.config/kitty/host-config.conf"
     state: link
