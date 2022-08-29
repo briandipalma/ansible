@@ -2,7 +2,7 @@
 - name: Install fzf (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   ansible.builtin.unarchive:
-    src: https://github.com/junegunn/fzf/releases/download/0.32.1/fzf-0.32.1-linux_amd64.tar.gz
+    src: https://github.com/junegunn/fzf/releases/download/0.33.0/fzf-0.33.0-linux_amd64.tar.gz
     dest: "{{ home_dir }}/.local/bin"
     remote_src: true
 
