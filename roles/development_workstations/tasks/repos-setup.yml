@@ -1,14 +1,14 @@
 ---
 - name: Copy post-checkout hook
   when: ansible_distribution in ["MacOSX"]
-  copy:
+  ansible.builtin.copy:
     src: post-checkout
     dest: "{{ home_dir }}/dev/m/mono/.git/hooks/"
     mode: 0775
 
 - name: Copy post-checkout hook
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  copy:
+  ansible.builtin.copy:
     src: post-checkout-linux
     dest: "{{ home_dir }}/dev/m/mono/.git/hooks/post-checkout"
     mode: 0775
