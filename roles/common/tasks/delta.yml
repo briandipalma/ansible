@@ -1,15 +1,15 @@
 ---
 - name: Install delta (Debian)
   when: ansible_distribution in ["Debian"]
-  apt:
+  ansible.builtin.apt:
     # Install musl due to https://github.com/dandavison/delta/issues/504
-    deb: https://github.com/dandavison/delta/releases/download/0.13.0/git-delta-musl_0.13.0_amd64.deb
+    deb: https://github.com/dandavison/delta/releases/download/0.14.0/git-delta-musl_0.14.0_amd64.deb
   become: true
 
 - name: Install delta (Ubuntu based)
   when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
-  apt:
-    deb: https://github.com/dandavison/delta/releases/download/0.13.0/git-delta_0.13.0_amd64.deb
+  ansible.builtin.apt:
+    deb: https://github.com/dandavison/delta/releases/download/0.14.0/git-delta_0.14.0_amd64.deb
   become: true
 
 - name: Install delta (MacOSX)
