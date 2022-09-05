@@ -1,9 +1,10 @@
 ---
 - name: Create fonts directory (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  file:
+  ansible.builtin.file:
     path: "{{ home_dir }}{{ fonts_directory }}"
     state: directory
+    mode: 0755
 
 - name: Create temporary font extraction directory
   ansible.builtin.tempfile:
@@ -11,7 +12,7 @@
   register: temp_font_dir
 
 - name: Download JetBrains Mono into temporary fonts directory
-  unarchive:
+  ansible.builtin.unarchive:
     src: https://download-cdn.jetbrains.com/fonts/JetBrainsMono-2.242.zip
     dest: "{{ temp_font_dir.path }}"
     remote_src: true
@@ -20,17 +21,17 @@
   ansible.builtin.copy:
     src: "{{ temp_font_dir.path }}/fonts/variable/"
     dest: "{{ home_dir }}{{ fonts_directory }}"
+    mode: 0644
 
-- name: Install JetBrainsMono nerd font
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  unarchive:
-    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+- name: Install Symbols only nerd font
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.1/NerdFontsSymbolsOnly.zip
     dest: "{{ home_dir }}{{ fonts_directory }}"
     remote_src: true
 
 - name: Install font packages (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
+  ansible.builtin.apt:
     pkg:
       - fonts-noto
       - fonts-roboto-slab
@@ -49,5 +50,4 @@
     name:
       - font-noto-sans
       - font-roboto-slab
-      - font-jetbrains-mono-nerd-font
     state: latest
