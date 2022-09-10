@@ -1,8 +1,8 @@
 ---
 - name: Install LSDeluxe (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
-    deb: https://github.com/Peltoche/lsd/releases/download/0.22.0/lsd_0.22.0_amd64.deb
+  ansible.builtin.apt:
+    deb: https://github.com/Peltoche/lsd/releases/download/0.23.0/lsd_0.23.0_amd64.deb
   become: true
 
 - name: Install LSDeluxe (MacOSX)
@@ -12,6 +12,7 @@
     state: latest
 
 - name: Copy lsd config
-  copy:
+  ansible.builtin.copy:
     src: lsd
     dest: "{{ home_dir }}/.config"
+    mode: 0775
