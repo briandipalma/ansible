@@ -2,7 +2,7 @@
 - name: Install LSDeluxe (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   ansible.builtin.apt:
-    deb: https://github.com/Peltoche/lsd/releases/download/0.23.0/lsd_0.23.0_amd64.deb
+    deb: https://github.com/Peltoche/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
   become: true
 
 - name: Install LSDeluxe (MacOSX)
