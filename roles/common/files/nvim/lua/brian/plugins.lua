@@ -1,6 +1,8 @@
 local packer = require("packer")
 local util = require("packer.util")
 
+packer.init({ display = { compact = true } })
+
 packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
@@ -126,7 +128,7 @@ packer.startup(function(use)
 			require("brian.plugins.lualine")
 		end,
 	})
-	use("arkav/lualine-lsp-progress")
+	use("WhoIsSethDaniel/lualine-lsp-progress.nvim")
 	-- Visualize Neovim's undo tree
 	use({
 		"mbbill/undotree",

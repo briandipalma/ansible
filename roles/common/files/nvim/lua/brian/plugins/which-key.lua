@@ -109,3 +109,5 @@ wk.register({
 wk.register({ ["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Open file manager" } })
 
 wk.register({ ["<leader>n"] = { "<cmd>NvimTreeFindFile<CR>", "Open file manager to current buffer" } })
+
+wk.register({ ["<leader>i"] = { name = "treesitter" } })
