@@ -113,6 +113,7 @@ packer.startup(function(use)
 			require("brian.plugins.gitsigns")
 		end,
 	})
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	-- Show key combinations after pressing a key
 	use({
 		"folke/which-key.nvim",

@@ -14,6 +14,8 @@ set.foldenable = false
 set.tabstop = 2
 -- Whitespace characters
 set.listchars:append({ tab = "ᐧ ", eol = "◦" })
+-- Characters for vertical separators
+set.fillchars:append({ diff = "╱" })
 -- Only the last window will have a status line
 set.laststatus = 3
 -- How many spaces for an indentation

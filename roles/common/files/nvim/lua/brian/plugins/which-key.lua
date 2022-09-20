@@ -16,11 +16,11 @@ wk.register({
 		c = { "<cmd>Telescope commands<cr>", "List available plugin/user commands" },
 		d = { "<cmd>Telescope lsp_document_symbols<cr>", "Lists LSP document symbols in buffer" },
 		r = { "<cmd>Telescope lsp_references<cr>", "Lists LSP references for word under cursor" },
-		m = { "<cmd>Telescope git_bcommits<cr>", "Lists buffer's git commits with diff" },
 		s = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy find in current buffer" },
 		p = { "<cmd>Telescope resume<cr>", "Resume previous picker" },
-		M = { "<cmd>Telescope git_commits<cr>", "Lists git commits with diff" },
 		B = { "<cmd>Telescope git_branches<cr>", "Lists all branches with log preview" },
+		m = { "<cmd>Telescope git_bcommits<cr>", "Lists buffer's git commits with diff" },
+		M = { "<cmd>Telescope git_commits<cr>", "Lists git commits with diff" },
 	},
 })
 
@@ -38,8 +38,6 @@ wk.register({
 		p = { "<cmd>Gitsigns preview_hunk<CR>", "Preview hunk" },
 		b = { "<cmd>lua require'gitsigns'.blame_line{full=true}<CR>", "Blame line popup" },
 		l = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Toggle line blame" },
-		d = { "<cmd>Gitsigns diffthis<CR>", "Diff this file against index" },
-		D = { "<cmd>lua require'gitsigns'.diffthis('~1')<CR>", "Diff this file against last commit" },
 		e = { "<cmd>Gitsigns toggle_deleted<CR>", "Toggle deleted" },
 		j = nextGitHunk,
 		k = prevGitHunk,
@@ -48,11 +46,23 @@ wk.register({
 
 wk.register({
 	["<leader>t"] = {
-		name = "terminal",
+		name = "terminal/tab",
 		t = { "<cmd>ToggleTerm direction=tab<cr>", "Open tab terminal" },
 		h = { '<cmd>execute v:count . "ToggleTerm direction=horizontal"<CR>', "Open horizontal terminal" },
 		v = { "<cmd>ToggleTerm direction=vertical<cr>", "Open vertical terminal" },
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Open float terminal" },
+		c = { "<cmd>tabclose<cr>", "Close tab" },
+	},
+})
+
+wk.register({
+	["<leader>d"] = {
+		name = "diff",
+		d = { "<cmd>DiffviewOpen<CR>", "Diff changes against index" },
+		b = { "<cmd>DiffviewFileHistory<cr>", "View current branch history" },
+		f = { "<cmd>DiffviewFileHistory %<cr>", "View current file history" },
+		i = { "<cmd>Gitsigns diffthis<CR>", "Diff this file against index" },
+		D = { "<cmd>lua require'gitsigns'.diffthis('~1')<CR>", "Diff this file against last commit" },
 	},
 })
 
