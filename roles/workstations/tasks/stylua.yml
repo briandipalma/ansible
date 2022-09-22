@@ -8,7 +8,7 @@
 - name: Install StyLua (Debian)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   ansible.builtin.unarchive:
-    src: https://github.com/JohnnyMorganz/StyLua/releases/download/v0.14.3/stylua-linux.zip
+    src: https://github.com/JohnnyMorganz/StyLua/releases/download/v0.15.0/stylua-linux-x86_64.zip
     dest: "{{ home_dir }}/.local/bin/"
     remote_src: true
     mode: 0755
