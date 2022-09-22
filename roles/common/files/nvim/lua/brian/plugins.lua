@@ -113,7 +113,13 @@ packer.startup(function(use)
 			require("brian.plugins.gitsigns")
 		end,
 	})
-	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({
+		"sindrets/diffview.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("brian.plugins.diffview")
+		end,
+	})
 	-- Show key combinations after pressing a key
 	use({
 		"folke/which-key.nvim",
@@ -150,7 +156,6 @@ packer.startup(function(use)
 	use({
 		"rose-pine/neovim",
 		as = "rose-pine",
-		tag = "v1.*",
 		config = function()
 			require("brian.plugins.rose-pine")
 		end,
