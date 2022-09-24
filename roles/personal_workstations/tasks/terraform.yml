@@ -2,6 +2,6 @@
 - name: Install terraform (Pop!_OS)
   when: ansible_distribution in ["Pop!_OS"]
   ansible.builtin.unarchive:
-    src: https://releases.hashicorp.com/terraform/1.2.9/terraform_1.2.9_linux_amd64.zip
+    src: https://releases.hashicorp.com/terraform/1.3.0/terraform_1.3.0_linux_amd64.zip
     dest: "{{ home_dir }}/.local/bin"
     remote_src: true
