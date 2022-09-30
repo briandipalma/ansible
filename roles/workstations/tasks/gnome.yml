@@ -1,6 +1,6 @@
 ---
-- name: install playbook requirements
-  package:
+- name: Install playbook requirements
+  ansible.builtin.package:
     name:
       - python3-psutil
   become: true
@@ -8,7 +8,7 @@
 - name: Switch to workspace 1 shortcut
   dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-1"
-    value: "['<Super>Home', '<Super>1']"
+    value: "['<Super>1']"
 
 - name: Switch to workspace 2 shortcut
   dconf:
@@ -83,4 +83,4 @@
 - name: Hide window
   dconf:
     key: "/org/gnome/desktop/wm/keybindings/minimize"
-    value: "['<Super>Down']"
+    value: "['<Alt><Super>j']"
