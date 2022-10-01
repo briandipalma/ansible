@@ -12,6 +12,7 @@ packer.startup(function(use)
 		requires = {
 			"hrsh7th/cmp-nvim-lsp",
 			"jose-elias-alvarez/typescript.nvim",
+			"simrat39/rust-tools.nvim",
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 		},
