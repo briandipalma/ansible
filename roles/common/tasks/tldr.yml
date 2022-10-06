@@ -1,8 +1,8 @@
 ---
 - name: Install tldr (Linux)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  get_url:
-    url: https://github.com/dbrgn/tealdeer/releases/download/v1.5.0/tealdeer-linux-x86_64-musl
+  ansible.builtin.get_url:
+    url: https://github.com/dbrgn/tealdeer/releases/download/v1.6.0/tealdeer-linux-x86_64-musl
     dest: "{{ home_dir }}/.local/bin/tldr"
     mode: 0755
 
@@ -13,12 +13,15 @@
     state: latest
 
 - name: Install tldr fish completions
-  get_url:
-    url: https://github.com/dbrgn/tealdeer/releases/download/v1.5.0/completions_fish
+  ansible.builtin.get_url:
+    url: https://github.com/dbrgn/tealdeer/releases/download/v1.6.0/completions_fish
     dest: "{{ home_dir }}/.config/fish/completions/tldr.fish"
+    mode: 0664
 
 - name: Update tldr cache
   ansible.builtin.command:
     argv:
       - tldr
       - --update
+  register: update_result
+  changed_when: update_result.stdout != ""
