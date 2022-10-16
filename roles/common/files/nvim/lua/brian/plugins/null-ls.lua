@@ -14,10 +14,10 @@ local sources = {
 	null_ls.builtins.formatting.prettierd,
 	null_ls.builtins.formatting.stylua,
 	null_ls.builtins.formatting.trim_newlines.with({
-		disabled_filetypes = { "terraform" },
+		disabled_filetypes = { "rust", "terraform" },
 	}),
 	null_ls.builtins.formatting.trim_whitespace.with({
-		disabled_filetypes = { "terraform" },
+		disabled_filetypes = { "rust", "terraform" },
 	}),
 	null_ls.builtins.hover.dictionary,
 }

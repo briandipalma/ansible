@@ -1,11 +1,6 @@
 local cmpLSP = require("cmp_nvim_lsp")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
--- enable snippet support
-capabilities.textDocument.completion.completionItem.snippetSupport = true
--- Add capabilities supported by nvim-cmp
-capabilities = cmpLSP.update_capabilities(capabilities)
-
+local capabilities = cmpLSP.default_capabilities()
 local opts = { noremap = true, silent = true }
 
 local function on_attach(_, bufnr)

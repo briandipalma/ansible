@@ -20,8 +20,6 @@ set.fillchars:append({ diff = "╱" })
 set.laststatus = 3
 -- How many spaces for an indentation
 set.shiftwidth = 2
--- Enable mouse in all modes
-set.mouse = "a"
 -- Enable 24-bit RGB color
 set.termguicolors = true
 -- Show line number on line with cursor
@@ -50,3 +48,5 @@ set.showbreak = "↳"
 set.linebreak = true
 -- Options for vimdiff/fugitive diff
 set.diffopt:append("vertical,algorithm:patience,indent-heuristic")
+-- Number of lines for command-line
+set.cmdheight = 0

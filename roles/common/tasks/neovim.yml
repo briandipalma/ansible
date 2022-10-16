@@ -1,8 +1,8 @@
 ---
 - name: Install neovim (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
-    deb: https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
+  ansible.builtin.apt:
+    deb: https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb
   become: true
 
 - name: Install neovim packages (MacOSX)
@@ -17,9 +17,10 @@
     state: absent
 
 - name: Copy neovim config
-  copy:
+  ansible.builtin.copy:
     src: nvim
     dest: "{{ home_dir }}/.config"
+    mode: 0775
 
 - name: Git checkout of packer
   ansible.builtin.git:

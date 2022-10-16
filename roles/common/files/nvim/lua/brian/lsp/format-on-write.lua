@@ -5,11 +5,11 @@ local function formatOnWrite(_, bufnr)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
 
-	buf_set_keymap("n", "<leader>lm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	buf_set_keymap("n", "<leader>lm", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
 
 	vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		callback = function()
-			vim.lsp.buf.formatting_sync()
+			vim.lsp.buf.format()
 		end,
 	})
 end
