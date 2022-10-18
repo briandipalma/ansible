@@ -136,7 +136,12 @@ packer.startup(function(use)
 			require("brian.plugins.lualine")
 		end,
 	})
-	use("WhoIsSethDaniel/lualine-lsp-progress.nvim")
+	use({
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup()
+		end,
+	})
 	-- Visualize Neovim's undo tree
 	use({
 		"mbbill/undotree",
@@ -167,6 +172,15 @@ packer.startup(function(use)
 		config = function()
 			require("brian.plugins.toggleterm")
 		end,
+	})
+	-- Nicer messages
+	use({
+		"folke/noice.nvim",
+		event = "VimEnter",
+		config = function()
+			require("noice").setup()
+		end,
+		requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
 	})
 end)
 

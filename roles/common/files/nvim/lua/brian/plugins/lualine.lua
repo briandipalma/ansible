@@ -12,7 +12,7 @@ lualine.setup({
 			},
 		},
 		lualine_b = { "diff", "diagnostics" },
-		lualine_c = { { "filename", path = 1 }, "lsp_progress" },
+		lualine_c = { { "filename", path = 1 } },
 		lualine_x = {
 			{
 				"encoding",
