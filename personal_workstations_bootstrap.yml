@@ -3,5 +3,5 @@
   connection: local
 
   tasks:
-    - import_tasks: workstations_bootstrap.yml
+    - import_tasks: roles/workstations/tasks/bootstrap.yml
     - import_tasks: roles/personal_workstations/tasks/repos.yml

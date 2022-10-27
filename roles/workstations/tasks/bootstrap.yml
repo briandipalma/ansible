@@ -1,0 +1,10 @@
+---
+- name: Create dev directory
+  ansible.builtin.file:
+    path: "{{ home_dir }}/dev/"
+    state: directory
+    mode: 0775
+
+- name: Clone workstation repos
+  ansible.builtin.import_tasks: repos.yml
+  tags: repos
