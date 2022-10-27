@@ -4,4 +4,4 @@
 
   tasks:
     - import_tasks: workstations_bootstrap.yml
-    - import_tasks: roles/development_workstations/tasks/repos.yml
+    - import_tasks: roles/personal_workstations/tasks/repos.yml
