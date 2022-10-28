@@ -1,8 +1,5 @@
 ---
-- name: Install remmina (Debian based)
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
-    pkg:
-      - remmina
-    state: latest
-  become: true
+- name: Install the Remmina package from flathub
+  community.general.flatpak:
+    name: org.remmina.Remmina
+    method: user
