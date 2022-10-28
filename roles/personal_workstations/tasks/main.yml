@@ -3,8 +3,6 @@
   tags: packages
 - import_tasks: ssh.yml
   tags: ssh
-- import_tasks: picard.yml
-  tags: picard
 - import_tasks: syncthing.yml
   tags: syncthing
 - import_tasks: terraform.yml
