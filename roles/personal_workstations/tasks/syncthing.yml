@@ -4,24 +4,30 @@
   ansible.builtin.get_url:
     url: https://syncthing.net/release-key.gpg
     dest: /usr/share/keyrings/syncthing-archive-keyring.gpg
+    mode: 0644
   become: true
 
 - name: Add Syncthing repository
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable
     state: present
   become: true
 
 - name: Install Syncthing
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
+  ansible.builtin.apt:
     pkg:
       - syncthing
     state: latest
   become: true
 
-- name: Copy Syncthing start desktop file to autostart
+- name: Copy systemd service file to server
   ansible.builtin.copy:
-    src: /usr/share/applications/syncthing-start.desktop
-    dest: "{{ home_dir }}/.config/autostart"
+    src: syncthing.service
+    dest: ~/.config/systemd/user/
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: 0664
+  notify:
+    - Restart Syncthing

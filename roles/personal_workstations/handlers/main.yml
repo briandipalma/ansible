@@ -5,3 +5,10 @@
     enabled: true
     state: restarted
     scope: user
+
+- name: Restart Syncthing
+  ansible.builtin.systemd:
+    name: syncthing
+    enabled: true
+    state: restarted
+    scope: user

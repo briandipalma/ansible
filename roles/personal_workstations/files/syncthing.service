@@ -1,0 +1,8 @@
+[Unit]
+Description=Syncthing Daemon
+
+[Service]
+ExecStart=/usr/bin/syncthing serve --no-browser --logfile=default
+
+[Install]
+WantedBy=default.target
