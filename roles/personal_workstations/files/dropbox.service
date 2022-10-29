@@ -1,0 +1,8 @@
+[Unit]
+Description=Dropbox Daemon
+
+[Service]
+ExecStart=flatpak run com.dropbox.Client
+
+[Install]
+WantedBy=default.target

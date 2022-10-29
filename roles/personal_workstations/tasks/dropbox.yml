@@ -1,38 +1,17 @@
 ---
-- name: Add the Dropbox GPG keys
-  ansible.builtin.apt_key:
-    keyserver: pgp.mit.edu
-    id: 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
-  become: true
+- name: Install the gedit package from flathub for current user
+  community.general.flatpak:
+    name: com.dropbox.Client
+    method: user
+  notify:
+    - Restart Dropbox
 
-- name: Add the Dropbox repository
-  ansible.builtin.apt_repository:
-    repo: deb https://linux.dropbox.com/ubuntu bionic main
-    state: present
-  become: true
-
-- name: Install Dropbox
-  apt:
-    pkg:
-      - dropbox
-      - python3-gpg
-    state: present
-  become: true
-
-- name: Check dropboxd status
-  command: dropbox status
-  register: status
-
-- name: Start dropbox
-  command: dropbox start
-  when: status.stdout == "Dropbox isn't running!"
-  register: start
-
-- name: Install dropboxd
-  shell: dropbox start -i
-  when: start.stdout.find("The Dropbox daemon is not installed!") != -1
-  register: install
-
-- name: Start dropbox
-  command: dropbox start
-  when: install.changed
+- name: Copy systemd service file to server
+  ansible.builtin.copy:
+    src: dropbox.service
+    dest: ~/.config/systemd/user/
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: 0664
+  notify:
+    - Restart Dropbox

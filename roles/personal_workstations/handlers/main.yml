@@ -1,0 +1,7 @@
+---
+- name: Restart Dropbox
+  systemd:
+    name: dropbox
+    enabled: true
+    state: restarted
+    scope: user
