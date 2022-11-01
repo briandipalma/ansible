@@ -17,6 +17,8 @@
   tags: node
 - import_tasks: packages.yml
   tags: packages
+- import_tasks: audacious.yml
+  tags: audacious
 - import_tasks: remmina.yml
   tags: remmina
 - import_tasks: karabiner.yml

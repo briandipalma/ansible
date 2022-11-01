@@ -1,0 +1,6 @@
+---
+- name: Install Audacious (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  community.general.flatpak:
+    name: org.atheme.audacious
+    method: user
