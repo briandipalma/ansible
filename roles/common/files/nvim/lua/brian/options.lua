@@ -48,5 +48,3 @@ set.showbreak = "↳"
 set.linebreak = true
 -- Options for vimdiff/fugitive diff
 set.diffopt:append("vertical,algorithm:patience,indent-heuristic")
--- Number of lines for command-line
-set.cmdheight = 0

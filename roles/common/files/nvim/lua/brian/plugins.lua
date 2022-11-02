@@ -31,12 +31,6 @@ packer.startup(function(use)
 		"jose-elias-alvarez/nvim-lsp-ts-utils",
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	})
-	use({
-		"ray-x/lsp_signature.nvim",
-		config = function()
-			require("brian.plugins.lsp_signature")
-		end,
-	})
 	use("onsails/lspkind-nvim")
 	-- Tree-sitter
 	use({
@@ -134,12 +128,6 @@ packer.startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
 			require("brian.plugins.lualine")
-		end,
-	})
-	use({
-		"j-hui/fidget.nvim",
-		config = function()
-			require("fidget").setup()
 		end,
 	})
 	-- Visualize Neovim's undo tree
