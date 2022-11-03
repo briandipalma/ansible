@@ -85,7 +85,12 @@
     key: "/org/gnome/desktop/wm/keybindings/minimize"
     value: "['<Alt><Super>j']"
 
-- name: Show batter percentage
+- name: Show battery percentage
   community.general.system.dconf:
     key: "/org/gnome/desktop/interface/show-battery-percentage"
     value: "true"
+
+- name: Show files in list view
+  community.general.system.dconf:
+    key: "/org/gnome/nautilus/preferences/default-folder-viewer"
+    value: "list-view"
