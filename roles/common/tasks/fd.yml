@@ -1,7 +1,7 @@
 ---
 - name: Install fd (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
+  ansible.builtin.apt:
     pkg:
       - fd-find
   become: true

@@ -21,7 +21,7 @@
 
 - name: Install lint python packages (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  pip:
+  ansible.builtin.pip:
     name:
       - yamllint
       - ansible-lint
