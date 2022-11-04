@@ -93,4 +93,4 @@
 - name: Show files in list view
   community.general.system.dconf:
     key: "/org/gnome/nautilus/preferences/default-folder-viewer"
-    value: "list-view"
+    value: "'list-view'"
