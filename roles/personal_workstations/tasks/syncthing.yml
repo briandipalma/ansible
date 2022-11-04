@@ -5,6 +5,7 @@
     url: https://syncthing.net/release-key.gpg
     dest: /usr/share/keyrings/syncthing-archive-keyring.gpg
     mode: 0644
+    force: true
   become: true
 
 - name: Add Syncthing repository

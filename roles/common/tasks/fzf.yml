@@ -17,3 +17,4 @@
     url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish
     dest: "{{ home_dir }}/.config/fish/functions/fzf_key_bindings.fish"
     mode: 0664
+    force: true

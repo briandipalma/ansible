@@ -4,6 +4,7 @@
   ansible.builtin.get_url:
     url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
     dest: /usr/share/keyrings/nodesource
+    force: true
   become: true
 
 - name: Dearmor the key
