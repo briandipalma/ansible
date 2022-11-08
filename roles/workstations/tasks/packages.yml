@@ -1,9 +1,9 @@
 ---
 - name: Install chrome (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  community.general.flatpak:
-    name: com.google.Chrome
-    method: user
+  ansible.builtin.apt:
+    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  become: true
 
 - name: Install chrome (macOS)
   when: ansible_distribution in ["MacOSX"]
