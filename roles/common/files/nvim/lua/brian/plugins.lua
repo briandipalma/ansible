@@ -66,6 +66,13 @@ packer.startup(function(use)
 		end,
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({
+		"princejoogie/dir-telescope.nvim",
+		requires = { "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("dir-telescope").setup()
+		end,
+	})
 	-- Autocompletion plugin and sources
 	use({
 		"hrsh7th/nvim-cmp",
@@ -137,8 +144,20 @@ packer.startup(function(use)
 			require("brian.plugins.undotree")
 		end,
 	})
+	-- Faster searching/movement
+	use({
+		"ggandor/leap.nvim",
+		config = function()
+			require("brian.plugins.leap")
+		end,
+	})
 	-- Faster left-right movement, highlight unique characters in line
-	use("unblevable/quick-scope")
+	use({
+		"unblevable/quick-scope",
+		config = function()
+			require("brian.plugins.quick-scope")
+		end,
+	})
 	-- Display indention levels for space indented code
 	use({
 		"lukas-reineke/indent-blankline.nvim",

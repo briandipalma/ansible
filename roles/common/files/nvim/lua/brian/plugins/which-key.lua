@@ -8,8 +8,10 @@ wk.register({
 	["<leader>f"] = {
 		name = "find",
 		f = { "<cmd>Telescope find_files<cr>", "List files in cwd, respects .gitignore" },
+		F = { "<cmd>FileInDirectory<cr>", "List files in specified directory" },
 		g = { "<cmd>Telescope grep_string<cr>", "Searches for string under cursor" },
 		l = { "<cmd>Telescope live_grep<cr>", "Searches for string and get live results" },
+		L = { "<cmd>GrepInDirectory<cr>", "Searches in selected directory for string" },
 		b = { "<cmd>Telescope buffers<cr>", "List open buffers" },
 		h = { "<cmd>Telescope help_tags<cr>", "List available help tags" },
 		o = { "<cmd>Telescope oldfiles<cr>", "List previously open files" },

@@ -1,6 +1,20 @@
 local null_ls = require("null-ls")
 local formatOnWrite = require("brian.lsp.format-on-write")
 
+local languagesWithFormatter = {
+	"lua",
+	"fish",
+	"markdown",
+	"yaml",
+	"yaml.ansible",
+	"typescript",
+	"rust",
+	"terraform",
+	"javascript",
+	"html",
+	"css",
+}
+
 local sources = {
 	null_ls.builtins.code_actions.proselint,
 	null_ls.builtins.diagnostics.fish,
@@ -14,10 +28,10 @@ local sources = {
 	null_ls.builtins.formatting.prettierd,
 	null_ls.builtins.formatting.stylua,
 	null_ls.builtins.formatting.trim_newlines.with({
-		disabled_filetypes = { "rust", "terraform" },
+		disabled_filetypes = languagesWithFormatter,
 	}),
 	null_ls.builtins.formatting.trim_whitespace.with({
-		disabled_filetypes = { "rust", "terraform" },
+		disabled_filetypes = languagesWithFormatter,
 	}),
 	null_ls.builtins.hover.dictionary,
 }
