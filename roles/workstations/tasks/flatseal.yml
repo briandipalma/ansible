@@ -1,0 +1,5 @@
+---
+- name: Install the Flatseal package from flathub
+  community.general.flatpak:
+    name: com.github.tchx84.Flatseal
+    method: user

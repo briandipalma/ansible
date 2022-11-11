@@ -1,0 +1,5 @@
+---
+- name: Install the Steam package from flathub
+  community.general.flatpak:
+    name: com.valvesoftware.Steam
+    method: user

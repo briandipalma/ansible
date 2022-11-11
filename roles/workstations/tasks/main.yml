@@ -21,6 +21,12 @@
   tags: audacious
 - import_tasks: remmina.yml
   tags: remmina
+- import_tasks: flatseal.yml
+  tags: flatseal
+- import_tasks: steam.yml
+  tags: steam
+- import_tasks: hgl.yml
+  tags: hgl
 - import_tasks: karabiner.yml
   tags: karabiner
 - import_tasks: gnome.yml

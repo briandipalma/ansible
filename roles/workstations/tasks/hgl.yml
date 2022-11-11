@@ -1,0 +1,5 @@
+---
+- name: Install the HGL package from flathub
+  community.general.flatpak:
+    name: com.heroicgameslauncher.hgl
+    method: user
