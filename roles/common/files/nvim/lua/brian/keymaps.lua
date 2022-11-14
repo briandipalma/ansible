@@ -39,3 +39,8 @@ keymap("n", "<C-o>", "<C-o>zz")
 keymap("n", "<C-i>", "<C-i>zz")
 keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
+
+-- Visual mode mappings --
+
+-- Don't replace register value when pasting over text
+keymap("v", "p", '"_dP')
