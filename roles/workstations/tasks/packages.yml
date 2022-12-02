@@ -19,6 +19,13 @@
       - firefox
     state: latest
 
+- name: Install virt-manager for virt-viewer (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  ansible.builtin.apt:
+    pkg:
+      - virt-manager
+  become: true
+
 - name: Install lint python packages (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   ansible.builtin.pip:
