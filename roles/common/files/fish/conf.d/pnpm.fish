@@ -1,3 +1,3 @@
 alias p=pnpm
-alias ps="pnpm run start"
+alias pst="pnpm run start"
 alias pt="pnpm run test"
