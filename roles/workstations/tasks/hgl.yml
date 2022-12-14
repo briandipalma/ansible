@@ -1,5 +1,6 @@
 ---
 - name: Install the HGL package from flathub
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   community.general.flatpak:
     name: com.heroicgameslauncher.hgl
     method: user

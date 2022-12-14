@@ -1,5 +1,6 @@
 ---
-- name: Install the gedit package from flathub for current user
+- name: Install the Dropbox package from flathub for current user
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   community.general.flatpak:
     name: com.dropbox.Client
     method: user
