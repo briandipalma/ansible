@@ -6,6 +6,5 @@ brian-pop-os-pc-specialist ansible_connection=local
 briands-macbookpro-macos.local ansible_connection=local
 
 [personal_workstations]
-xps-13-pop-os.test ansible_connection=local
 brians-xps13-popos ansible_connection=local
 pop-os-vm.test ansible_connection=local
