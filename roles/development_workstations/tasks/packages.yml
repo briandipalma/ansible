@@ -66,3 +66,16 @@
   community.general.homebrew:
     name: openjdk@8
     state: latest
+
+- name: Return brew prefix to registered var
+  when: ansible_distribution in ["MacOSX"]
+  ansible.builtin.command: brew --prefix
+  register: brew_prefix
+
+- name: Link OpenJDK 8 (macOS based)
+  when: ansible_distribution in ["MacOSX"]
+  ansible.builtin.file:
+    src: "{{ brew_prefix.stdout }}/opt/openjdk@8/libexec/openjdk.jdk"
+    dest: /Library/Java/JavaVirtualMachines/openjdk-8.jdk
+    state: link
+  become: true
