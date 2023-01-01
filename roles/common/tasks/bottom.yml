@@ -1,8 +1,8 @@
 ---
 - name: Install bottom (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
-    deb: https://github.com/ClementTsang/bottom/releases/download/0.6.8/bottom_0.6.8_amd64.deb
+  ansible.builtin.apt:
+    deb: https://github.com/ClementTsang/bottom/releases/download/0.7.0/bottom_x86_64-unknown-linux-gnu.deb
   become: true
 
 - name: Install bottom (MacOSX)
@@ -12,6 +12,7 @@
     state: latest
 
 - name: Copy bottom config
-  copy:
+  ansible.builtin.copy:
     src: bottom
     dest: "{{ home_dir }}/.config"
+    mode: 0775
