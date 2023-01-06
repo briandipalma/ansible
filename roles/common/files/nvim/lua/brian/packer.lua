@@ -58,10 +58,7 @@ packer.startup(function(use)
 		end,
 	})
 	-- Fuzzy finder over lists
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = "nvim-lua/plenary.nvim",
-	})
+	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({
 		"princejoogie/dir-telescope.nvim",
@@ -163,13 +160,7 @@ packer.startup(function(use)
 		end,
 	})
 	-- Theme
-	use({
-		"rose-pine/neovim",
-		as = "rose-pine",
-		config = function()
-			require("brian.plugins.rose-pine")
-		end,
-	})
+	use({ "rose-pine/neovim", as = "rose-pine" })
 	-- Terminal
 	use({
 		"akinsho/toggleterm.nvim",
