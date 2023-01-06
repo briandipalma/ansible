@@ -33,13 +33,7 @@ packer.startup(function(use)
 	})
 	use("onsails/lspkind-nvim")
 	-- Tree-sitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-		config = function()
-			require("brian.plugins.treesitter")
-		end,
-	})
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use({ "nvim-treesitter/nvim-treesitter-refactor", requires = "nvim-treesitter/nvim-treesitter" })
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", requires = "nvim-treesitter/nvim-treesitter" })
 	-- Comment toggling
