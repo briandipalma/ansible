@@ -2,7 +2,7 @@
 - name: Install neovim (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   ansible.builtin.apt:
-    deb: https://github.com/neovim/neovim/releases/download/v0.8.1/nvim-linux64.deb
+    deb: https://github.com/neovim/neovim/releases/download/v0.8.2/nvim-linux64.deb
   become: true
 
 - name: Install neovim packages (MacOSX)
