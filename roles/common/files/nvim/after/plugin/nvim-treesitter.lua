@@ -12,6 +12,7 @@ require("nvim-treesitter.configs").setup({
 		"jsdoc",
 		"json",
 		"kotlin",
+		"lua",
 		"markdown",
 		"markdown_inline",
 		"regex",

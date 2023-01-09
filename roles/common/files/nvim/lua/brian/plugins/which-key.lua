@@ -4,6 +4,9 @@ wk.setup({ plugins = { spelling = { enabled = true } } })
 
 wk.register({ ["<leader>s"] = { ":up<CR>", "Write updated buffer" } })
 
+wk.register({ ["<leader>d"] = { name = "diff/git" } })
+wk.register({ ["<leader>h"] = { name = "git hunks" } })
+
 wk.register({
 	["<leader>f"] = {
 		name = "find",
@@ -26,26 +29,6 @@ wk.register({
 	},
 })
 
-local nextGitHunk = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", "Next git hunk", expr = true }
-local prevGitHunk = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", "Previous git hunk", expr = true }
-
-wk.register({
-	["<leader>h"] = {
-		name = "git",
-		s = { "<cmd>Gitsigns stage_hunk<CR>", "Stage hunk" },
-		r = { "<cmd>Gitsigns reset_hunk<CR>", "Reset hunk" },
-		S = { "<cmd>Gitsigns stage_buffer<CR>", "Stage buffer" },
-		u = { "<cmd>Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" },
-		R = { "<cmd>Gitsigns reset_buffer<CR>", "Reset buffer" },
-		p = { "<cmd>Gitsigns preview_hunk<CR>", "Preview hunk" },
-		b = { "<cmd>lua require'gitsigns'.blame_line{full=true}<CR>", "Blame line popup" },
-		l = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Toggle line blame" },
-		e = { "<cmd>Gitsigns toggle_deleted<CR>", "Toggle deleted" },
-		j = nextGitHunk,
-		k = prevGitHunk,
-	},
-})
-
 wk.register({
 	["<leader>t"] = {
 		name = "terminal/tab",
@@ -54,17 +37,6 @@ wk.register({
 		v = { "<cmd>ToggleTerm direction=vertical<cr>", "Open vertical terminal" },
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Open float terminal" },
 		c = { "<cmd>tabclose<cr>", "Close tab" },
-	},
-})
-
-wk.register({
-	["<leader>d"] = {
-		name = "diff",
-		d = { "<cmd>DiffviewOpen<CR>", "Diff changes against index" },
-		b = { "<cmd>DiffviewFileHistory<cr>", "View current branch history" },
-		f = { "<cmd>DiffviewFileHistory %<cr>", "View current file history" },
-		i = { "<cmd>Gitsigns diffthis<CR>", "Diff this file against index" },
-		D = { "<cmd>lua require'gitsigns'.diffthis('~1')<CR>", "Diff this file against last commit" },
 	},
 })
 
@@ -90,13 +62,6 @@ wk.register({
 })
 
 wk.register({
-	["<leader>u"] = {
-		":UndotreeShow<CR>",
-		"Open undotree",
-	},
-})
-
-wk.register({
 	["<leader>c"] = {
 		name = "config",
 		l = { "<cmd>set list!<CR>", "Toggle whitespace characters" },
@@ -110,8 +75,6 @@ wk.register({
 })
 
 wk.register({
-	["[c"] = prevGitHunk,
-	["]c"] = nextGitHunk,
 	["[q"] = { "<cmd>cprev<CR>", "Previous quickfix entry" },
 	["]q"] = { "<cmd>cnext<CR>", "Next quickfix entry" },
 	["[l"] = { "<cmd>lprev<CR>", "Previous location list entry" },

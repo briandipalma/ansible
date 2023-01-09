@@ -96,20 +96,8 @@ packer.startup(function(use)
 		end,
 	})
 	-- git plugins, gutter git decorations
-	use({
-		"lewis6991/gitsigns.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("brian.plugins.gitsigns")
-		end,
-	})
-	use({
-		"sindrets/diffview.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("brian.plugins.diffview")
-		end,
-	})
+	use({ "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	-- Show key combinations after pressing a key
 	use({
 		"folke/which-key.nvim",
@@ -126,12 +114,7 @@ packer.startup(function(use)
 		end,
 	})
 	-- Visualize Neovim's undo tree
-	use({
-		"mbbill/undotree",
-		config = function()
-			require("brian.plugins.undotree")
-		end,
-	})
+	use({ "mbbill/undotree" })
 	-- Faster searching/movement
 	use({
 		"ggandor/leap.nvim",
