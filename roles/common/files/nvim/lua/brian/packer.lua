@@ -37,20 +37,9 @@ packer.startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter-refactor", requires = "nvim-treesitter/nvim-treesitter" })
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", requires = "nvim-treesitter/nvim-treesitter" })
 	-- Comment toggling
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("brian.plugins.comment")
-		end,
-	})
+	use({ "numToStr/Comment.nvim" })
 	-- File explorer
-	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("brian.plugins.tree")
-		end,
-	})
+	use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
 	-- Fuzzy finder over lists
 	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
@@ -89,12 +78,7 @@ packer.startup(function(use)
 		end,
 	})
 	-- Modify surrounding delimiters
-	use({
-		"kylechui/nvim-surround",
-		config = function()
-			require("brian.plugins.surround")
-		end,
-	})
+	use({ "kylechui/nvim-surround" })
 	-- git plugins, gutter git decorations
 	use({ "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
@@ -106,45 +90,15 @@ packer.startup(function(use)
 		end,
 	})
 	-- Statusline plugin
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		config = function()
-			require("brian.plugins.lualine")
-		end,
-	})
+	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
 	-- Visualize Neovim's undo tree
 	use({ "mbbill/undotree" })
 	-- Faster searching/movement
-	use({
-		"ggandor/leap.nvim",
-		config = function()
-			require("brian.plugins.leap")
-		end,
-	})
-	-- Faster left-right movement, highlight unique characters in line
-	use({
-		"unblevable/quick-scope",
-		config = function()
-			require("brian.plugins.quick-scope")
-		end,
-	})
-	-- Display indention levels for space indented code
-	use({
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("brian.plugins.indent-blankline")
-		end,
-	})
+	use({ "ggandor/leap.nvim" })
 	-- Theme
 	use({ "rose-pine/neovim", as = "rose-pine" })
 	-- Terminal
-	use({
-		"akinsho/toggleterm.nvim",
-		config = function()
-			require("brian.plugins.toggleterm")
-		end,
-	})
+	use({ "akinsho/toggleterm.nvim" })
 	-- Nicer messages
 	use({
 		"folke/noice.nvim",
