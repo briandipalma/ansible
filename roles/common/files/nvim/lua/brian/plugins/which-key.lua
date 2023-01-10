@@ -3,29 +3,15 @@ local wk = require("which-key")
 wk.setup({ plugins = { spelling = { enabled = true } } })
 
 wk.register({ ["<leader>s"] = { ":up<CR>", "Write updated buffer" } })
-
 wk.register({ ["<leader>d"] = { name = "diff/git" } })
 wk.register({ ["<leader>h"] = { name = "git hunks" } })
+wk.register({ ["<leader>i"] = { name = "treesitter" } })
 
 wk.register({
 	["<leader>f"] = {
 		name = "find",
-		f = { "<cmd>Telescope find_files<cr>", "List files in cwd, respects .gitignore" },
 		F = { "<cmd>FileInDirectory<cr>", "List files in specified directory" },
-		g = { "<cmd>Telescope grep_string<cr>", "Searches for string under cursor" },
-		l = { "<cmd>Telescope live_grep<cr>", "Searches for string and get live results" },
 		L = { "<cmd>GrepInDirectory<cr>", "Searches in selected directory for string" },
-		b = { "<cmd>Telescope buffers<cr>", "List open buffers" },
-		h = { "<cmd>Telescope help_tags<cr>", "List available help tags" },
-		o = { "<cmd>Telescope oldfiles<cr>", "List previously open files" },
-		c = { "<cmd>Telescope commands<cr>", "List available plugin/user commands" },
-		d = { "<cmd>Telescope lsp_document_symbols<cr>", "Lists LSP document symbols in buffer" },
-		r = { "<cmd>Telescope lsp_references<cr>", "Lists LSP references for word under cursor" },
-		s = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy find in current buffer" },
-		p = { "<cmd>Telescope resume<cr>", "Resume previous picker" },
-		B = { "<cmd>Telescope git_branches<cr>", "Lists all branches with log preview" },
-		m = { "<cmd>Telescope git_bcommits<cr>", "Lists buffer's git commits with diff" },
-		M = { "<cmd>Telescope git_commits<cr>", "Lists git commits with diff" },
 	},
 })
 
@@ -82,7 +68,4 @@ wk.register({
 })
 
 wk.register({ ["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Open file manager" } })
-
 wk.register({ ["<leader>n"] = { "<cmd>NvimTreeFindFile<CR>", "Open file manager to current buffer" } })
-
-wk.register({ ["<leader>i"] = { name = "treesitter" } })

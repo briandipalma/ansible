@@ -8,18 +8,13 @@ vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Pr
 vim.keymap.set("n", "<leader>hd", "<cmd>Gitsigns toggle_deleted<CR>", { desc = "Toggle showing deleted lines" })
 
 vim.keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Git hunk" })
+vim.keymap.set({ "o", "x" }, "ah", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Git hunk" })
 
 vim.keymap.set("n", "<leader>ds", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage buffer" })
-vim.keymap.set("n", "<leader>dl", "<cmd>Gitsigns reset_buffer<CR>", { desc = "Reset buffer" })
+vim.keymap.set("n", "<leader>dr", "<cmd>Gitsigns reset_buffer<CR>", { desc = "Reset buffer" })
 vim.keymap.set("n", "<leader>dl", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle line blame" })
 vim.keymap.set("n", "<leader>db", "<cmd>lua require'gitsigns'.blame_line{full=true}<CR>", { desc = "Blame line popup" })
 vim.keymap.set("n", "<leader>dd", "<cmd>Gitsigns diffthis<CR>", { desc = "Diff this file against index" })
-vim.keymap.set(
-	"n",
-	"<leader>dD",
-	"<cmd>lua require'gitsigns'.diffthis('~1')<CR>",
-	{ desc = "Diff this file against last commit" }
-)
 
 vim.keymap.set("n", "[c", function()
 	return vim.o.diff == true and "[c" or "<cmd>Gitsigns prev_hunk<CR>"
