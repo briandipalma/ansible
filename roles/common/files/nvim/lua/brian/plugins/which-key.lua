@@ -6,14 +6,7 @@ wk.register({ ["<leader>s"] = { ":up<CR>", "Write updated buffer" } })
 wk.register({ ["<leader>d"] = { name = "diff/git" } })
 wk.register({ ["<leader>h"] = { name = "git hunks" } })
 wk.register({ ["<leader>i"] = { name = "treesitter" } })
-
-wk.register({
-	["<leader>f"] = {
-		name = "find",
-		F = { "<cmd>FileInDirectory<cr>", "List files in specified directory" },
-		L = { "<cmd>GrepInDirectory<cr>", "Searches in selected directory for string" },
-	},
-})
+wk.register({ ["<leader>f"] = { name = "find" } })
 
 wk.register({
 	["<leader>t"] = {

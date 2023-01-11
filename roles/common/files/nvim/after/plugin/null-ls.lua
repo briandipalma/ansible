@@ -1,19 +1,18 @@
 local null_ls = require("null-ls")
-local formatOnWrite = require("brian.lsp.format-on-write")
 
-local languagesWithFormatter = {
-	"lua",
-	"fish",
-	"markdown",
-	"yaml",
-	"yaml.ansible",
-	"typescript",
-	"rust",
-	"terraform",
-	"javascript",
-	"html",
-	"css",
-}
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local on_attach = function(client, bufnr)
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.buf.format()
+			end,
+		})
+	end
+end
 
 local sources = {
 	null_ls.builtins.code_actions.proselint,
@@ -27,13 +26,7 @@ local sources = {
 	null_ls.builtins.formatting.fish_indent,
 	null_ls.builtins.formatting.prettierd,
 	null_ls.builtins.formatting.stylua,
-	null_ls.builtins.formatting.trim_newlines.with({
-		disabled_filetypes = languagesWithFormatter,
-	}),
-	null_ls.builtins.formatting.trim_whitespace.with({
-		disabled_filetypes = languagesWithFormatter,
-	}),
 	null_ls.builtins.hover.dictionary,
 }
 
-null_ls.setup({ sources = sources, on_attach = formatOnWrite })
+null_ls.setup({ sources = sources, on_attach = on_attach })

@@ -23,9 +23,6 @@ packer.startup(function(use)
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		config = function()
-			require("brian.plugins.null-ls")
-		end,
 	})
 	use({
 		"jose-elias-alvarez/nvim-lsp-ts-utils",
@@ -34,8 +31,14 @@ packer.startup(function(use)
 	use("onsails/lspkind-nvim")
 	-- Tree-sitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use({ "nvim-treesitter/nvim-treesitter-refactor", requires = "nvim-treesitter/nvim-treesitter" })
-	use({ "nvim-treesitter/nvim-treesitter-textobjects", requires = "nvim-treesitter/nvim-treesitter" })
+	use({
+		"nvim-treesitter/nvim-treesitter-refactor",
+		requires = "nvim-treesitter/nvim-treesitter",
+	})
+	use({
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		requires = "nvim-treesitter/nvim-treesitter",
+	})
 	-- Comment toggling
 	use({ "numToStr/Comment.nvim" })
 	-- File explorer
@@ -46,9 +49,6 @@ packer.startup(function(use)
 	use({
 		"princejoogie/dir-telescope.nvim",
 		requires = { "nvim-telescope/telescope.nvim" },
-		config = function()
-			require("dir-telescope").setup()
-		end,
 	})
 	-- Autocompletion plugin and sources
 	use({
@@ -67,7 +67,7 @@ packer.startup(function(use)
 		config = function()
 			require("brian.plugins.luasnip")
 		end,
-	}) -- Snippets plugin
+	})
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source
 	use("rafamadriz/friendly-snippets") -- Collection of snippets
 	-- Auto close pairs, brackets/quotes
