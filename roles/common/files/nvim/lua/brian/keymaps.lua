@@ -9,7 +9,6 @@ vim.g.maplocalleader = "\\"
 
 -- Quicker exit from terminal insert mode
 keymap("t", "<C-\\>", "<C-\\><C-n>")
-keymap("t", "<A-k>", "<C-\\><C-n><C-w>k")
 
 -- Insert mode mappings --
 
@@ -28,17 +27,17 @@ keymap("n", "<A-h>", "<C-w>h")
 keymap("n", "<A-j>", "<C-w>j")
 keymap("n", "<A-k>", "<C-w>k")
 keymap("n", "<A-l>", "<C-w>l")
--- https://github.com/neovim/neovim/issues/16416 workaround
-keymap("n", "<C-c>", "<Esc>")
--- Center the cursor when navigating
-keymap("n", "{", "{zz")
-keymap("n", "}", "}zz")
-keymap("n", "n", "nzz")
-keymap("n", "N", "Nzz")
-keymap("n", "<C-o>", "<C-o>zz")
-keymap("n", "<C-i>", "<C-i>zz")
-keymap("n", "<C-d>", "<C-d>zz")
-keymap("n", "<C-u>", "<C-u>zz")
+keymap("n", "<leader>s", ":up<CR>", { desc = "Write updated buffer" })
+keymap("n", "<leader>tc", vim.cmd.tabclose, { desc = "Close tab" })
+keymap("n", "<leader>wq", "<cmd>copen<CR><C-w>J", { desc = "Open the quickfix window" })
+keymap("n", "<leader>wh", vim.cmd.chistory, { desc = "Open the quickfix history" })
+keymap("n", "<leader>wj", ":resize -4<CR>", { desc = "Resize down" })
+keymap("n", "<leader>wk", ":resize +4<CR>", { desc = "Resize up" })
+keymap("n", "<leader>wl", "<cmd>set list!<CR>", { desc = "Toggle whitespace characters" })
+keymap("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix entry" })
+keymap("n", "]q", vim.cmd.cnext, { desc = "Next quickfix entry" })
+keymap("n", "[l", vim.cmd.lprev, { desc = "Previous location list entry" })
+keymap("n", "]l", vim.cmd.lnext, { desc = "Next location list entry" })
 
 -- Visual mode mappings --
 

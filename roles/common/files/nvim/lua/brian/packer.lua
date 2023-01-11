@@ -71,26 +71,19 @@ packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source
 	use("rafamadriz/friendly-snippets") -- Collection of snippets
 	-- Auto close pairs, brackets/quotes
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("brian.plugins.autopairs")
-		end,
-	})
+	use({ "windwp/nvim-autopairs" })
 	-- Modify surrounding delimiters
 	use({ "kylechui/nvim-surround" })
 	-- git plugins, gutter git decorations
 	use({ "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	-- Show key combinations after pressing a key
-	use({
-		"folke/which-key.nvim",
-		config = function()
-			require("brian.plugins.which-key")
-		end,
-	})
+	use({ "folke/which-key.nvim" })
 	-- Statusline plugin
-	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 	-- Visualize Neovim's undo tree
 	use({ "mbbill/undotree" })
 	-- Faster searching/movement
@@ -102,10 +95,6 @@ packer.startup(function(use)
 	-- Nicer messages
 	use({
 		"folke/noice.nvim",
-		event = "VimEnter",
-		config = function()
-			require("noice").setup()
-		end,
 		requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
 	})
 end)
