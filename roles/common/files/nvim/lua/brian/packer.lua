@@ -6,29 +6,35 @@ packer.init({ display = { compact = true } })
 packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
-	-- Configurations for Neovim's LSP client
+	-- LSP
 	use({
-		"neovim/nvim-lspconfig",
+		"VonHeikemen/lsp-zero.nvim",
 		requires = {
-			"hrsh7th/cmp-nvim-lsp",
-			"jose-elias-alvarez/typescript.nvim",
-			"simrat39/rust-tools.nvim",
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
+
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
+			{ "hrsh7th/cmp-cmdline" },
+			{ "hrsh7th/cmp-cmdline" },
+
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" },
+			-- Snippet Collection (Optional)
+			{ "rafamadriz/friendly-snippets" },
 		},
-		config = function()
-			require("brian.plugins.lspconfig")
-		end,
 	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	})
-	use({
-		"jose-elias-alvarez/nvim-lsp-ts-utils",
-		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-	})
-	use("onsails/lspkind-nvim")
 	-- Tree-sitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use({
@@ -50,26 +56,6 @@ packer.startup(function(use)
 		"princejoogie/dir-telescope.nvim",
 		requires = { "nvim-telescope/telescope.nvim" },
 	})
-	-- Autocompletion plugin and sources
-	use({
-		"hrsh7th/nvim-cmp",
-		config = function()
-			require("brian.plugins.cmp")
-		end,
-	})
-	use("hrsh7th/cmp-buffer") -- Buffers source
-	use("hrsh7th/cmp-path") -- File system paths source
-	use("hrsh7th/cmp-cmdline") -- Neovim commands source
-	use("hrsh7th/cmp-nvim-lua") -- Neovim Lua API source
-	-- Snippets and autocompletion sources
-	use({
-		"L3MON4D3/LuaSnip",
-		config = function()
-			require("brian.plugins.luasnip")
-		end,
-	})
-	use("saadparwaiz1/cmp_luasnip") -- Snippets source
-	use("rafamadriz/friendly-snippets") -- Collection of snippets
 	-- Auto close pairs, brackets/quotes
 	use({ "windwp/nvim-autopairs" })
 	-- Modify surrounding delimiters
