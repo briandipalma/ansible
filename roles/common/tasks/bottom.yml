@@ -2,7 +2,7 @@
 - name: Install bottom (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   ansible.builtin.apt:
-    deb: https://github.com/ClementTsang/bottom/releases/download/0.7.0/bottom_x86_64-unknown-linux-gnu.deb
+    deb: https://github.com/ClementTsang/bottom/releases/download/0.7.1/bottom_x86_64-unknown-linux-gnu.deb
   become: true
 
 - name: Install bottom (MacOSX)

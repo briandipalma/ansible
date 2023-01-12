@@ -5,6 +5,7 @@
     url: https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key
     dest: /usr/share/keyrings/shells_fish
     force: true
+    mode: 0644
   become: true
 
 - name: Dearmor the key (Debian)
@@ -26,21 +27,21 @@
 
 - name: Add fish repository (Debian)
   when: ansible_distribution in ["Debian"]
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: deb [signed-by=/usr/share/keyrings/shells_fish.gpg] http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /
     state: present
   become: true
 
 - name: Add fish repository from PPA and install its signing key (Ubuntu based)
   when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: ppa:fish-shell/release-3
     state: present
   become: true
 
 - name: Install fish packages (Ubuntu based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
+  ansible.builtin.apt:
     update_cache: true
     pkg:
       - fish
@@ -54,22 +55,25 @@
     state: latest
 
 - name: Set fish as default shell
-  user:
+  ansible.builtin.user:
     name: "{{ user_name }}"
     shell: "{{ fish_location }}"
   become: true
 
 - name: Copy fish config
-  copy:
+  ansible.builtin.copy:
     src: fish
     dest: "{{ home_dir }}/.config"
+    mode: 0775
 
 - name: Install bass step 1
-  get_url:
+  ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/edc/bass/master/functions/__bass.py
     dest: "{{ home_dir }}/.config/fish/functions/"
+    mode: 0664
 
 - name: Install bass step 2
-  get_url:
+  ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/edc/bass/master/functions/bass.fish
     dest: "{{ home_dir }}/.config/fish/functions/"
+    mode: 0664
