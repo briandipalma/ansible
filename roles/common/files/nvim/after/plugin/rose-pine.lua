@@ -1,7 +1,4 @@
-require("rose-pine").setup({
-	bold_vert_split = true,
-	dim_nc_background = true,
-})
+require("rose-pine").setup()
 
 vim.cmd("set background=light")
 vim.cmd("colorscheme rose-pine")
