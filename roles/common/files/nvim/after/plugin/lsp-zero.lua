@@ -34,16 +34,24 @@ lsp.setup_nvim_cmp({
 })
 
 -- Change some of the LSP keymaps
-lsp.on_attach(function(_, bufnr)
-	local opts = { buffer = bufnr, remap = false }
-	local bind = vim.keymap.set
+local bind = vim.keymap.set
 
+lsp.on_attach(function(_, bufnr)
+	local opts = { buffer = bufnr }
+
+	bind(
+		"n",
+		"gi",
+		require("telescope.builtin").lsp_implementations,
+		{ unpack(opts), desc = "[G]o to [I]mplementation, list if more than one" }
+	)
+	bind("n", "gr", require("telescope.builtin").lsp_references, { unpack(opts), desc = "[G]o to [R]eferences" })
 	bind("n", "<leader>lr", function()
 		vim.lsp.buf.rename()
-	end, { unpack(opts), desc = "Rename all references to the symbol under the cursor" })
+	end, { unpack(opts), desc = "[L]SP [R]ename all references to symbol under the cursor" })
 	bind("n", "<leader>la", function()
 		vim.lsp.buf.code_action()
-	end, { unpack(opts), desc = "Select a code action available at the current cursor position" })
+	end, { unpack(opts), desc = "Select an [L]SP code [A]ction at current cursor position" })
 end)
 
 -- Configure lua language server for neovim

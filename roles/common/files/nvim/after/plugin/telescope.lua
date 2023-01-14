@@ -38,7 +38,6 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "List available he
 vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "List previously open files" })
 vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "List available plugin/user commands" })
 vim.keymap.set("n", "<leader>fd", builtin.lsp_document_symbols, { desc = "Lists LSP document symbols in buffer" })
-vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Lists LSP references for word under cursor" })
 vim.keymap.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find in current buffer" })
 vim.keymap.set("n", "<leader>fp", builtin.resume, { desc = "Resume previous picker" })
 vim.keymap.set("n", "<leader>fB", builtin.git_branches, { desc = "Lists all branches with log preview" })
