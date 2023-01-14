@@ -13,7 +13,7 @@
 
 - name: Download JetBrains Mono into temporary fonts directory
   ansible.builtin.unarchive:
-    src: https://download-cdn.jetbrains.com/fonts/JetBrainsMono-2.242.zip
+    src: https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip
     dest: "{{ temp_font_dir.path }}"
     remote_src: true
 
