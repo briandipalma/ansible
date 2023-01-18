@@ -28,9 +28,6 @@
 [fetch]
   prune = true
 
-[commit]
-  template = ~/.config/git/message-template
-
 [push]
   default = simple
 
