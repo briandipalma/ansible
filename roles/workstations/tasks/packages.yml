@@ -26,18 +26,11 @@
       - virt-manager
   become: true
 
-- name: Install lint python packages (Debian based)
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+- name: Install lint python packages
   ansible.builtin.pip:
     name:
       - ansible-lint
     state: latest
-
-- name: Install lint python packages (macOS)
-  when: ansible_distribution in ["MacOSX"]
-  community.general.homebrew:
-    name:
-      - ansible-lint
 
 - name: Install "prettierd" node.js package globally.
   community.general.npm:
