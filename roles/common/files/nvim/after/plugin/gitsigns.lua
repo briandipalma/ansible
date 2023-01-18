@@ -1,4 +1,10 @@
-require("gitsigns").setup()
+local ok, gitsigns = pcall(require, "gitsigns")
+
+if not ok then
+	return
+end
+
+gitsigns.setup()
 
 vim.keymap.set({ "n", "v" }, "<leader>hs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
 vim.keymap.set({ "n", "v" }, "<leader>hr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })

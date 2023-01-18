@@ -1,5 +1,10 @@
+local ok, lsp = pcall(require, "lsp-zero")
+
+if not ok then
+	return
+end
+
 local cmp = require("cmp")
-local lsp = require("lsp-zero")
 local telescope = require("telescope.builtin")
 
 lsp.preset("recommended")

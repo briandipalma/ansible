@@ -1,3 +1,7 @@
-local surround = require("nvim-surround")
+local ok, nvim_surround = pcall(require, "nvim-surround")
 
-surround.setup()
+if not ok then
+	return
+end
+
+nvim_surround.setup()

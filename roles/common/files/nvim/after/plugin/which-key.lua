@@ -1,12 +1,16 @@
-local wk = require("which-key")
+local ok, which_key = pcall(require, "which-key")
 
-wk.setup({ plugins = { spelling = { enabled = true } } })
+if not ok then
+	return
+end
 
-wk.register({ ["<leader>d"] = { name = "diff/git" } })
-wk.register({ ["<leader>h"] = { name = "git hunks" } })
-wk.register({ ["<leader>i"] = { name = "treesitter" } })
-wk.register({ ["<leader>f"] = { name = "find" } })
-wk.register({ ["<leader>t"] = { name = "terminal/tab" } })
-wk.register({ ["<leader>w"] = { name = "window" } })
-wk.register({ ["<leader>c"] = { name = "config" } })
-wk.register({ ["<leader>l"] = { name = "lsp" } })
+which_key.setup({ plugins = { spelling = { enabled = true } } })
+
+which_key.register({ ["<leader>d"] = { name = "diff/git" } })
+which_key.register({ ["<leader>h"] = { name = "git hunks" } })
+which_key.register({ ["<leader>i"] = { name = "treesitter" } })
+which_key.register({ ["<leader>f"] = { name = "find" } })
+which_key.register({ ["<leader>t"] = { name = "terminal/tab" } })
+which_key.register({ ["<leader>w"] = { name = "window" } })
+which_key.register({ ["<leader>c"] = { name = "config" } })
+which_key.register({ ["<leader>l"] = { name = "lsp" } })

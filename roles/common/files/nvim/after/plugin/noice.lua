@@ -1,4 +1,8 @@
-local noice = require("noice")
+local ok, noice = pcall(require, "noice")
+
+if not ok then
+	return
+end
 
 local noiceOptions = {
 	lsp = {
