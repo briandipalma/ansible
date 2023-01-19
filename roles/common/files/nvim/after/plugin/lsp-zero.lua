@@ -52,6 +52,8 @@ cmp.setup.cmdline(":", {
 	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 })
 
+lsp.ensure_installed({ "eslint", "tsserver" })
+
 -- To enable overrides omit bindings with alternative or overridden mappings
 lsp.set_preferences({ set_lsp_keymaps = { omit = { "gi", "gr", "F2", "F4" } } })
 
@@ -69,8 +71,15 @@ lsp.on_attach(function(_, bufnr)
 	b("<leader>la", vim.lsp.buf.code_action, "Code [a]ction at cursor position", bufnr)
 end)
 
-lsp.configure("tsserver", {
+lsp.configure("eslint", {
 	on_attach = function(_, bufnr)
+		b("<leader>le", vim.cmd.EslintFixAll, "[E]SLint fix all", bufnr)
+	end,
+	settings = { completions = { format = false } },
+})
+
+lsp.configure("tsserver", {
+	on_attach = function(client, bufnr)
 		typescriptCommands.setupCommands(bufnr)
 
 		b("<leader>lm", typescriptActions.addMissingImports, "Add [m]issing imports", bufnr)
@@ -79,6 +88,9 @@ lsp.configure("tsserver", {
 		b("<leader>lf", typescriptActions.fixAll, "[F]ix all", bufnr)
 		b("<leader>ln", vim.cmd.TypescriptRenameFile, "Re[n]ame file", bufnr)
 		b("<leader>ls", vim.cmd.TypescriptGoToSourceDefinition, "Go to [s]ource definition", bufnr)
+
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
 	end,
 })
 
