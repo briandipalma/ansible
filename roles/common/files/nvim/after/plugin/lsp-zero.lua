@@ -6,6 +6,8 @@ end
 
 local cmp = require("cmp")
 local telescope = require("telescope.builtin")
+local typescriptActions = require("typescript").actions
+local typescriptCommands = require("typescript.commands")
 
 lsp.preset("recommended")
 
@@ -54,20 +56,31 @@ cmp.setup.cmdline(":", {
 lsp.set_preferences({ set_lsp_keymaps = { omit = { "gi", "gr", "F2", "F4" } } })
 
 -- Change some of the LSP keymaps
-local bind = vim.keymap.set
+local function b(lhs, rhs, desc, bufnr)
+	local opts = { buffer = bufnr, desc = desc }
+
+	vim.keymap.set("n", lhs, rhs, opts)
+end
 
 lsp.on_attach(function(_, bufnr)
-	local opts = { buffer = bufnr }
-
-	local implementOpts = { unpack(opts), desc = "[G]o to [I]mplementations" }
-	bind("n", "gi", telescope.lsp_implementations, implementOpts)
-	local refsOpts = { unpack(opts), desc = "[G]o to [R]eferences" }
-	bind("n", "gr", telescope.lsp_references, refsOpts)
-	local renameOpts = { unpack(opts), desc = "[L]SP [R]ename symbol under the cursor" }
-	bind("n", "<leader>lr", vim.lsp.buf.rename, renameOpts)
-	local actionOpts = { unpack(opts), desc = "[L]SP code [A]ction at cursor position" }
-	bind("n", "<leader>la", vim.lsp.buf.code_action, actionOpts)
+	b("gi", telescope.lsp_implementations, "[G]o to [i]mplementations", bufnr)
+	b("gr", telescope.lsp_references, "[G]o to [r]eferences", bufnr)
+	b("<leader>lr", vim.lsp.buf.rename, "[R]ename symbol under the cursor", bufnr)
+	b("<leader>la", vim.lsp.buf.code_action, "Code [a]ction at cursor position", bufnr)
 end)
+
+lsp.configure("tsserver", {
+	on_attach = function(_, bufnr)
+		typescriptCommands.setupCommands(bufnr)
+
+		b("<leader>lm", typescriptActions.addMissingImports, "Add [m]issing imports", bufnr)
+		b("<leader>lo", typescriptActions.organizeImports, "[O]rganize imports", bufnr)
+		b("<leader>lu", typescriptActions.removeUnused, "Remove [u]nused variables", bufnr)
+		b("<leader>lf", typescriptActions.fixAll, "[F]ix all", bufnr)
+		b("<leader>ln", vim.cmd.TypescriptRenameFile, "Re[n]ame file", bufnr)
+		b("<leader>ls", vim.cmd.TypescriptGoToSourceDefinition, "Go to [s]ource definition", bufnr)
+	end,
+})
 
 -- Configure lua language server for neovim
 lsp.nvim_workspace()
