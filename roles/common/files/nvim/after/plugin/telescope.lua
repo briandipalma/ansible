@@ -48,3 +48,4 @@ vim.keymap.set("n", "<leader>fp", builtin.resume, { desc = "Resume previous pick
 vim.keymap.set("n", "<leader>fB", builtin.git_branches, { desc = "Lists all branches with log preview" })
 vim.keymap.set("n", "<leader>fm", builtin.git_bcommits, { desc = "Lists buffer's git commits with diff" })
 vim.keymap.set("n", "<leader>fM", builtin.git_commits, { desc = "Lists git commits with diff" })
+vim.keymap.set("n", "<leader>fi", builtin.diagnostics, { desc = "Lists diagnostics" })

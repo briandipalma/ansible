@@ -52,8 +52,6 @@ cmp.setup.cmdline(":", {
 	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 })
 
-lsp.ensure_installed({ "eslint", "tsserver" })
-
 -- To enable overrides omit bindings with alternative or overridden mappings
 lsp.set_preferences({ set_lsp_keymaps = { omit = { "gi", "gr", "F2", "F4" } } })
 

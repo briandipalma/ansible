@@ -31,10 +31,3 @@
     name:
       - ansible-lint
     state: latest
-
-- name: Install "prettierd" node.js package globally.
-  community.general.npm:
-    name: "@fsouza/prettierd"
-    global: true
-    state: latest
-  become: true
