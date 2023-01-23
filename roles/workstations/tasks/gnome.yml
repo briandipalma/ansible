@@ -6,91 +6,91 @@
   become: true
 
 - name: Switch to workspace 1 shortcut
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-1"
     value: "['<Super>1']"
 
 - name: Switch to workspace 2 shortcut
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-2"
     value: "['<Super>2']"
 
 - name: Switch to workspace 3 shortcut
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-3"
     value: "['<Super>3']"
 
 - name: Switch to workspace 4 shortcut
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-4"
     value: "['<Super>4']"
 
 - name: Switch to workspace 5 shortcut
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-5"
     value: "['<Super>5']"
 
 - name: Switch to workspace 6 shortcut
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-6"
     value: "['<Super>6']"
 
 - name: Switch to workspace 7 shortcut
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-7"
     value: "['<Super>7']"
 
 - name: Switch to workspace 8 shortcut
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-8"
     value: "['<Super>8']"
 
 - name: Tile windows
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/shell/extensions/pop-shell/tile-by-default"
     value: "true"
 
 - name: No inner gap
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/shell/extensions/pop-shell/gap-inner"
     value: "uint32 0"
 
 - name: No outer gap
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/shell/extensions/pop-shell/gap-outer"
     value: "uint32 0"
 
 - name: Dynamic workspaces
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/mutter/dynamic-workspaces"
     value: "false"
 
 - name: Number of workspaces
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/desktop/wm/preferences/num-workspaces"
     value: "8"
 
 - name: Dock fixed
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/shell/extensions/dash-to-dock/dock-fixed"
     value: "false"
 
 - name: Dock intellihide
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/shell/extensions/dash-to-dock/intellihide"
     value: "true"
 
 - name: Hide window
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/minimize"
     value: "['<Alt><Super>j']"
 
 - name: Show battery percentage
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/desktop/interface/show-battery-percentage"
     value: "true"
 
 - name: Show files in list view
-  community.general.system.dconf:
+  community.general.dconf:
     key: "/org/gnome/nautilus/preferences/default-folder-viewer"
     value: "'list-view'"
