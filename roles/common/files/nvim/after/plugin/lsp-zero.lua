@@ -76,6 +76,8 @@ lsp.configure("eslint", {
 	settings = { completions = { format = false } },
 })
 
+lsp.configure("ltex", { settings = { ltex = { language = "en-GB" } } })
+
 lsp.configure("tsserver", {
 	on_attach = function(client, bufnr)
 		typescriptCommands.setupCommands(bufnr)
