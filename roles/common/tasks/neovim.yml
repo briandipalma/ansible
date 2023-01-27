@@ -21,8 +21,3 @@
     src: nvim
     dest: "{{ home_dir }}/.config"
     mode: 0775
-
-- name: Git checkout of packer
-  ansible.builtin.git:
-    repo: https://github.com/wbthomason/packer.nvim
-    dest: "{{ home_dir }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
