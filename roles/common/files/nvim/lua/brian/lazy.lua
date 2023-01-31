@@ -63,7 +63,7 @@ require("lazy").setup({
 	-- Comment toggling
 	{ "numToStr/Comment.nvim" },
 	-- File explorer
-	{ "kyazdani42/nvim-tree.lua", dependencies = "kyazdani42/nvim-web-devicons" },
+	{ "nvim-tree/nvim-tree.lua", dependencies = "nvim-tree/nvim-web-devicons" },
 	-- Auto close pairs, brackets/quotes
 	{ "windwp/nvim-autopairs" },
 	-- Modify surrounding delimiters
@@ -74,7 +74,7 @@ require("lazy").setup({
 	-- Show key combinations after pressing a key
 	{ "folke/which-key.nvim" },
 	-- Statusline plugin
-	{ "nvim-lualine/lualine.nvim", dependencies = "kyazdani42/nvim-web-devicons" },
+	{ "nvim-lualine/lualine.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
 	-- Visualize Neovim's undo tree
 	{ "mbbill/undotree" },
 	-- Faster searching/movement
