@@ -9,7 +9,7 @@ return {
 			"marksman",
 			"prettierd",
 			"stylua",
-			"yaml-language-server",
+			"terraform-ls",
 			"yamllint",
 		},
 	},
