@@ -3,7 +3,6 @@
 -- Add any additional options here
 local set = vim.opt
 
-set.colorcolumn = "80" -- Show column to help limit rightwards drift
 set.fillchars = {
 	foldopen = "",
 	foldclose = "",
