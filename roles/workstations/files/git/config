@@ -6,7 +6,7 @@
   ca = commit --amend
   cm = commit -vm
   caf = "!git commit --amend --no-edit; git push --force-with-lease"
-  o = checkout
+  co = checkout
   d = diff
   fp = fetch -p
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev --date=relative
@@ -22,6 +22,7 @@
   wa = worktree add
   wr = worktree remove
   wl = worktree list
+  wco = "!f() { git worktree add -b $1 ../$1 origin/$1; }; f"
   rn = "!f() { git branch -m $1 $2; git push origin :$1 $2; git push origin -u $2; }; f"
   pm = "!f() { git branch --merged | grep -v -E \"master|main|develop|^\\+\" | xargs git branch -d; }; f"
 
