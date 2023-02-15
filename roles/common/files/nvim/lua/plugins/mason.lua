@@ -3,6 +3,7 @@ return {
 	opts = {
 		ensure_installed = {
 			"ansible-language-server",
+			"ansible-lint",
 			"eslint_d",
 			"ltex-ls",
 			"lua-language-server",

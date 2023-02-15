@@ -25,9 +25,3 @@
     pkg:
       - virt-manager
   become: true
-
-- name: Install lint python packages
-  ansible.builtin.pip:
-    name:
-      - ansible-lint
-    state: latest
