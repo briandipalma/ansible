@@ -1,0 +1,6 @@
+---
+- name: Install the VLC package from flathub
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  community.general.flatpak:
+    name: org.videolan.VLC
+    method: user

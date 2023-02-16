@@ -23,6 +23,8 @@
   tags: steam
 - import_tasks: hgl.yml
   tags: hgl
+- import_tasks: vlc.yml
+  tags: vlc
 - import_tasks: karabiner.yml
   tags: karabiner
 - import_tasks: gnome.yml
