@@ -1,3 +1,14 @@
+local border = {
+	{ "🭽", "FloatBorder" },
+	{ "▔", "FloatBorder" },
+	{ "🭾", "FloatBorder" },
+	{ "▕", "FloatBorder" },
+	{ "🭿", "FloatBorder" },
+	{ "▁", "FloatBorder" },
+	{ "🭼", "FloatBorder" },
+	{ "▏", "FloatBorder" },
+}
+
 return {
 	"neovim/nvim-lspconfig",
 	---@class PluginLspOpts
@@ -10,6 +21,10 @@ return {
 					lineFoldingOnly = true,
 				},
 			},
+		},
+		-- options for vim.diagnostic.config()
+		diagnostics = {
+			float = { border = border },
 		},
 		---@type lspconfig.options
 		servers = {
