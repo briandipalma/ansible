@@ -23,24 +23,27 @@ return {
 			},
 		},
 		-- options for vim.diagnostic.config()
-		diagnostics = {
-			float = { border = border },
-		},
+		diagnostics = { float = { border = border } },
 		---@type lspconfig.options
 		servers = {
 			eslint = {},
+			ltex = { settings = { ltex = { dictionary = { ["en-GB"] = {} }, language = "en-GB" } } },
 		},
 		---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
 		setup = {
 			eslint = function()
 				require("lazyvim.util").on_attach(function(_, buffer)
-					vim.keymap.set(
-						"n",
-						"<leader>ce",
-						vim.cmd.EslintFixAll,
-						{ buffer = buffer, desc = "ESLint fix all" }
-					)
+					local opts = { buffer = buffer, desc = "ESLint fix all" }
+
+					vim.keymap.set("n", "<leader>ce", vim.cmd.EslintFixAll, opts)
 				end)
+			end,
+			ltex = function(_, opts)
+				local path = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
+
+				for word in io.open(path, "r"):lines() do
+					table.insert(opts.settings.ltex.dictionary["en-GB"], word)
+				end
 			end,
 		},
 	},
