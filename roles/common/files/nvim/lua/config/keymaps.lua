@@ -11,14 +11,6 @@ vim.keymap.set("n", "<leader>gG", function()
 	Util.float_term({ "lazygit" }, { size = fullScreenSize })
 end, { desc = "Lazygit (cwd)" })
 
-if Util.has("trouble.nvim") then
-	vim.keymap.set("n", "[q", function()
-		require("trouble").previous({ skip_groups = true, jump = true })
-	end, { desc = "Previous trouble item" })
-	vim.keymap.set("n", "]q", function()
-		require("trouble").next({ skip_groups = true, jump = true })
-	end, { desc = "Next trouble item" })
-else
-	vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
-	vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
-end
+vim.keymap.set("n", "<leader>fc", function()
+	vim.cmd.e(vim.fn.getreg("+"))
+end, { desc = "Open file (path taken from clipboard)" })
