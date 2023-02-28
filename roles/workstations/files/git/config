@@ -22,8 +22,18 @@
   wa = worktree add
   wr = worktree remove
   wl = worktree list
+  # Branch a worktree from a non main/master branch
+  # $1 is the new branch
+  # $2 is the source branch
+  wb = "!f() { git worktree add -b $1 ../$1 origin/$2; }; f"
+  # Checkout a branch into a worktree, for e.g. code reviews
+  # $1 is the branch to checkout
   wco = "!f() { git worktree add -b $1 ../$1 origin/$1; }; f"
+  # Rename a branch, run from main/master
+  # $1 is the old branch name
+  # $2 is the new branch name
   rn = "!f() { git branch -m $1 $2; git push origin :$1 $2; git push origin -u $2; }; f"
+  # Purge merged branches
   pm = "!f() { git branch --merged | grep -v -E \"master|main|develop|^\\+\" | xargs git branch -d; }; f"
 
 [fetch]
