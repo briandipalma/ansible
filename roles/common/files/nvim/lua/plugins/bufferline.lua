@@ -8,6 +8,7 @@ return {
 		},
 		options = {
 			indicator = { icon = "▶", style = "icon" },
+			max_name_length = 38,
 		},
 	},
 }
