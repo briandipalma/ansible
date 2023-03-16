@@ -3,8 +3,6 @@
   tags: git
 - import_tasks: lazygit.yml
   tags: lazygit
-- import_tasks: taskwarrior.yml
-  tags: taskwarrior
 - import_tasks: fonts.yml
   tags: fonts
 - import_tasks: kitty.yml

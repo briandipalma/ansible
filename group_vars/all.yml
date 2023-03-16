@@ -4,5 +4,4 @@ user_name: brian
 fish_location: /usr/bin/fish
 home_dir: /home/brian
 lazygit_config_dir: /home/brian/.config/
-taskwarrior_theme_path: /usr/share/taskwarrior/light-256.theme
 fonts_directory: /.local/share/fonts
