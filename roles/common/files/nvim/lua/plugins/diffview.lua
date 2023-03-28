@@ -30,6 +30,11 @@ return {
 		{ "<leader>dg", searchFile, desc = "Search current file history" },
 		{ "<leader>dG", searchBranch, desc = "Search current branch history" },
 		{
+			"<leader>ds",
+			"<cmd>DiffviewOpen<cr>",
+			desc = "Review git working directory/index",
+		},
+		{
 			"<leader>dr",
 			"<cmd>DiffviewOpen origin/master...HEAD<cr>",
 			desc = "Review current branch versus remote master",
