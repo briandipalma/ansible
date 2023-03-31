@@ -6,6 +6,7 @@ return {
 			variant = "dawn",
 			-- Make telescope.nvim transparent
 			highlight_groups = {
+				BufferLineTabSelected = { fg = "text" },
 				TelescopeBorder = { fg = "highlight_high", bg = "none" },
 				TelescopeNormal = { bg = "none" },
 				TelescopePromptNormal = { bg = "base" },
