@@ -27,6 +27,12 @@ return {
 	keys = {
 		{ "<leader>df", "<cmd>DiffviewFileHistory %<cr>", desc = "View current file history" },
 		{ "<leader>dh", "<cmd>DiffviewFileHistory<cr>", desc = "View current branch history" },
+		{
+			"<leader>dv",
+			"V:'<,'>DiffviewFileHistory -f<CR>",
+			mode = "v",
+			desc = "View current visual selection history",
+		},
 		{ "<leader>dg", searchFile, desc = "Search current file history" },
 		{ "<leader>dG", searchBranch, desc = "Search current branch history" },
 		{

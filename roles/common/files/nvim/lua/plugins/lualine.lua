@@ -7,7 +7,7 @@ return {
 		local filename = table.remove(opts.sections.lualine_c, 1)
 
 		opts.options.disabled_filetypes.winbar =
-			{ "dashboard", "alpha", "DiffviewFiles", "noice", "Trouble", "DiffviewFileHistory" }
+			{ "neo-tree", "dashboard", "alpha", "DiffviewFiles", "noice", "Trouble", "DiffviewFileHistory" }
 		opts.winbar = { lualine_a = { "mode" }, lualine_b = { diagnostics }, lualine_z = { filename } }
 
 		opts.sections.lualine_a = {} -- Disable mode
