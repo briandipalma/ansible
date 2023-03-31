@@ -2,4 +2,4 @@
 - hosts: proxmox
   roles:
     - common
-    - proxmox
+    - { role: proxmox, tags: proxmox }
