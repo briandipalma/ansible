@@ -1,4 +1,4 @@
-local width = math.max(35, vim.o.columns - 215)
+local width = math.max(50, vim.o.columns - 215)
 
 local function searchFunction(path)
 	vim.ui.input({ prompt = "Search regex" }, function(query)
