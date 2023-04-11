@@ -20,6 +20,8 @@ return {
 		table.insert(opts.ensure_installed, "ltex-ls")
 		table.insert(opts.ensure_installed, "lua-language-server")
 		table.insert(opts.ensure_installed, "marksman")
+		table.insert(opts.ensure_installed, "rust-analyzer")
+		table.insert(opts.ensure_installed, "rustfmt")
 		table.insert(opts.ensure_installed, "terraform-ls")
 		table.insert(opts.ensure_installed, "yamllint")
 	end,
