@@ -5,6 +5,7 @@
     url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
     dest: /usr/share/keyrings/nodesource
     force: true
+    mode: 0644
   become: true
 
 - name: Dearmor the key
@@ -26,14 +27,14 @@
 
 - name: Add node source repository
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt_repository:
-    repo: deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x focal main
+  ansible.builtin.apt_repository:
+    repo: deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x focal main
     state: present
   become: true
 
 - name: Install nodejs (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
+  ansible.builtin.apt:
     pkg:
       - nodejs
     state: latest
@@ -42,7 +43,7 @@
 - name: Install nodejs (MacOSX based)
   when: ansible_distribution in ["MacOSX"]
   community.general.homebrew:
-    name: node@16
+    name: node@18
     state: latest
 
 - name: Link nodejs
@@ -52,4 +53,4 @@
       - brew
       - link
       - --overwrite
-      - node@16
+      - node@18
