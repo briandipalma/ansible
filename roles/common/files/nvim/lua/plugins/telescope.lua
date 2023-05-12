@@ -1,5 +1,13 @@
 return {
 	"nvim-telescope/telescope.nvim",
+	dependencies = {
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+		config = function()
+			-- Add smart case and FZF syntax support to pickers
+			require("telescope").load_extension("fzf")
+		end,
+	},
 	opts = {
 		defaults = {
 			layout_config = { height = 400, width = 400, vertical = { preview_height = 0.65 } },
