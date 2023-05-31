@@ -1,10 +1,4 @@
 ---
-- name: Install yarn node.js package globally.
-  community.general.npm:
-    name: yarn
-    global: true
-  become: true
-
 - name: Install pnpm node.js package globally.
   community.general.npm:
     name: pnpm
@@ -19,7 +13,7 @@
 
 - name: Install direnv (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
+  ansible.builtin.apt:
     pkg:
       - direnv
     state: latest
@@ -27,7 +21,7 @@
 
 - name: Install podman (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
+  ansible.builtin.apt:
     pkg:
       - podman
     state: latest
@@ -41,7 +35,7 @@
 
 - name: Install OpenJDK 8 (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
+  ansible.builtin.apt:
     pkg:
       - openjdk-8-jdk
     state: latest
@@ -49,9 +43,17 @@
 
 - name: Install OpenJDK 11 (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  apt:
+  ansible.builtin.apt:
     pkg:
       - openjdk-11-jdk
+    state: latest
+  become: true
+
+- name: Install OpenJDK 17 (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  ansible.builtin.apt:
+    pkg:
+      - openjdk-17-jdk
     state: latest
   become: true
 
@@ -61,15 +63,27 @@
     name: openjdk@8
     state: latest
 
+- name: Install OpenJDK 11 (macOS based)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: openjdk@11
+    state: latest
+
+- name: Install OpenJDK 17 (macOS based)
+  when: ansible_distribution in ["MacOSX"]
+  community.general.homebrew:
+    name: openjdk@17
+    state: latest
+
 - name: Return brew prefix to registered var
   when: ansible_distribution in ["MacOSX"]
   ansible.builtin.command: brew --prefix
-  register: brew_prefix
+  register: development_workstations_brew_prefix
 
 - name: Link OpenJDK 8 (macOS based)
   when: ansible_distribution in ["MacOSX"]
   ansible.builtin.file:
-    src: "{{ brew_prefix.stdout }}/opt/openjdk@8/libexec/openjdk.jdk"
+    src: "{{ development_workstations_brew_prefix.stdout }}/opt/openjdk@8/libexec/openjdk.jdk"
     dest: /Library/Java/JavaVirtualMachines/openjdk-8.jdk
     state: link
   become: true
