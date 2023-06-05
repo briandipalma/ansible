@@ -25,3 +25,9 @@
     pkg:
       - virt-manager
   become: true
+
+- name: Install the Krita package from flathub
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  community.general.flatpak:
+    name: org.kde.krita
+    method: user
