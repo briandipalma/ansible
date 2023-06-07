@@ -42,8 +42,8 @@ return {
 		},
 		{
 			"<leader>dr",
-			"<cmd>DiffviewOpen origin/master...HEAD --imply-local<cr>",
-			desc = "Review current branch versus remote master",
+			"<cmd>DiffviewOpen origin/HEAD...HEAD --imply-local<cr>",
+			desc = "Review current branch versus remote HEAD",
 		},
 	},
 	opts = {
