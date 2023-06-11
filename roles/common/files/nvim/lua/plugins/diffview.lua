@@ -36,18 +36,21 @@ return {
 		{ "<leader>dg", searchFile, desc = "Search current file history" },
 		{ "<leader>dG", searchBranch, desc = "Search current branch history" },
 		{
-			"<leader>ds",
+			"<leader>dd",
 			"<cmd>DiffviewOpen<cr>",
 			desc = "Review git working directory/index",
 		},
 		{
 			"<leader>dr",
-			"<cmd>DiffviewOpen origin/HEAD...HEAD --imply-local<cr>",
+			"<cmd>DiffviewOpen origin/HEAD...HEAD<cr>",
 			desc = "Review current branch versus remote HEAD",
 		},
 	},
 	opts = {
-		file_panel = { win_config = { width = width } },
-		default_args = { DiffviewFileHistory = { "--follow", "--no-merges" } },
+		file_panel = { win_config = { height = 28, position = "top" } },
+		default_args = {
+			DiffviewFileHistory = { "--follow", "--no-merges" },
+			DiffviewOpen = { "--imply-local" },
+		},
 	},
 }
