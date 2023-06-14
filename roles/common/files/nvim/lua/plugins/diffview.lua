@@ -47,10 +47,16 @@ return {
 		},
 	},
 	opts = {
-		file_panel = { win_config = { height = 28, position = "top" } },
+		file_panel = { listing_style = "list", win_config = { height = 28, position = "top" } },
 		default_args = {
 			DiffviewFileHistory = { "--follow", "--no-merges" },
 			DiffviewOpen = { "--imply-local" },
+		},
+		hooks = {
+			diff_buf_read = function()
+				-- Change local options in diff buffers
+				vim.opt_local.relativenumber = false
+			end,
 		},
 	},
 }
