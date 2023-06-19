@@ -1,3 +1,5 @@
+local file_panel_win_config = { height = 28, position = "top" }
+
 local function searchFunction(path)
 	vim.ui.input({ prompt = "Search regex" }, function(query)
 		path = path or ""
@@ -45,7 +47,8 @@ return {
 		},
 	},
 	opts = {
-		file_panel = { listing_style = "list", win_config = { height = 28, position = "top" } },
+		file_panel = { listing_style = "list", win_config = file_panel_win_config },
+		file_history_panel = { win_config = file_panel_win_config },
 		default_args = {
 			DiffviewFileHistory = { "--follow", "--no-merges" },
 			DiffviewOpen = { "--imply-local" },
