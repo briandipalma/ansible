@@ -20,6 +20,7 @@ return {
 		},
 	},
 	opts = {
+		view = { merge_tool = { layout = "diff3_mixed" } },
 		file_panel = { listing_style = "list", win_config = file_panel_win_config },
 		file_history_panel = { win_config = file_panel_win_config },
 		default_args = {
