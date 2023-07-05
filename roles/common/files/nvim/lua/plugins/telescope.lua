@@ -14,8 +14,16 @@ return {
 			layout_strategy = "vertical",
 			mappings = {
 				i = {
+					["<a-d>"] = function(...)
+						return require("telescope.actions").delete_buffer(...)
+					end,
 					["<a-n>"] = require("telescope.actions.layout").cycle_layout_next,
 					["<a-p>"] = require("telescope.actions.layout").cycle_layout_prev,
+				},
+				n = {
+					["<a-d>"] = function(...)
+						return require("telescope.actions").delete_buffer(...)
+					end,
 				},
 			},
 		},
