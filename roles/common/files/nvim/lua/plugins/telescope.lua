@@ -26,6 +26,7 @@ return {
 					end,
 				},
 			},
+			cache_picker = { num_pickers = 10, limit_entries = 10 },
 		},
 		pickers = {
 			lsp_references = { fname_width = 100 },

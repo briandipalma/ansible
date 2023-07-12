@@ -20,7 +20,11 @@ return {
 		},
 	},
 	opts = {
-		view = { merge_tool = { layout = "diff3_mixed" } },
+		view = {
+			default = { winbar_info = true },
+			file_history = { winbar_info = true },
+			merge_tool = { layout = "diff3_mixed" },
+		},
 		file_panel = { listing_style = "list", win_config = file_panel_win_config },
 		file_history_panel = { win_config = file_panel_win_config },
 		default_args = {
@@ -28,9 +32,15 @@ return {
 			DiffviewOpen = { "--imply-local" },
 		},
 		hooks = {
-			diff_buf_read = function()
+			diff_buf_read = function(bufnr)
 				-- Change local options in diff buffers
-				vim.opt_local.relativenumber = false
+				local winid = vim.fn.bufwinid(bufnr)
+
+				vim.api.nvim_set_option_value("relativenumber", false, { scope = "local", win = winid })
+			end,
+			view_leave = function()
+				-- Reset options
+				vim.opt.relativenumber = true
 			end,
 		},
 	},
