@@ -1,6 +1,6 @@
 ---
 gui:
-  showIcons: true
+  nerdFontsVersion: "3"
   theme:
     activeBorderColor:
       - yellow
