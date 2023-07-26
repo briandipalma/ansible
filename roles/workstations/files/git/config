@@ -19,8 +19,8 @@
   sp = stash pop
   st = stash
   sa = submodule add
-  wa = worktree add
-  wr = worktree remove
+  wa = "!f() { git worktree add ../$1; kitty @ launch --type=tab --cwd=$(realpath ../$1); }; f"
+  wr = "!f() { WT=$(fd --type d --max-depth 1 . ../ | fzf --height 15 --reverse); git worktree remove $WT; git branch -d $(basename $WT); }; f"
   wl = worktree list
   # Branch a worktree from a non main/master branch
   # $1 is the new branch
@@ -28,7 +28,7 @@
   wb = "!f() { git worktree add -b $1 ../$1 origin/$2; }; f"
   # Checkout a branch into a worktree, for e.g. code reviews
   # $1 is the branch to checkout
-  wco = "!f() { git worktree add -b $1 ../$1 origin/$1; }; f"
+  wco = "!f() { git worktree add -b $1 ../$1 origin/$1; kitty @ launch --type=tab --cwd=$(realpath ../$1); }; f"
   # Rename a branch, run from main/master
   # $1 is the old branch name
   # $2 is the new branch name
