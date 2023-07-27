@@ -8,6 +8,13 @@ return {
 			require("telescope").load_extension("fzf")
 		end,
 	},
+	keys = {
+		-- disable the git status keymap, neogit stash uses it
+		{ "<leader>gs", false },
+		-- disable the search git commits keymap, neogit commit uses it
+		{ "<leader>gc", false },
+		{ "<leader>dc", "<cmd>Telescope git_commits<CR>", desc = "Search all commits" },
+	},
 	opts = {
 		defaults = {
 			layout_config = { height = 400, width = 400, vertical = { preview_height = 0.65 } },

@@ -20,7 +20,7 @@
   st = stash
   sa = submodule add
   wa = "!f() { git worktree add ../$1; kitty @ launch --type=tab --cwd=$(realpath ../$1); }; f"
-  wr = "!f() { WT=$(fd --type d --max-depth 1 . ../ | fzf --height 15 --reverse); git worktree remove $WT; git branch -d $(basename $WT); }; f"
+  wr = "!f() { WT=$(fd --type d --max-depth 1 . ../ | fzf --height 15 --reverse); git worktree remove $WT --force; git branch -d $(basename $WT); }; f"
   wl = worktree list
   # Branch a worktree from a non main/master branch
   # $1 is the new branch
