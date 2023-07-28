@@ -4,6 +4,7 @@ return {
 	cmd = "Neogit",
 	config = true,
 	opts = {
+		ignored_settings = {},
 		popup = {
 			kind = "split_above",
 		},
