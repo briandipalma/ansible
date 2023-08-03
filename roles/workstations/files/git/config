@@ -19,22 +19,48 @@
   sp = stash pop
   st = stash
   sa = submodule add
-  wa = "!f() { git worktree add ../$1; kitty @ launch --type=tab --cwd=$(realpath ../$1); }; f"
-  wr = "!f() { WT=$(fd --type d --max-depth 1 . ../ | fzf --height 15 --reverse); git worktree remove $WT --force; git branch -d $(basename $WT); }; f"
+  # What commits have been created by the last command e.g. after a pull
+  new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  # Rename a branch, run from main/master
+  # $1 is the old branch name
+  # $2 is the new branch name
+  rn = "!f() { \
+          git branch -m $1 $2; \
+          git push origin :$1 $2; \
+          git push origin -u $2; \
+        }; f"
+  # Purge merged branches
+  pm = "!f() { \
+          git branch --merged | grep -v -E \"master|main|develop|^\\+\" | xargs git branch -d; \
+        }; f"
+  # ----------------- WORKTREES -------------------------- #
+  # Add a worktree and open a new kitty tab for that worktree
+  # $1 is the new worktree
+  wa = "!f() { \
+          git worktree add ../$1; \
+          kitty @ launch --type=tab --cwd=$(realpath ../$1); \
+        }; f"
+  # Remove a worktree and associated branch, use fzf to list the available worktrees
+  # $WT is the worktree selected when using fzf
+  wr = "!f() { \
+          WT=$(fd --type d --max-depth 1 . ../ | fzf --height 15 --reverse); \
+          git worktree remove $WT --force; \
+          git branch --delete --force $(basename $WT); \
+        }; f"
   wl = worktree list
   # Branch a worktree from a non main/master branch
   # $1 is the new branch
   # $2 is the source branch
-  wb = "!f() { git worktree add -b $1 ../$1 origin/$2; }; f"
-  # Checkout a branch into a worktree, for e.g. code reviews
+  wb = "!f() { \
+          git worktree add -b $1 ../$1 origin/$2; \
+          kitty @ launch --type=tab --cwd=$(realpath ../$1); \
+        }; f"
+  # Checkout a branch into a worktree, for e.g. code reviews, open kitty tab for worktree
   # $1 is the branch to checkout
-  wco = "!f() { git worktree add -b $1 ../$1 origin/$1; kitty @ launch --type=tab --cwd=$(realpath ../$1); }; f"
-  # Rename a branch, run from main/master
-  # $1 is the old branch name
-  # $2 is the new branch name
-  rn = "!f() { git branch -m $1 $2; git push origin :$1 $2; git push origin -u $2; }; f"
-  # Purge merged branches
-  pm = "!f() { git branch --merged | grep -v -E \"master|main|develop|^\\+\" | xargs git branch -d; }; f"
+  wco = "!f() { \
+           git worktree add -b $1 ../$1 origin/$1; \
+           kitty @ launch --type=tab --cwd=$(realpath ../$1); \
+         }; f"
 
 [fetch]
   prune = true
