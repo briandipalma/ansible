@@ -22,7 +22,7 @@ return {
 				neogit.open({})
 				neogit.open({ "commit" })
 			end,
-			desc = "Create new commit",
+			desc = "Commit changes",
 		},
 		{
 			"<leader>gs",
@@ -32,7 +32,7 @@ return {
 				neogit.open({})
 				neogit.open({ "stash" })
 			end,
-			desc = "Inspect stashes",
+			desc = "Stashes popup",
 		},
 		{
 			"<leader>gr",
