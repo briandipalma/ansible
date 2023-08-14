@@ -21,6 +21,9 @@
   sa = submodule add
   # What commits have been created by the last command e.g. after a pull
   new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  # ----------------- BRANCHES --------------------------- #
+  # List "my" branches - where I made the last commit
+  mb = "!git log --branches --no-walk --remotes=origin --author=1597820+briandipalma@users.noreply.github.com"
   # Rename a branch, run from main/master
   # $1 is the old branch name
   # $2 is the new branch name
