@@ -1,4 +1,8 @@
-local file_panel_win_config = { height = 28, position = "top" }
+local file_panel_win_config = function()
+	local height = math.max(10, vim.o.lines * 0.25)
+
+	return { height = height, position = "top" }
+end
 
 return {
 	"sindrets/diffview.nvim",
