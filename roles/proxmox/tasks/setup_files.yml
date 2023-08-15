@@ -1,5 +1,5 @@
 ---
-- name: Recursively change ownership of {{ item }} directory
+- name: Recursively change ownership of directory {{ item }}
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
@@ -7,14 +7,14 @@
     owner: "101000"
     group: "101000"
 
-- name: Ensure {{ item }} directories are 0755
-  command:
+- name: Ensure directories are 0755 for {{ item }}
+  ansible.builtin.command:
     cmd: find {{ item }} -type d -exec chmod -c 0755 {} \;
   register: dirs_chmod_result
   changed_when: dirs_chmod_result.stdout != ""
 
-- name: Ensure {{ item }} files are 0644
-  command:
-    cmd: find {{item}} -type f -exec chmod -c 0644 {} \;
+- name: Ensure files are 0644 for {{ item }}
+  ansible.builtin.command:
+    cmd: find {{ item }} -type f -exec chmod -c 0644 {} \;
   register: files_chmod_result
   changed_when: files_chmod_result.stdout != ""

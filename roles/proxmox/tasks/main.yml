@@ -34,25 +34,11 @@
   loop:
     - /mnt/storage/media/movies
     - /mnt/storage/media/music
+    - /mnt/storage/media/pictures
     - /mnt/storage/media/tv
+    - /mnt/storage/media/videos
     - /mnt/storage/downloads/usenet
     - /mnt/storage/downloads/torrents
-
-- name: Recursively change ownership of pictures directory
-  ansible.builtin.file:
-    path: /mnt/storage/media/pictures
-    state: directory
-    recurse: true
-    owner: "100000"
-    group: "100118"
-
-- name: Recursively change ownership of videos directory
-  ansible.builtin.file:
-    path: /mnt/storage/media/videos
-    state: directory
-    recurse: true
-    owner: "100000"
-    group: "100118"
 
 - name: Recursively change ownership of scratch share directory
   ansible.builtin.file:
