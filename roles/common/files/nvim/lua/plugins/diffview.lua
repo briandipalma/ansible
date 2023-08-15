@@ -43,5 +43,6 @@ return {
 				vim.opt.relativenumber = true
 			end,
 		},
+		keymaps = { file_panel = { { "n", "q", "<cmd>tabclose<cr>", { desc = "Quit Diffview" } } } },
 	},
 }
