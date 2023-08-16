@@ -1,5 +1,5 @@
 local file_panel_win_config = function()
-	local height = math.max(10, vim.o.lines * 0.25)
+	local height = math.max(10, math.floor(vim.o.lines * 0.20))
 
 	return { height = height, position = "top" }
 end
