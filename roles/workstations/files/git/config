@@ -40,7 +40,7 @@
   # Add a worktree and open a new kitty tab for that worktree
   # $1 is the new worktree
   wa = "!f() { \
-          git worktree add ../$1; \
+          git worktree add -b $1 ../$1 $2; \
           kitty @ launch --type=tab --cwd=$(realpath ../$1); \
         }; f"
   # Remove a worktree and associated branch, use fzf to list the available worktrees
