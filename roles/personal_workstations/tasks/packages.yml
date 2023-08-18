@@ -1,4 +1,10 @@
 ---
+- name: Install digiKam flatpak
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  community.general.flatpak:
+    name: org.kde.digikam
+    method: user
+
 - name: Install darktable flatpak
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   community.general.flatpak:
