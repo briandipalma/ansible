@@ -1,17 +1,3 @@
 ---
 color:
-  theme: light.yaml
-
-# == Date ==
-# This specifies the date format for the date column. The freeform format
-# accepts an strftime like string.
-# When "classic" is set, this is set to "date".
-# Possible values: date, relative, +<date_format>
-date: +%F %T
-
-# == Sorting ==
-sorting:
-  # Whether to group directories together and where.
-  # When "classic" is set, this is set to "none".
-  # Possible values: first, last, none
-  dir-grouping: first
+  theme: custom
