@@ -47,8 +47,8 @@
   # $WT is the worktree selected when using fzf
   wr = "!f() { \
           WT=$(fd --type d --max-depth 1 . ../ | fzf --height 15 --reverse); \
-          git worktree remove $WT --force; \
-          git branch --delete --force $(basename $WT); \
+          git worktree remove $WT; \
+          git branch --delete $(basename $WT); \
         }; f"
   wl = worktree list
   # Branch a worktree from a non main/master branch
