@@ -3,20 +3,8 @@
 -- Add any additional options here
 local set = vim.opt
 
-set.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	fold = " ",
-	foldsep = " ",
-	diff = "╱",
-	eob = " ",
-}
 set.list = false -- Don't display whitespace characters
 set.scrolloff = 100 -- Number of lines buffer to keep above and below cursor line when scrolling
-
-vim.o.foldcolumn = "0" -- Hide the fold level numbers and fold markers...
-vim.o.foldlevel = 99 -- Only close ludicrously nested code automatically
-vim.o.foldlevelstart = 99
 
 set.wrap = true -- Wrap text
 set.breakindentopt = "shift:2" -- Wrapped line's beginning will be shifted to emphasize line continuation
