@@ -1,13 +1,5 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	dependencies = {
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "make",
-		config = function()
-			-- Add smart case and FZF syntax support to pickers
-			require("telescope").load_extension("fzf")
-		end,
-	},
 	keys = {
 		-- disable the git status keymap, neogit stash uses it
 		{ "<leader>gs", false },
