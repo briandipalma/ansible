@@ -13,15 +13,6 @@ return {
 	"neovim/nvim-lspconfig",
 	---@class PluginLspOpts
 	opts = {
-		capabilities = {
-			textDocument = {
-				-- Add folding range to capabilities, for nvim-ufo
-				foldingRange = {
-					dynamicRegistration = false,
-					lineFoldingOnly = true,
-				},
-			},
-		},
 		-- options for vim.diagnostic.config()
 		diagnostics = { float = { border = border } },
 		---@type lspconfig.options
