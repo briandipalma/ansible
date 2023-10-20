@@ -65,6 +65,9 @@
            kitty @ launch --type=tab --cwd=$(realpath ../$1); \
          }; f"
 
+[credential]
+    helper = store --file ~/dev/my-data/.git-credentials
+
 [fetch]
   prune = true
 
