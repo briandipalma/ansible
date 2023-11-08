@@ -70,21 +70,11 @@
   register: dirs_chmod_result
   changed_when: dirs_chmod_result.stdout != ""
 
-- name: Recursively change ownership of Tdarr config directory
-  ansible.builtin.file:
-    path: /mnt/storage/appdata/tdarr/config
-    state: directory
-    recurse: true
-    owner: "101000"
-    group: "101000"
-
-- name: Recursively change ownership of Beets config directory
-  ansible.builtin.file:
-    path: /mnt/storage/appdata/beets/config
-    state: directory
-    recurse: true
-    owner: "100000"
-    group: "100000"
+- name: Ensure charlene files are 0664
+  ansible.builtin.command:
+    cmd: find /mnt/storage/shares/charlene -type f -exec chmod -c 0664 {} \;
+  register: files_chmod_result
+  changed_when: files_chmod_result.stdout != ""
 
 - name: Recursively change ownership of Duck DNS config directory
   ansible.builtin.file:
