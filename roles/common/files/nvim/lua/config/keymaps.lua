@@ -4,10 +4,10 @@ vim.keymap.set("n", "<leader>fp", function()
 	vim.cmd.e(vim.fn.getreg("+"))
 end, { desc = "Open pasted file path" })
 
--- Go to the first non-blank character of a line
-vim.keymap.set("n", "0", "^")
--- Just in case you need to go to the very beginning of a line
-vim.keymap.set("n", "^", "0")
+-- Insert mode mappings --
+
+-- Escape without taking fingers from home row
+vim.keymap.set("i", "jk", "<Esc>")
 
 -- Visual mode mappings --
 
