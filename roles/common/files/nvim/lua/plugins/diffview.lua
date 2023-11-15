@@ -1,3 +1,14 @@
+local border = {
+	{ "🭽", "FloatBorder" },
+	{ "▔", "FloatBorder" },
+	{ "🭾", "FloatBorder" },
+	{ "▕", "FloatBorder" },
+	{ "🭿", "FloatBorder" },
+	{ "▁", "FloatBorder" },
+	{ "🭼", "FloatBorder" },
+	{ "▏", "FloatBorder" },
+}
+
 local file_panel_win_config = function()
 	local height = math.max(10, math.floor(vim.o.lines * 0.20))
 
@@ -31,6 +42,7 @@ return {
 		},
 		file_panel = { listing_style = "list", win_config = file_panel_win_config },
 		file_history_panel = { win_config = file_panel_win_config },
+		commit_log_panel = { win_config = { border = border } },
 		default_args = {
 			DiffviewFileHistory = { "--follow", "--no-merges" },
 			DiffviewOpen = { "--imply-local" },
@@ -47,6 +59,9 @@ return {
 				vim.opt.relativenumber = true
 			end,
 		},
-		keymaps = { file_panel = { { "n", "q", "<cmd>tabclose<cr>", { desc = "Quit Diffview" } } } },
+		keymaps = {
+			file_panel = { { "n", "q", "<cmd>tabclose<cr>", { desc = "Quit Diffview" } } },
+			file_history_panel = { { "n", "q", "<cmd>tabclose<cr>", { desc = "Quit Diffview" } } },
+		},
 	},
 }
