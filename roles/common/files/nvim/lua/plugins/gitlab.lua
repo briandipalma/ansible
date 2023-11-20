@@ -15,6 +15,7 @@ return {
 		local config = {
 			attachment_dir = "/home/brian/Pictures/Screenshots",
 			discussion_tree = { position = "bottom" },
+			config_path = "/home/brian/dev/my-data/",
 		}
 
 		require("gitlab").setup(config)
