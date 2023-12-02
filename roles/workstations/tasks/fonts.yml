@@ -25,7 +25,7 @@
 
 - name: Install Symbols only nerd font
   ansible.builtin.unarchive:
-    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/NerdFontsSymbolsOnly.zip
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/NerdFontsSymbolsOnly.zip
     dest: "{{ home_dir }}{{ fonts_directory }}"
     remote_src: true
 
