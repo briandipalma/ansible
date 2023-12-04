@@ -1,5 +1,9 @@
 #! /bin/bash
 
-pnpm i
+branch_checkout=$3
 
-direnv allow .
+if [ $branch_checkout -gt 0 ]; then
+	pnpm i
+
+	direnv allow .
+fi
