@@ -13,9 +13,18 @@ return {
 	end,
 	config = function()
 		local config = {
-			attachment_dir = "/home/brian/Pictures/Screenshots",
-			discussion_tree = { position = "bottom" },
 			config_path = "/home/brian/dev/my-data/",
+			attachment_dir = "/home/brian/Pictures/Screenshots",
+			popup = {
+				perform_action = "<leader>ms",
+				perform_linewise_action = "<leader>ml",
+				width = "80%",
+				comment = { opacity = 0.8 },
+			},
+			discussion_tree = { position = "bottom" },
+			discussion_sign_and_diagnostic = {
+				skip_resolved_discussion = true,
+			},
 		}
 
 		require("gitlab").setup(config)
@@ -36,7 +45,7 @@ return {
 			desc = "Review Gitlab MR",
 		},
 		{
-			"<leader>ms",
+			"<leader>mS",
 			function()
 				require("gitlab").summary()
 			end,
