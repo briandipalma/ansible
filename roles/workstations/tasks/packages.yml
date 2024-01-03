@@ -1,9 +1,27 @@
 ---
+- name: Install Audacious (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  community.general.flatpak:
+    name: org.atheme.audacious
+    method: user
+
+- name: Install Flatseal (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  community.general.flatpak:
+    name: com.github.tchx84.Flatseal
+    method: user
+
+- name: Install Heroic Games Launcher (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  community.general.flatpak:
+    name: com.heroicgameslauncher.hgl
+    method: user
+
 - name: Install chrome (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  ansible.builtin.apt:
-    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  become: true
+  community.general.flatpak:
+    name: com.google.Chrome
+    method: user
 
 - name: Install chrome (macOS)
   when: ansible_distribution in ["MacOSX"]
@@ -19,15 +37,32 @@
       - firefox
     state: latest
 
-- name: Install virt-manager for virt-viewer (Debian based)
+- name: Install virt-viewer (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  ansible.builtin.apt:
-    pkg:
-      - virt-manager
-  become: true
+  community.general.flatpak:
+    name: org.virt_manager.virt-viewer
+    method: user
 
-- name: Install the Krita package from flathub
+- name: Install Remmina (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  community.general.flatpak:
+    name: org.remmina.Remmina
+    method: user
+
+- name: Install Krita (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   community.general.flatpak:
     name: org.kde.krita
+    method: user
+
+- name: Install Steam (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  community.general.flatpak:
+    name: com.valvesoftware.Steam
+    method: user
+
+- name: Install VLC (Debian based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  community.general.flatpak:
+    name: org.videolan.VLC
     method: user

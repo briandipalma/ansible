@@ -1,6 +1,0 @@
----
-- name: Install the Flatseal package from flathub
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-  community.general.flatpak:
-    name: com.github.tchx84.Flatseal
-    method: user
