@@ -2,7 +2,7 @@
 - name: Install ripgrep (Debian based)
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   ansible.builtin.apt:
-    deb: https://github.com/BurntSushi/ripgrep/releases/download/14.0.3/ripgrep_14.0.3-1_amd64.deb
+    deb: https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb
   become: true
 
 - name: Install ripgrep (MacOSX)
