@@ -16,3 +16,7 @@
 - import_tasks: gnome.yml
   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
   tags: gnome
+- import_tasks: distrobox.yml
+  tags: distrobox
+- import_tasks: buildah.yml
+  tags: buildah

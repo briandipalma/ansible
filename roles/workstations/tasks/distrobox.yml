@@ -1,0 +1,15 @@
+- name: Add distrobox repository from PPA
+  when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
+  ansible.builtin.apt_repository:
+    repo: ppa:michel-slm/distrobox
+    state: present
+  become: true
+
+- name: Install distrobox package (Ubuntu based)
+  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  ansible.builtin.apt:
+    update_cache: true
+    pkg:
+      - distrobox
+    state: latest
+  become: true

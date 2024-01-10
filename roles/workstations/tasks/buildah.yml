@@ -1,0 +1,8 @@
+- name: Install buildah package (Ubuntu based)
+  when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
+  ansible.builtin.apt:
+    update_cache: true
+    pkg:
+      - buildah
+    state: latest
+  become: true
