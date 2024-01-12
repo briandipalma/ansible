@@ -7,3 +7,5 @@ fish_style_pwd_dir_length = 3
 [memory_usage]
 disabled = false
 
+[container]
+style = 'bold red'

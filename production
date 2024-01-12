@@ -2,6 +2,7 @@
 pve.test
 
 [development_workstations]
+arch-standard-env.brian-pop-os-pc-specialist ansible_connection=local
 brian-pop-os-pc-specialist ansible_connection=local
 briands-macbookpro-macos.local ansible_connection=local
 
