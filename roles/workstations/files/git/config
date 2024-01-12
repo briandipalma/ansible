@@ -39,7 +39,7 @@
   # Remove a remote branch, use fzf to list the available branches
   # $BN is the remote branch selected when using fzf
   rd = "!f() { \
-          BN=$(git log --branches --no-walk --remotes=origin --author=1597820+briandipalma@users.noreply.github.com --format=%D | awk '{print $1}' | sed 's/,$//' | sed 's/^origin\///'| fzf --height 15 --reverse); \
+          BN=$(git log --branches --no-walk --remotes=origin --author=1597820+briandipalma@users.noreply.github.com --format=%D | awk '{print $1}' | sed 's/,$//' | sed 's/^origin\\///' | fzf --height 15 --reverse); \
           git push origin -d $BN; \
         }; f"
   # ----------------- WORKTREES -------------------------- #
